@@ -1,4 +1,13 @@
-body {
+
+@media (max-width: 800px) {
+ .main1{
+    max-width: 20%;
+    min-height: 20%;
+ }  
+  
+}
+
+.body1 {
     background-color: rgb(73, 73, 73);
     margin: 0;
     overflow: hidden;
@@ -10,8 +19,9 @@ body {
     background-size: cover;
 }
 
-main {
-    background-image: url(images/bg_82\ 2.png);
+.main1 {
+    background-image: url(images/background_flow.gif);
+
     background-color: gray; 
     background-repeat: no-repeat;
     max-width: 1280px;
@@ -23,7 +33,24 @@ main {
     margin-top: 1em;
     width: 100%;
     background-size: cover;
+    opacity: 50%;
 } 
-.background-image {
 
+.body2 {
+    background-color: #565656;
 }
+.start-page-container{
+    width: 33.622%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.start-page-pawn-bg {
+    background-image: url(images/background_flow.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    
+}
+/* .start-page-pawn-bg img{
+    width: 10px;
+} */
