@@ -1,8 +1,29 @@
 body {
     background-color: rgb(73, 73, 73);
+    margin: 0;
+    overflow: hidden;
+    background-image: url(images/image\ 19.png);  
+    object-fit: cover;
+    position: relative;
+    width: 100%;object-position: center;
+    position: relative;
+    background-size: cover;
 }
 
 main {
-    background-color: gray;
-    margin: 0;
+    background-image: url(images/bg_82\ 2.png);
+    background-color: gray; 
+    background-repeat: no-repeat;
+    max-width: 1280px;
+    border-radius: 6%;
+    display: flex;
+    margin: 0 auto;
+    height: 98vh;
+    margin-bottom: 1em;
+    margin-top: 1em;
+    width: 100%;
+    background-size: cover;
+} 
+.background-image {
+
 }
