@@ -2,48 +2,100 @@
     font-size: .85vw;
 }
 
+/* START Page*/
 
-
-/* @media (max-width: 800px) {
- .main1{
-    max-width: 100%;
-    min-height: 100%;
+.startbody{
+    background-color: rgb(73, 73, 73);
 }
-}  
-   */
 
+.speaker{
+    max-width: 100px;
+}
+
+.apologizetext{
+    font-family: 'Libre Franklin', sans-serif;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.start-page-pawn-bg{
+    display: flex;
+    justify-content: center;
+}
+
+.startpawn{
+    justify-content: center;
+}
+
+.mutebutton{
+    background-color: rgb(73, 73, 73);
+    border: none;
+}
+
+.mutebutton:hover{
+    background-color: red;
+    border: none;
+}
+
+/* START Page*/
+
+
+/* Board Style*/
 
 .body1 {
     background-color: rgb(73, 73, 73);
     margin: 0;
     overflow: hidden;
-    background-image: url(images/image\ 19.png);  
-    object-fit: cover;
-    position: relative;
-    width: 100%;object-position: center;
+    background-image: url(images/backgroundBoardOne.png);  
     position: relative;
     background-size: cover;
 }
 
+/* .background-image {
+    background-image: url(images/background_flow.gif);
+    opacity: 100%;
+} */
+
 .main1 {
     background-image: url(images/background_flow.gif);
-
+    opacity: .8;
     background-color: gray; 
     background-repeat: no-repeat;
     /* max-width: 1280px; */
     border-radius: 6%;
     display: flex;
-    margin: 0 auto;
-    height: 98vh;
-    margin-bottom: 1em;
-    margin-top: 1em;
-    width: 70%;
+    flex-wrap: wrap;
+    height: 90vh;
+    width: 60%;
     background-size: cover;
-    opacity: 50%;
+    padding: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
 } 
 
 .body2 {
-    background-color: #565656;
+    background: linear-gradient(273deg, #1990c5, #ae198a, #ff96e6, #88d2c5);
+    background-size: 800% 800%;
+
+    -webkit-animation: 0s ease infinite;
+    -moz-animation: 0s ease infinite;
+    animation: 0s ease infinite;
+}
+
+@-webkit-keyframes {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
+@-moz-keyframes {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
+}
+@keyframes {
+    0%{background-position:0% 91%}
+    50%{background-position:100% 10%}
+    100%{background-position:0% 91%}
 }
 .start-page-container{
     width: 33.622%;
@@ -57,18 +109,144 @@
     
     
 }
-.space{
+.space-column{
     background-color: white;
-    border: 1px solid black;
-    width: 3em;
-    height: 3em;
+    border: 2px solid black;
+    /* width: 100%;
+    height: 8%; */
+    width: 4.25em;
+    height: 4.25em;
+    margin: 0;
+    /* opacity: 100%; */
+}
+.space-row{
+    background-color: white;
+    border: 2px solid black;
+    /* width: 9.8%;
+    height: 8%;  */
+    width: 10%;
+    height: 4.25em;
+    margin: 0;
+    
+    
 }
 
+.spaces-row2{
+    background-color: white;
+    border: 2px solid black;
+    /* width: 9.8%;
+    height: 8%;  */
+    width: 10%;
+    height: 4.25em;
+    margin: 0;
+}
+.spaces-column{
+    height: 100%;
+    width: 6.384%;
+    margin: 0;
+}
+
+.spaces-column{
+    
+    height: 100%;
+}
+ .spaces-row{
+    display:flex;
+    flex-wrap: nowrap;
+    width: 87.232%;
+    
+ }
+ 
+ 
+/* This Is for the lobby coding below */
+
+.Lobby {
+    max-width: 100%;
+    margin: 0 auto;
+    transition: 100ms ease;
+}
+
+.lob-maps {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.one-third {
+    margin-top: 4.8em;
+    margin-bottom: 4.5em;
+    width: 30.3%;
+    background-color: whitesmoke;
+    position: relative;
+    display: flex;
+    transition: 190ms ease;
+}
+
+.one-third:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.one-third img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    margin: 0 auto;
+    display: flex;
+    width: 89%;
+  }
+
+.map-text-container h2{
+    background-color: rgba(0, 0, 0, 0.53);
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.map-text-container i{
+    background-color: rgba(0, 0, 0, 0.53);
+    width: 100%;
+    font-size: 1.5em;
+}
+
+.centered i{
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.centered h2 {
+    width: 100%;
+    padding: 1em;
+    display: flex;
+    justify-content: center;
+}
+
+.choosing {
+    display: flex;
+    max-width: 100%;
+}
+
+
+.pawns img {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    margin: 0 auto;
+}
+
+/* End to the lobby code ^^ */
+
 @media (max-width: 800px) {
-    .main1{
-       width: 100%;
-       height: fit-content;
-   }
+
    }  
      
 /* .start-page-pawn-bg img{
