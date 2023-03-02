@@ -57,9 +57,8 @@
 } */
 
 .main1 {
-    background-image: url(images/background_flow.gif);
-    opacity: .8;
-    background-color: gray; 
+    background-color: gray;
+    opacity: 1;
     background-repeat: no-repeat;
     /* max-width: 1280px; */
     border-radius: 6%;
@@ -71,6 +70,33 @@
     padding: 1.5em;
     margin-left: auto;
     margin-right: auto;
+    /* Border glow */
+    background-color: #37303d;
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    -webkit-box-shadow:0px 0px 300px 99px rgba(32,51,176,0.64);
+-moz-box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
+box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
+
+  
+
+
+        /* Border glow 
+        REd
+            -webkit-box-shadow:0px 0px 300px 99px rgba(199,18,21,0.64);
+-moz-box-shadow: 0px 0px 300px 99px rgba(199,18,21,0.64);
+box-shadow: 0px 0px 300px 99px rgba(199,18,21,0.64);
+        
+Green   
+            -webkit-box-shadow:0px 0px 300px 99px rgba(65,148,13,0.64);
+    -moz-box-shadow: 0px 0px 300px 99px rgba(65,148,13,0.64);
+    box-shadow: 0px 0px 300px 99px rgba(65,148,13,0.64);
+
+Blue
+  -webkit-box-shadow:0px 0px 300px 99px rgba(227,242,22,0.64);
+-moz-box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
+box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
+    */
+
 } 
 
 .body2 {
