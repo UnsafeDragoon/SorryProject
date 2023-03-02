@@ -13,9 +13,9 @@
 }
 
 .apologizetext{
+    font-size: 10rem;
     font-family: 'Libre Franklin', sans-serif;
     text-align: center;
-    font-size: 2rem;
 }
 
 .start-page-pawn-bg{
@@ -145,7 +145,23 @@ box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
     margin: 0;
     /* opacity: 100%; */
 }
-
+.blue{
+    background-color: blue;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
+.green-walkway{
+    border-left: none;
+    border-right: none;
+    border-color: rgb(0, 255, 0);
+}
 
 .spaces-column{
     height: 100%;
@@ -160,7 +176,7 @@ box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
 
 
  .empty{
-    visibility: hidden;
+visibility: hidden;
  }
 
  .grid-right{
@@ -170,18 +186,37 @@ box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
     margin-left: auto;
  }
  .event{
-    background-color: #B378B4;
+    background-color:gold;
+    display: flex;
+    justify-content: center;
  }
  .event p{
     width: 100%;
     text-align: center;
     font-size: 2.5em;
-    margin-top: auto;
+    margin-top: auto ;
     color: white;
     font-family: sans-serif;
+    font-weight: 600;
+    height: 100%;
+    margin: 0;
+    padding-top: .3em;
+    
     
  }
  
+.circle-top-left{
+    border-top-left-radius: 4em;
+}
+.circle-top-right{
+    border-top-right-radius: 4em;
+}
+.circle-bottom-left{
+    border-bottom-left-radius: 4em;
+}
+.circle-bottom-right{
+    border-bottom-right-radius: 4em;
+}
 
  
 /* This Is for the lobby coding below */
