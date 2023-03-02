@@ -13,9 +13,9 @@
 }
 
 .apologizetext{
+    font-size: 10rem;
     font-family: 'Libre Franklin', sans-serif;
     text-align: center;
-    font-size: 2rem;
 }
 
 .start-page-pawn-bg{
@@ -57,9 +57,8 @@
 } */
 
 .main1 {
-    background-image: url(images/background_flow.gif);
-    opacity: .8;
-    background-color: gray; 
+    background-color: gray;
+    opacity: 1;
     background-repeat: no-repeat;
     /* max-width: 1280px; */
     border-radius: 6%;
@@ -71,6 +70,33 @@
     padding: 1.5em;
     margin-left: auto;
     margin-right: auto;
+    /* Border glow */
+    background-color: #37303d;
+    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+    -webkit-box-shadow:0px 0px 300px 99px rgba(32,51,176,0.64);
+-moz-box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
+box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
+
+  
+
+
+        /* Border glow 
+        REd
+            -webkit-box-shadow:0px 0px 300px 99px rgba(199,18,21,0.64);
+-moz-box-shadow: 0px 0px 300px 99px rgba(199,18,21,0.64);
+box-shadow: 0px 0px 300px 99px rgba(199,18,21,0.64);
+        
+Green   
+            -webkit-box-shadow:0px 0px 300px 99px rgba(65,148,13,0.64);
+    -moz-box-shadow: 0px 0px 300px 99px rgba(65,148,13,0.64);
+    box-shadow: 0px 0px 300px 99px rgba(65,148,13,0.64);
+
+Blue
+  -webkit-box-shadow:0px 0px 300px 99px rgba(227,242,22,0.64);
+-moz-box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
+box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
+    */
+
 } 
 
 .body2 {
@@ -95,7 +121,7 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
 }
 .space-column{
     background-color: white;
-    border: 2px solid black;
+    border: .15em solid black;
     /* width: 100%;
     height: 8%; */
     width: 4.25em;
@@ -103,27 +129,24 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     margin: 0;
     /* opacity: 100%; */
 }
-.space-row{
-    background-color: white;
-    border: 2px solid black;
-    /* width: 9.8%;
-    height: 8%;  */
-    width: 10%;
-    height: 4.25em;
-    margin: 0;
-    
-    
+.blue{
+    background-color: blue;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
+.green-walkway{
+    border-left: none;
+    border-right: none;
+    border-color: rgb(0, 255, 0);
 }
 
-.spaces-row2{
-    background-color: white;
-    border: 2px solid black;
-    /* width: 9.8%;
-    height: 8%;  */
-    width: 10%;
-    height: 4.25em;
-    margin: 0;
-}
 .spaces-column{
     height: 100%;
     width: 6.384%;
@@ -134,13 +157,51 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     
     height: 100%;
 }
- .spaces-row{
-    display:flex;
-    flex-wrap: nowrap;
-    width: 87.232%;
+
+
+ .empty{
+visibility: hidden;
+ }
+
+ .grid-right{
+    margin-right: auto;
+ }
+ .grid-left{
+    margin-left: auto;
+ }
+ .event{
+    background-color:gold;
+    display: flex;
+    justify-content: center;
+ }
+ .event p{
+    width: 100%;
+    text-align: center;
+    font-size: 2.5em;
+    margin-top: auto ;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 600;
+    height: 100%;
+    margin: 0;
+    padding-top: .3em;
+    
     
  }
  
+.circle-top-left{
+    border-top-left-radius: 4em;
+}
+.circle-top-right{
+    border-top-right-radius: 4em;
+}
+.circle-bottom-left{
+    border-bottom-left-radius: 4em;
+}
+.circle-bottom-right{
+    border-bottom-right-radius: 4em;
+}
+
  
 /* This Is for the lobby coding below */
 
@@ -302,6 +363,8 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
 @media (max-width: 800px) {
 
    }  
+
+
      
 /* .start-page-pawn-bg img{
     width: 10px;
