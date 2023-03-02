@@ -74,28 +74,12 @@
 } 
 
 .body2 {
-    background: linear-gradient(273deg, #1990c5, #ae198a, #ff96e6, #88d2c5);
-    background-size: 800% 800%;
-
+    background-color: #737373;
+background-image: url("https://www.transparenttextures.com/patterns/cartographer.png");
     -webkit-animation: 0s ease infinite;
     -moz-animation: 0s ease infinite;
     animation: 0s ease infinite;
-}
-
-@-webkit-keyframes {
-    0%{background-position:0% 91%}
-    50%{background-position:100% 10%}
-    100%{background-position:0% 91%}
-}
-@-moz-keyframes {
-    0%{background-position:0% 91%}
-    50%{background-position:100% 10%}
-    100%{background-position:0% 91%}
-}
-@keyframes {
-    0%{background-position:0% 91%}
-    50%{background-position:100% 10%}
-    100%{background-position:0% 91%}
+    font-family: 'Lexend Zetta', sans-serif;
 }
 .start-page-container{
     width: 33.622%;
@@ -160,6 +144,12 @@
  
 /* This Is for the lobby coding below */
 
+
+.main2 {
+    max-width: 1720px;
+    justify-content: center;
+    margin: 0 auto;
+}
 .Lobby {
     max-width: 100%;
     margin: 0 auto;
@@ -184,6 +174,12 @@
 .one-third:hover {
     transform: scale(1.1);
     cursor: pointer;
+}
+
+.one-third:hover{
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 15px #ffffff;
 }
 
 .one-third img {
@@ -233,17 +229,75 @@
 .choosing {
     display: flex;
     max-width: 100%;
-}
-
-
-.pawns img {
-    display: flex;
     justify-content: space-between;
-    width: 45%;
+    width: 71%;
     margin: 0 auto;
 }
 
-/* End to the lobby code ^^ */
+.one-forth {
+    position: relative;
+    display: flex;
+    transition: 190ms ease-out;
+    margin: 0 auto;
+    max-width: 100%;
+    justify-content: space-between;
+}
+
+.one-forth:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.one-forth:hover{
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 15px #ffffff;
+}
+
+#pawn1:hover{
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 15px #fff200; 
+}
+
+#GFG_DOWN:hover {
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 15px #051395ac;
+}
+
+#pawn3:hover {
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 15px #a50b0b;
+}
+
+#GFG_UP:hover {
+    outline:none;
+    border-color:#9ecaed;
+    box-shadow:0 0 15px #286d1a;
+}
+
+
+.one-forth img {
+    width: 100%;
+}
+
+
+#player-container {
+    display: flex;
+    margin: 0 auto;
+    width: 20%;
+    padding: .5em;
+    color: black;
+    justify-content: space-around;
+    margin: 0 auto;
+    background-color: #D9D9D9;
+    margin-top: 2em;
+    font-family: 'Source Code Pro', monospace;
+  }
+
+/* End to the lobby code above */
 
 @media (max-width: 800px) {
 
