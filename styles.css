@@ -42,13 +42,16 @@
 
 /* Board Style*/
 
-.body1 {
+.bodyOne {
     background-color: rgb(73, 73, 73);
     margin: 0;
+    display: flex;
+    justify-content: space-between;
     overflow: hidden;
     background-image: url(images/backgroundBoardOne.png);  
     position: relative;
     background-size: cover;
+    height: 100vh;
 }
 
 /* .background-image {
@@ -56,7 +59,7 @@
     opacity: 100%;
 } */
 
-.main1 {
+.mainOne {
     background-color: gray;
     opacity: 1;
     background-repeat: no-repeat;
@@ -64,7 +67,7 @@
     border-radius: 6%;
     display: flex;
     flex-wrap: wrap;
-    height: 90vh;
+    height:55em;
     width: 60%;
     background-size: cover;
     padding: 1.5em;
@@ -74,8 +77,9 @@
     background-color: #37303d;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
     -webkit-box-shadow:0px 0px 300px 99px rgba(32,51,176,0.64);
--moz-box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
-box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
+    -moz-box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
+    box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
+    margin-top: 4em;
 
   
 
@@ -142,10 +146,25 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     background-color: green;
 }
 .green-walkway{
-    border-left: none;
-    border-right: none;
-    border-color: rgb(0, 255, 0);
+
+    border-color: green;
+    background-color: #b1ffa1;
 }
+.red-walkway{
+
+    border-color: red;
+    background-color: #ff9797;
+}
+.blue-walkway{
+    border-color: blue;
+    background-color: #aaaaff;
+}
+.yellow-walkway{
+    
+    border-color: rgb(167, 167, 0);
+    background-color: #fbff84;
+}
+
 
 .spaces-column{
     height: 100%;
@@ -202,7 +221,14 @@ visibility: hidden;
     border-bottom-right-radius: 4em;
 }
 
- 
+.shop-space{
+    background-color: #37303d;
+    border-color: #37303d;
+}
+ .shop-space img{
+    width:100%;
+    height: 100%;
+ }
 /* This Is for the lobby coding below */
 
 
