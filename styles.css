@@ -194,6 +194,23 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     background-color: #fbff84;
 }
 
+.cardstack{
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 7.5em;
+    height: 20em;
+    background-image: url(images/background_flow.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 1em;
+}
 
 .blueCard{
     margin-top: 2vh;
@@ -409,8 +426,9 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
 		}
 }
     
-    
- }
+
+
+
  
 .circle-top-left{
     border-top-left-radius: 4em;
