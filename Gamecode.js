@@ -1,10 +1,3 @@
-// Audio Functions
-
-// Javascript - Player Glow
-
-// function muteAudi {
-//     console.log('test')
-// }
 
 
 
@@ -16,7 +9,27 @@ class colorPiecep1qsazxx {
 }
 
 
+// function updatePlayerAmount() {
+//         console.log('suck')
+//     }
 
+const element = document.getElementById("player-container");
+
+const checkValue = element.options[element.selectedIndex].value;
+const checkText = element.options[element.selectedIndex].text;
+
+element.addEventListener("change", (e) => {
+    let value = e.target.value;
+    let text = element.options[element.selectedIndex].text;
+   
+    if (value =1) {
+      console.log(value)
+    } else if (value =2){
+
+    } else if (value =3){
+
+    } else {}
+  });
 
 
 
@@ -28,33 +41,3 @@ const unblur = document.querySelector('map-text-container');
 
 // Lobby Javascript code
 
-
-// let el_up = document.getElementById("GFG_UP");
-// let el_down = document.getElementById("GFG_DOWN");
-// let str = "Click on button to change the background color";
-
-// el_up.innerHTML = str;
-
-// function changeColor(color) {
-//     document.body.style.background = color;
-// }
-
-// function gfg_Run() {
-//     changeColor('#cccc00');
-//     el_down.innerHTML = "Background Color changed To Yellow";
-// }      
-
-// function gfg_Run2() {
-//     changeColor('#0059b3');
-//     el_down.innerHTML = "Background Color changed To Blue";
-// }        
-
-// function gfg_Run3() {
-//     changeColor('#b23434');
-//     el_down.innerHTML = "Background Color changed To Red";
-// }        
-
-// function gfg_Run4() {
-//     changeColor('#408000');
-//     el_down.innerHTML = "Background Color changed To Green";
-// }        
