@@ -13,9 +13,11 @@
     font-size: 5rem;
     margin-bottom: 0px;
     font-family: 'Libre Franklin';
+    background-image: repeating-linear-gradient(45deg, violet, indigo, blue, green, yellow, orange, red, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow 8s ease infinite;
 }
-
-
 
 .sorry-title-container{
     flex-direction: column;
@@ -34,28 +36,23 @@
 
 .pawn-gif-container:hover{
     outline:none;
-    border-color:#9ecaed;
-    box-shadow:0 0 15px #ffffff;
-    transform: scale(1.1);
+    border-color:#9ec9ed3d;
+    box-shadow:0 0 15px #ae3186c6;
+    transform: scale(1.03);
     cursor: pointer;
-
 }
-
 
 .pawn-background{
     background: repeat no-repeat;
     background-size: cover;
     background-image: url(images/background_flow.gif);
-    width: 20vw;
+    width: 21vw;
     height: 20vw;
     align-items: center;
     -webkit-box-shadow:0px 0px 91px 7px rgba(78,14,138,0.73);
     -moz-box-shadow: 0px 0px 91px 7px rgba(78,14,138,0.73);
     box-shadow: 0px 0px 91px 7px rgba(78,14,138,0.73);
-    
-
 }
-
 
 .pawn img{
     margin-top: 5%;
@@ -306,7 +303,14 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     position: absolute;
     left: 10px;
     top: 50%;
+    transition: 90ms ease-in;
+    
 }
+
+.prevpage img:hover {
+    transform: scale(1.3);
+}
+
 .spaces-column{
     height: 100%;
     width: 6.384%;
@@ -594,28 +598,66 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
 
 
   .start {
-    padding: 15px 25px;
-    font-size: 24px;
+    margin-top: 3em;
+    position: absolute;
+      animate: 0.5s;
+      transition: 0.5s;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 60px;
     text-align: center;
-    cursor: pointer;
-    outline: none;
+    line-height: 60px;
     color: #fff;
-    background-color: #D9D9D9;
-    border: none;
-    border-radius: 15px;
-    box-shadow: 0 9px #999;
-    margin-top: 2em;
+    font-size: 24px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: sans-serif;
+    box-sizing: border-box;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 30px;
+    z-index: 1;
   }
   
   .start:hover {
-    background-color: #bebebe;
-    transition: 50ms ease-in ;
-}
+    animation: animate 8s linear infinite;
+      animate: 0.5s;
+      transition: 0.5s;
+  }
   
-  .start:active {
-    background-color: #757575;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+  @keyframes animate {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 400%;
+    }
+  }
+  
+  .start:before {
+      animate: 0.5s;
+      transition: 0.5s;
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    z-index: -1;
+    background: linear-gradient(90deg, #03a9f4, #f441a5, #ffeb3b, #03a9f4);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: 0.5s;
+    
+  }
+  
+  .start:hover:before {
+    filter: blur(20px);
+    opacity: 1;
+    animation: animate 8s linear infinite;
+      animate: 0.5s;
+      transition: 0.5s;
   }
 
 
@@ -624,9 +666,11 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
 @media (max-width: 800px) {
 
    }  
+   @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@1,200&display=swap');
 
 
      
 /* .start-page-pawn-bg img{
     width: 10px;
 } */
+
