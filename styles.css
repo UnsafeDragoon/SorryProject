@@ -43,6 +43,7 @@
 /* Board Style*/
 
 .bodyOne {
+    align-items: center;
     background-color: rgb(73, 73, 73);
     margin: 0;
     display: flex;
@@ -73,6 +74,10 @@
     padding: 1.5em;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10vh;
+    margin-top: 0px;
+    padding: 0px;
+    border: 0px;
     /* Border glow */
     background-color: #37303d;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
@@ -163,6 +168,108 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     
     border-color: rgb(167, 167, 0);
     background-color: #fbff84;
+}
+
+
+.blueCard{
+    margin-top: 2vh;
+    margin-right: .5vh;
+    height: 7.5%;
+    width: 20vw;
+    background-color: #508BFF;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1vh;
+}
+
+.bluepawn{
+    background-color: white;
+}
+
+.bluePawn img{
+    border-radius: 50%;
+    background-color: white;
+    justify-self: center;
+    max-height: 7.5vh;
+}
+
+.redCard{
+    margin-top: 2vh;
+    margin-right: .5vh;
+    height: 7.5%;
+    width: 20vw;
+    background-color: #CA2E2E;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1vh;
+}
+
+.redpawn{
+    background-color: white;
+}
+
+.redPawn img{
+    border-radius: 50%;
+    background-color: white;
+    justify-self: center;
+    max-height: 7.5vh;
+}
+
+
+.greenCard{
+    margin-top: 2vh;
+    margin-right: .5vh;
+    height: 7.5%;
+    width: 20vw;
+    background-color: #B8FF71;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1vh;
+}
+
+.greenpawn{
+    background-color: white;
+}
+
+.greenPawn img{
+    border-radius: 50%;
+    background-color: white;
+    justify-self: center;
+    max-height: 7.5vh;
+}
+
+.yellowCard{
+    margin-top: 2vh;
+    margin-right: .5vh;
+    height: 7.5%;
+    width: 20vw;
+    background-color: #C1B651;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 1vh;
+}
+
+.yellowpawn{
+    background-color: white;
+}
+
+.yellowPawn img{
+    border-radius: 50%;
+    background-color: white;
+    justify-self: center;
+    max-height: 7.5vh;
 }
 
 
