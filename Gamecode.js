@@ -1,3 +1,10 @@
+// Audio Functions
+
+// Javascript - Player Glow
+
+// function muteAudi {
+//     console.log('test')
+// }
 
 
 
@@ -9,35 +16,8 @@ class colorPiecep1qsazxx {
 }
 
 
-// function updatePlayerAmount() {
-//         console.log('suck')
-//     }
-
-const element = document.getElementById("player-container");
-
-const checkValue = element.options[element.selectedIndex].value;
-const checkText = element.options[element.selectedIndex].text;
-
-element.addEventListener("change", (e) => {
-    let value = e.target.value;
-    let text = element.options[element.selectedIndex].text;
-   
-    if (value =1) {
-      console.log(value)
-    } else if (value =2){
-
-    } else if (value =3){
-
-    } else {}
-  });
 
 
 
 
-// Lobby coding for one-third class (also known as the map Selection)
-const blur = document.querySelector('one-third');
-const unblur = document.querySelector('map-text-container');
-
-
-// Lobby Javascript code
 
