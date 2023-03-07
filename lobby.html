@@ -26,22 +26,22 @@
     <main class="main2">
         <section class="Lobby">
             <section class="lob-maps">
-                <section class="one-third">
-                    <img src="images/backgroundBoardOne.png" alt="">
+                <section id="mapOne" onclick="mapSelect(event) " class="one-third">
+                    <img  src="images/backgroundBoardOne.png" alt="board background image">
                     <div class="map-text-container">
                         <div class="centered">
                             <h2>Mappy Map Map</h2>
                         </div>
                     </div>
                 </section>
-                <section class="one-third">
+                <section onclick="mapSelect = 2; " class="one-third">
                     <img src="images/backgroundBoardOne.png" alt="">
                     <div class="map-text-container">
                         <div class="centered">
                             <i class="fa-solid fa-question"></i>
                         </div>
                 </section>
-                <section class="one-third">
+                <section onclick="mapSelect = 3; " class="one-third">
                     <img src="images/backgroundBoardOne.png" alt="">
                     <div class="map-text-container">
                         <div class="centered">
@@ -78,7 +78,7 @@
         <section class="player-amount">
             <select name="amount" id="player-container">
                 <option hidden>Player Amount: </option>
-                <option  onclick='updatePlayerAmount()' value="1">1 Player</option>
+                <option   value="1">1 Player</option>
                 <option  value="2">2 Players</option>
                 <option  value="3">3 Players</option>
                 <option  value="4">4 Players</option> 
@@ -87,7 +87,7 @@
 
         <section class="play">
             <div class="btn-cont">
-                <a href="index.html"><button class="start">START</button></a>
+                <a href="index.html"><button onclick='confirmMatch()' disabled class="start">START</button></a>
             </div>
         </section>
 
