@@ -53,23 +53,23 @@
         </section>
         <section class="choosing">
             <div class="one-forth">
-                <img onclick="gfg_Run()" id="pawn1" src="images/Group 1.png" alt="">
+                <img  id="pawn1" src="images/Group 1.png" alt="">
                 <div class="player">
                 </div>
             </div>
             <div class="one-forth">
-                <img onclick="gfg_Run2()" id="GFG_DOWN" src="images/Group 2.png" alt="">
+                <img  id="GFG_DOWN" src="images/Group 2.png" alt="">
                 <div class="player">
 
                 </div>
             </div>
             <div class="one-forth">
-                <img onclick="gfg_Run3()" id="pawn3" src="images/Group 3.png" alt="">
+                <img  id="pawn3" src="images/Group 3.png" alt="">
                 <div class="player">
                 </div>
             </div>
             <div class="one-forth">
-                <img onclick="gfg_Run4()" id="GFG_UP" src="images/Group 4.png" alt="">
+                <img  id="GFG_UP" src="images/Group 4.png" alt="">
                 <div class="player">
                 </div>
             </div>
@@ -77,11 +77,11 @@
 
         <section class="player-amount">
             <select name="amount" id="player-container">
-                <option>Player Amount: </option>
-                <option id="Play1" value="">1 Player</option>
-                <option id="Play2" value="">2 Players</option>
-                <option id="Play3" value="">3 Players</option>
-                <option id="Play4" value="">4 Players</option> 
+                <option hidden>Player Amount: </option>
+                <option  onclick='updatePlayerAmount()' value="1">1 Player</option>
+                <option  value="2">2 Players</option>
+                <option  value="3">3 Players</option>
+                <option  value="4">4 Players</option> 
             </select>
         </section>
 
