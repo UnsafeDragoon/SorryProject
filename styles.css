@@ -194,9 +194,11 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     background-color: #fbff84;
 }
 
-.cardstack{
+
+.cardstack img{
+
     position: absolute;
-    left: 50%;
+    left: 51%;
     top: 48%;
     transform: translate(-50%, -50%);
     display: flex;
@@ -204,12 +206,12 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     justify-content: center;
     align-items: center;
     max-width: 90%;
-    width: 7.5em;
+    width: 12em;
     height: 20em;
-    background-image: url(images/background_flow.gif);
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 1em;
+
+
+
 }
 
 .blueCard{
