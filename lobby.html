@@ -26,7 +26,7 @@
     <main class="main2">
         <section class="Lobby">
             <section class="lob-maps">
-                <section id="mapOne" onclick="mapSelect(event) " class="one-third">
+                <section id="mapOne"  class="one-third">
                     <img  src="images/backgroundBoardOne.png" alt="board background image">
                     <div class="map-text-container">
                         <div class="centered">
@@ -34,14 +34,14 @@
                         </div>
                     </div>
                 </section>
-                <section onclick="mapSelect = 2; " class="one-third">
+                <section  id="mapTwo" class="one-third">
                     <img src="images/backgroundBoardOne.png" alt="">
                     <div class="map-text-container">
                         <div class="centered">
                             <i class="fa-solid fa-question"></i>
                         </div>
                 </section>
-                <section onclick="mapSelect = 3; " class="one-third">
+                <section id="mapThree" class="one-third">
                     <img src="images/backgroundBoardOne.png" alt="">
                     <div class="map-text-container">
                         <div class="centered">
@@ -87,7 +87,7 @@
 
         <section class="play">
             <div class="btn-cont">
-                <a href="index.html"><button onclick='confirmMatch()' disabled class="start">START</button></a>
+                <button onclick='confirmMatch()'  class="start">START</button>
             </div>
         </section>
 
