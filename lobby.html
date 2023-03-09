@@ -26,7 +26,7 @@
     <main class="main2">
         <section class="Lobby">
             <section class="lob-maps">
-                <section id="mapOne" " class="one-third">
+                <section id="mapOne"  class="one-third">
                     <img id="mapOne" src="images/backgroundBoardOne.png" alt="board background image">
                     <div class="map-text-container">
                         <div class="centered">
@@ -34,15 +34,15 @@
                         </div>
                     </div>
                 </section>
-                <section onclick="mapSelect = 2; " class="one-third">
-                    <img  id="maptwo" class="Map1" src="images/backgroundBoardOne.png" alt="">
+                <section  id = 'mapTwo'class="one-third">
+                    <img   class="Map1" src="images/backgroundBoardOne.png" alt="">
                     <div class="map-text-container">
                         <div class="centered">
                             <i class="fa-solid fa-question"></i>
                         </div>
                 </section>
-                <section onclick="mapSelect = 3; " class="one-third">
-                    <img id="mapThree" src="images/backgroundBoardOne.png" alt="">
+                <section id ='mapThree' class="one-third">
+                    <img  src="images/backgroundBoardOne.png" alt="board background board one">
                     <div class="map-text-container">
                         <div class="centered">
                             <i class="fa-solid fa-question"></i>
@@ -52,30 +52,30 @@
             </div>
         </section>
         <section class="choosing">
-            <div class="one-forth">
+            <div class="one-forth" id = "playerone">
                 <img  id="pawn1" src="images/Group 1.png" alt="">
                 <div class="player">
                 </div>
             </div>
-            <div class="one-forth">
+            <div class="one-forth"  id = "playertwo">
                 <img  id="GFG_DOWN" src="images/Group 2.png" alt="">
                 <div class="player">
 
                 </div>
             </div>
-            <div class="one-forth">
+            <div class="one-forth"  id = "playerthree">
                 <img  id="pawn3" src="images/Group 3.png" alt="">
                 <div class="player">
                 </div>
             </div>
-            <div class="one-forth">
+            <div class="one-forth"  id = "playerfour">
                 <img  id="GFG_UP" src="images/Group 4.png" alt="">
                 <div class="player">
                 </div>
             </div>
         </section>
 
-        <section class="player-amount">
+        <section class="player-amount" onchange = "getPlayerCount()">
             <select name="amount" id="player-container">
                 <option hidden>Player Amount: </option>
                 <option   value="1">1 Player</option>
@@ -87,7 +87,7 @@
 
         <section class="play">
             <div class="btn-cont">
-                <a href="index.html"><button onclick='confirmMatch()' disabled class="start">START</button></a>
+                <button  id='confirmMatchButton' onclick='confirmMatch()'  class="start">START</button>
             </div>
         </section>
 
