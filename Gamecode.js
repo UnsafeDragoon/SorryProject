@@ -14,11 +14,11 @@ maps.forEach(map => {
 // let playerCount = document.getElementById('player-container').value
 
 function confirmMatch(){
-  if (map.id = mapOne){
+  if (map.id == mapOne){
     console.log('1');
-  } else if (map.id = mapTwo){
+  } else if (map.id == mapTwo){
     console.log('2');
-  } else if (map.id = mapThree){
+  } else if (map.id == mapThree){
     console.log('3');
   } else{
     console.log('skip')
