@@ -85,7 +85,6 @@
     background-color: gray;
     opacity: 1;
     background-repeat: no-repeat;
-    /* max-width: 1280px; */
     border-radius: 6%;
     display: flex;
     flex-wrap: wrap;
@@ -99,34 +98,12 @@
     margin-top: 0px;
     padding: 0px;
     border: 0px;
-    /* Border glow */
     background-color: #37303d;
     background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
     -webkit-box-shadow:0px 0px 300px 99px rgba(32,51,176,0.64);
     -moz-box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
     box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
     margin-top: 4em;
-
-  
-
-
-        /* Border glow 
-        REd
-            -webkit-box-shadow:0px 0px 300px 99px rgba(199,18,21,0.64);
--moz-box-shadow: 0px 0px 300px 99px rgba(199,18,21,0.64);
-box-shadow: 0px 0px 300px 99px rgba(199,18,21,0.64);
-        
-Green   
-            -webkit-box-shadow:0px 0px 300px 99px rgba(65,148,13,0.64);
-    -moz-box-shadow: 0px 0px 300px 99px rgba(65,148,13,0.64);
-    box-shadow: 0px 0px 300px 99px rgba(65,148,13,0.64);
-
-Blue
-  -webkit-box-shadow:0px 0px 300px 99px rgba(227,242,22,0.64);
--moz-box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
-box-shadow: 0px 0px 300px 99px rgba(227,242,22,0.64);
-    */
-
 } 
 
 .body2 {
@@ -484,6 +461,10 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
  }
 
 /* This Is for the lobby coding below */
+
+
+
+
 .main2 {
     max-width: 1720px;
     justify-content: center;
@@ -656,8 +637,8 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
   .start {
     margin-top: 3em;
     position: absolute;
-    transition: 0.5s;
-    transform: translate(-50%, -50%);
+    /* transition: 0.5s;
+    transform: translate(-50%, -50%); */
     width: 200px;
     height: 60px;
     text-align: center;

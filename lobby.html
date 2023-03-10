@@ -77,7 +77,7 @@
 
         <section class="player-amount" onchange = "getPlayerCount()">
             <select name="amount" id="player-container">
-                <option hidden>Player Amount: </option>
+                <option value='0' hidden>Player Amount: </option>
                 <option   value="1">1 Player</option>
                 <option  value="2">2 Players</option>
                 <option  value="3">3 Players</option>
@@ -87,7 +87,7 @@
 
         <section class="play">
             <div class="btn-cont">
-                <button  id='confirmMatchButton' onclick='confirmMatch()'  class="start">START</button>
+                <button  id='confirmMatchButton' onclick='confirmMatch(); openFullscreen()'  class="start">START</button>
             </div>
         </section>
 

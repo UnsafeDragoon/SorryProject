@@ -1,10 +1,16 @@
-// Audio Functions
+// start enter fullscreen
+var elem = document.documentElement;
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
 
-// Javascript - Player Glow
-
-// function muteAudi {
-//     console.log('test')
-// }
+// lobby setting up code
 
 let previousSelectedOption = 0;
 
@@ -16,7 +22,7 @@ function getPlayerCount() {
     unhighlightAllPlayers();
   }
 
-  console.log(selectedOption);
+  
 
   if (selectedOption === 1) {
     highlightPlayerOne();
@@ -92,37 +98,58 @@ maps.forEach(map => {
   });
 });
 
+
 // 3 map level stylings
 
 function setUpMapOne(){
-
+  console.log('map1')
+  
 }
 
 function setUpMapTwo(){
-  
+  console.log('map2')
 }
 
 function setUpMapThree(){
-  
+  console.log('map3')
 }
 
 // let playerCount = document.getElementById('player-container').value
 
 function confirmMatch(){
-  if ( playerCount.value == 'undefined' ){
-    console.log('eror')
+  if (playerCount.value == 0){
+    console.log('Nope, not good enough')
   } else{
-    console.log('ss')
+    if(mapType == undefined){
+      console.log('nope')
+    } else{
+      setMatchPlayers(playerCount.value);
+      setMatchMap();
+      window.location.href = "index.html";
+    }
+    // setMatchPlayers(playerCount.value)
   }
-  // if (mapType === 'mapOne'){
-  //   setUpMapOne();
-  // } else if (mapType == 'mapTwo'){
-  //   setUpMapTwo();
-  // } else if (mapType == 'mapThree'){
-  //   setUpMapThree();
+}
+
+function setMatchPlayers(count){
+  console.log(count)
+}
+
+function setMatchMap(){
+  // if (playerCount.value == 'undefined' ){
+  //   console.log('eror')
   // } else{
-  //   console.log('map not selected')
+  //   console.log('ss')
   // }
+  if (mapType === 'mapOne'){
+    setUpMapOne();
+  } else if (mapType == 'mapTwo'){
+    setUpMapTwo();
+  } else if (mapType == 'mapThree'){
+    setUpMapThree();
+  } else{
+    console.log('map not selected')
+  }
 }
 
 
