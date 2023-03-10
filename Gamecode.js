@@ -1,4 +1,4 @@
-// start enter fullscreen
+//  enter fullscreen
 var elem = document.documentElement;
 function openFullscreen() {
   if (elem.requestFullscreen) {
@@ -9,6 +9,8 @@ function openFullscreen() {
     elem.msRequestFullscreen();
   }
 }
+
+// start page 
 
 // lobby setting up code
 
@@ -102,8 +104,8 @@ maps.forEach(map => {
 // 3 map level stylings
 
 function setUpMapOne(){
-  console.log('map1')
-  
+    document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
+  // background-image: url(images/backgroundBoardOne.png);  
 }
 
 function setUpMapTwo(){
@@ -123,13 +125,17 @@ function confirmMatch(){
     if(mapType == undefined){
       console.log('nope')
     } else{
-      setMatchPlayers(playerCount.value);
-      setMatchMap();
+
       window.location.href = "index.html";
+
+      // setMatchPlayers(playerCount.value);
+      // setMatchMap();
     }
     // setMatchPlayers(playerCount.value)
   }
 }
+
+
 
 function setMatchPlayers(count){
   console.log(count)

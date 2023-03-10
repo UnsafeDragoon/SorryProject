@@ -70,7 +70,7 @@
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-    background-image: url(images/backgroundBoardOne.png);  
+    /* background-image: url(images/backgroundBoardOne.png);   */
     position: relative;
     background-size: cover;
     height: 100vh;
@@ -300,7 +300,16 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     left: 10px;
     top: 50%;
     transition: 90ms ease-in;
+    filter: invert(100%);
+        -webkit-filter: invert(100%);
     
+}
+.fullscreen{
+    position: absolute;
+    width: 10vh;
+    right: 30px;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
 }
 
 .prevpage img:hover {
@@ -687,6 +696,7 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
     transition: 0.5s;
     
   }
+
   
   .start:hover:before {
     filter: blur(20px);

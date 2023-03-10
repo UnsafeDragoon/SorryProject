@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="bodyOne">
+<body onload="setMatchPlayers(playerCount.value);
+setMatchMap();" id="bodyone" class="bodyOne">
     <!-- <div>
         <div class="green-banner">
             <img src="images/Group 4.png">
@@ -51,6 +52,7 @@
         <div class = "greenCoin">
         </div>
     </div>
+    <img class='fullscreen' onclick='openFullscreen(); ' src ='images/full-screen-svgrepo-com.svg' alt = 'fullscreen'>
 
     <div class = "yellowCard">
         <div class = "yellowPawn">
@@ -64,7 +66,8 @@
     <div class = "prevpage">
         <img src = "images/left-arrow-svgrepo-com.svg" alt = "arrow for link">
     </div>
-</a>
+    </a>
+    
 
     <main class="mainOne">
             <div class="spaces-column grid-left">
@@ -88,7 +91,7 @@
             <div class="spaces-column">
                 <div id='one' class="space-column"></div>
                 <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column shop-space" ><img style="    transform: rotate(90deg); " src="images/shop.png"></div>
+                <div id='three' class="space-column shop-space" ><img style="transform: rotate(90deg); " src="images/shop.png"></div>
                 <div id='four' class="space-column green-walkway"></div>
                 <div id='five' class="space-column empty"></div>
                 <div  class="space-column green-walkway"><img src='images/home-icon.svg'></div>
@@ -243,5 +246,8 @@
     </main>
     <script src="Gamecode.js"></script>
     <script src="https://kit.fontawesome.com/66873e5599.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        window.onload = openFullscreen;
+    </script>
 
 </body>
