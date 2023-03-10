@@ -42,7 +42,7 @@ function dontShow() {
 // Tries creating randomizer when clicking on deck
 function deckBuilder() {
   const cardValues = ["Move 1", "Move 2", "Move 3", "Move 4", "Move 5", "Move 7", "Move 8", "Move 10", "Sorry Card!"]
-  const orCards = ["Move-starting-piece", "Move-back-once", "Split-forward-between-2-pawns", "Move-back-3-times"]
+  const orCards = ["Move-starting-piece", "Move-back-once", "Split-forward-between-2-pawns", "Move-back-3-times", "SORRY", "take 2 cards", "start all over", "win5", "Take someones turn"]
 
   const playCards = [];
   for (let o = 0; o < orCards.length; o++) {
@@ -61,10 +61,10 @@ const cValue = playCards[random].cardValue;
 const cO = playCards[random].orCard;
 
 let entity; 
-cO === "Move starting piece" ? (entity = "Move;") : (entity = " or " + cO.toLowerCase())
+cO === "Move starting piece" ? (entity = "Move;") : (entity = " or " + cO)
 
 const card = document.createElement("div");
-card.classList.add("card", cO.toLowerCase());
+card.classList.add("card", cO);
 card.innerHTML = 
 '<span class="card-cardValue-orCard top">' + cValue + entity + '</span>' +
 '<span class="card-orCard">' + entity + '</span>' + 
@@ -75,5 +75,12 @@ const playCards = deckBuilder();
 randomCard(playCards);
 
 // End of randomizer ^^
+
+
+function getRandomImage() {
+  let randomCard = new Array("images/card1.png");
+
+  randomCard[0] = ("images")
+}
 
 // let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
