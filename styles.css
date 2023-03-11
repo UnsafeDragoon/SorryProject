@@ -83,7 +83,7 @@
 
 .bodyOne {
     align-items: center;
-    background-color: gray;
+    background-image: url(images/backgroundBoardOne.png);   
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -100,7 +100,6 @@
 } */
 
 .mainOne {
-    background-color: gray;
     opacity: 1;
     background-repeat: no-repeat;
     border-radius: 6%;
@@ -116,12 +115,7 @@
     margin-top: 0px;
     padding: 0px;
     border: 0px;
-    background-color: #37303d;
-    background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
-    -webkit-box-shadow:0px 0px 300px 99px rgba(32,51,176,0.64);
-    -moz-box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
-    box-shadow: 0px 0px 300px 99px rgba(32,51,176,0.64);
-    margin-top: 4em;
+    background-color:black;
 } 
 
 .body2 {
