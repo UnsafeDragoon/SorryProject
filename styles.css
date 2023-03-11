@@ -83,7 +83,7 @@
 
 .bodyOne {
     align-items: center;
-    background-color: rgb(73, 73, 73);
+    background-color: gray;
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -498,7 +498,6 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
 
  .takecard.active {
     visibility: visible;
-    transition: ;
 
     margin-right: 5em;
  }
