@@ -56,13 +56,16 @@ function show() {
     randomCard[0] = ("images")
   }
 
-
-function getRandomImage() {
-    let randomCard = new Array("images/card1.png");
+  function drawCard() {
+    let cards = [1, 2, 3, 4, 5]
   
-    randomCard[0] = ("images")
+    random = Math.floor(Math.random() * cards.length);
+    console.log(random)
+  
+    const overlay = document.createElement("div");
+    overlay.classList.add("overlay");
+    document.body.appendChild(overlay);
   }
-  
 
   // Body background overlay 
 
