@@ -217,6 +217,7 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.25);
     background-color: grey;
     left: 45%;
+    text-align: center;
 }
   .card-cardValue-orCard {
     display: inline-block;
@@ -225,6 +226,7 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
   .card-cardValue-orCard.top {
     top: 5px;
     left: 5px;
+    
   }
   .card-cardValue-orCard.bot {
     transform: rotate(180deg);
@@ -237,6 +239,10 @@ background-image: url("https://www.transparenttextures.com/patterns/cartographer
     top: 50%;
     transform: translateY(-50%);
     left: 25%;
+    text-align: center;
+    width: 50%;
+    display: flex;
+    justify-content: center;
   }
   .card.move-starting-piece,
 .card.move-back-once {
@@ -759,8 +765,6 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
     background-color: rgba(0, 0, 0, .5);
     z-index: 9999;
   }
-
-
 
 
 /* End to the lobby code above */
