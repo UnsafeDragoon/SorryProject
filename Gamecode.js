@@ -146,34 +146,43 @@ let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 
 
 
 
+function overlay(){
+  const overlay = document.createElement("div");
+  overlay.classList.add("overlay");
+  document.body.appendChild(overlay);
 
+}
 
+function removeOverlay(){
+  const overlay = document.querySelector('.overlay');
+  if (overlay) {
+    overlay.remove();
+  }
 
+}
 
-
-function card1display(){
+function card1(){
   console.log('Displaying first card')
   document.getElementById("cardOne").style.visibility = "visible";
+
 }
 
 
 
 
 
-
-
 function drawCard() {
-  let cards = [1, 2, 3, 4, 5]
-
+  let cards = [1, 2,]
+  overlay()
   random = Math.floor(Math.random() * cards.length);
   console.log(random)
 
-  const overlay = document.createElement("div");
-  overlay.classList.add("overlay");
-  document.body.appendChild(overlay);
+
+
+  
 
   if (random === 1){
-    card1display()
+    card1()
   }
 
 }
@@ -183,10 +192,14 @@ function drawCard() {
 
 function moveForwardOne (){
   console.log('Move forward one')
-}
+  document.getElementById("cardOne").style.visibility = "hidden";
+  removeOverlay()
+  }
 
 function startAPawn(){
   console.log('Start A pawn')
+  document.getElementById("cardOne").style.visibility = "hidden";
+  removeOverlay()
 }
 
 // Card Pickup
