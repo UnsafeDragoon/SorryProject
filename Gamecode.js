@@ -115,7 +115,6 @@ function setUpMapThree(){
   console.log('map3')
 }
 
-ue
 
 function confirmMatch(){
   if (playerCount.value == 0){
@@ -152,8 +151,10 @@ let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 
 
 
 
-
-
+function card1display(){
+  console.log('Displaying first card')
+  document.getElementById("cardOne").style.visibility = "visible";
+}
 
 
 
@@ -170,10 +171,23 @@ function drawCard() {
   const overlay = document.createElement("div");
   overlay.classList.add("overlay");
   document.body.appendChild(overlay);
+
+  if (random === 1){
+    card1display()
+  }
+
 }
 
 
+// if card gets displa
 
+function moveForwardOne (){
+  console.log('Move forward one')
+}
+
+function startAPawn(){
+  console.log('Start A pawn')
+}
 
 // Card Pickup
 
