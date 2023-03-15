@@ -937,3 +937,357 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
 }
 
 
+.card5{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card5 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card5 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card6{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card6 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card6 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+
+.card7{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card7 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card7 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+
+.card8{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card8 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card8 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+
+.card9{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card9 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card9 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+
+.card10{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card10 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card10 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card11{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card11 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card11 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card12{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card12 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card12 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card13{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 52.5%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    max-width: 90%;
+    width: 12em;
+    height: 20em;
+    visibility: hidden;
+    z-index: 99999999;
+}
+
+.card13 h1{
+    font-family: sans-serif;
+    color:white;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}
+
+.card13 h1:hover{
+    font-family: sans-serif;
+    color:green;
+    font-size: 4vh;
+    display: flex;
+    flex-direction: row;
+    white-space: nowrap;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+}

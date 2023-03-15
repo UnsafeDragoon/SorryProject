@@ -190,6 +190,48 @@ function card4(){
   document.getElementById("cardFour").style.visibility = "visible";
 }
 
+function card5(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardFive").style.visibility = "visible";
+}
+
+
+function card7(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardSeven").style.visibility = "visible";
+}
+
+function card8(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+
+function card10(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+function card11(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+
+
+function card12(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+function sorryCard (){
+  console.log('Displaying fourth card')
+  document.getElementById("sorryCard").style.visibility = "visible";
+}
+
+
+
+
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
@@ -197,9 +239,9 @@ function card4(){
 
 function drawCard() {
   overlay()
-  let cards = [1, 2, 3, 4]
+  let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  console.log(Math.floor(Math.random() * cards.length))
   random = Math.floor(Math.random() * cards.length);
-
 
   if (random === 0){
     card1()
@@ -209,6 +251,20 @@ function drawCard() {
     card3()
   } else if (random === 3){
     card4()
+  } else if (random === 4){
+    card5()
+  } else if (random === 5){
+    card7()
+  } else if (random === 6){
+    card8()
+  } else if (random === 7){
+    card10()
+  } else if (random === 8){
+    card11()
+  } else if (random === 9){
+    card12()
+  } else if (random == 10){
+    sorryCard()
   }
 }
 
@@ -239,6 +295,52 @@ function moveForwardThree (){
 
 function moveBackwardThree (){
   console.log('Move backward three')
+  closePopup()
+}
+
+function moveForwardFive (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardSeven (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function splitSeven (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardEight (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardTwelve (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardOne (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardTen (){
+  console.log('Move forward ten')
+  closePopup()
+}
+
+function moveForwardFour (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+
+function pawns(){
+  console.log('Move forward three')
   closePopup()
 }
 
