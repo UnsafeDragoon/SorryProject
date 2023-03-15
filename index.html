@@ -11,18 +11,20 @@
 
 <body onload="setMatchPlayers(playerCount.value);
 setMatchMap();" id="bodyone" class="bodyOne">
-    <!-- <div>
-        <div class="green-banner">
-            <img src="images/Group 4.png">
 
-        </div>
-        <div>
-            <div class="red-banner">
-                <img src="images/Group 3.png">
-    
-            </div>
-    </div> -->
-    <div class = "cardstack" onclick = "drawCard()" =>
+
+    <div class = "card1" id="cardOne">
+        <a>
+        <h1 class = "card1-choice one" onclick = "startAPawn()">Start A Pawn</h1>
+        </a>  
+        <img src = "images/card1.JPG" alt = "first card">
+        <a>
+        <h1 class = "card1-choice two" onclick = "moveForwardOne()">Move Forward One</h1>
+            </a>
+    </div>
+
+
+    <div class = "cardstack" onclick = "drawCard()">
         <img id="draw-card" class="drawing-cards" src="images/pngconvert_thumbnail.png"alt = "carddeck">
     </div>
 
