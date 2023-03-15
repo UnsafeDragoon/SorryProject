@@ -1,4 +1,5 @@
 
+
 //  Fullscreen Button Javascript
 var elem = document.documentElement;
 function openFullscreen() {
@@ -240,3 +241,246 @@ function moveBackwardThree (){
   console.log('Move backward three')
   closePopup()
 }
+
+//▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+// Coin System
+let blueCoins = {
+  coins: 0
+};
+
+let greenCoins = {
+  coins: 0
+};
+
+let redCoins = {
+  coins: 0
+};
+
+let yellowCoins = {
+  coins: 0
+};
+
+function addCoin(player) {
+  switch (player) {
+    case 'blue':
+      if (blueCoins.coins < 4) {
+        blueCoins.coins++;
+        console.log(`Blue player has ${blueCoins.coins} coins.`);
+      }
+
+      if (blueCoins.coins === 1){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+      }
+
+      if (blueCoins.coins === 2){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+
+        document.getElementById("cs2").style.backgroundColor="yellow"
+        document.getElementById("cs2").style.opacity="100%"
+      }
+
+      if (blueCoins.coins === 3){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+
+        document.getElementById("cs2").style.backgroundColor="yellow"
+        document.getElementById("cs2").style.opacity="100%"
+
+        document.getElementById("cs3").style.backgroundColor="yellow"
+        document.getElementById("cs3").style.opacity="100%"
+
+
+
+
+      }
+      if (blueCoins.coins === 4){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+
+        document.getElementById("cs2").style.backgroundColor="yellow"
+        document.getElementById("cs2").style.opacity="100%"
+
+        document.getElementById("cs3").style.backgroundColor="yellow"
+        document.getElementById("cs3").style.opacity="100%"
+
+
+        document.getElementById("cs4").style.backgroundColor="yellow"
+        document.getElementById("cs4").style.opacity="100%"
+
+
+
+
+
+
+      }
+
+      break;
+    case 'green':
+      if (greenCoins.coins < 4) {
+        greenCoins.coins++;
+        console.log(`Green player has ${greenCoins.coins} coins.`);
+      }
+
+
+      if (greenCoins.coins === 1){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+      }
+
+      if (greenCoins.coins === 2){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+
+        document.getElementById("cs10").style.backgroundColor="yellow"
+        document.getElementById("cs10").style.opacity="100%"
+      }
+
+      if (greenCoins.coins === 3){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+
+        document.getElementById("cs10").style.backgroundColor="yellow"
+        document.getElementById("cs10").style.opacity="100%"
+
+        document.getElementById("cs11").style.backgroundColor="yellow"
+        document.getElementById("cs11").style.opacity="100%"
+
+
+
+
+      }
+      if (greenCoins.coins === 4){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+
+        document.getElementById("cs10").style.backgroundColor="yellow"
+        document.getElementById("cs10").style.opacity="100%"
+
+        document.getElementById("cs11").style.backgroundColor="yellow"
+        document.getElementById("cs11").style.opacity="100%"
+
+
+        document.getElementById("cs12").style.backgroundColor="yellow"
+        document.getElementById("cs12").style.opacity="100%"
+      }
+      break;
+    case 'red':
+      if (redCoins.coins < 4) {
+        redCoins.coins++;
+        console.log(`Red player has ${redCoins.coins} coins.`);
+      }
+
+
+      if (redCoins.coins === 1){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+      }
+
+      if (redCoins.coins === 2){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+
+        document.getElementById("cs6").style.backgroundColor="yellow"
+        document.getElementById("cs6").style.opacity="100%"
+      }
+
+      if (redCoins.coins === 3){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+
+        document.getElementById("cs6").style.backgroundColor="yellow"
+        document.getElementById("cs6").style.opacity="100%"
+
+        document.getElementById("cs7").style.backgroundColor="yellow"
+        document.getElementById("cs7").style.opacity="100%"
+
+
+
+
+      }
+      if (redCoins.coins === 4){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+
+        document.getElementById("cs6").style.backgroundColor="yellow"
+        document.getElementById("cs6").style.opacity="100%"
+
+        document.getElementById("cs7").style.backgroundColor="yellow"
+        document.getElementById("cs7").style.opacity="100%"
+
+
+        document.getElementById("cs8").style.backgroundColor="yellow"
+        document.getElementById("cs8").style.opacity="100%"
+
+
+
+
+      }
+
+
+
+
+
+
+      break;
+    case 'yellow':
+      if (yellowCoins.coins < 4) {
+        yellowCoins.coins++;
+        console.log(`Yellow player has ${yellowCoins.coins} coins.`);
+      }
+
+      
+      if (yellowCoins.coins === 1){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+      }
+
+      if (yellowCoins.coins === 2){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+
+        document.getElementById("cs14").style.backgroundColor="yellow"
+        document.getElementById("cs14").style.opacity="100%"
+      }
+
+      if (yellowCoins.coins === 3){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+
+        document.getElementById("cs14").style.backgroundColor="yellow"
+        document.getElementById("cs14").style.opacity="100%"
+
+        document.getElementById("cs15").style.backgroundColor="yellow"
+        document.getElementById("cs15").style.opacity="100%"
+
+
+
+
+      }
+      if (yellowCoins.coins === 4){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+
+        document.getElementById("cs14").style.backgroundColor="yellow"
+        document.getElementById("cs14").style.opacity="100%"
+
+        document.getElementById("cs15").style.backgroundColor="yellow"
+        document.getElementById("cs15").style.opacity="100%"
+
+
+        document.getElementById("cs16").style.backgroundColor="yellow"
+        document.getElementById("cs16").style.opacity="100%"
+      }
+      break;
+    default:
+      break;
+  }
+}
+
+addCoin('blue')
+addCoin('red')
+addCoin('yellow')
+addCoin('green')
