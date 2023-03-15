@@ -145,6 +145,7 @@ let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 
 
 
 
+//▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 function overlay(){
   const overlay = document.createElement("div");
@@ -158,55 +159,84 @@ function removeOverlay(){
   if (overlay) {
     overlay.remove();
   }
-
 }
 
-function card1(){
-  console.log('Displaying first card')
-  document.getElementById("cardOne").style.visibility = "visible";
-
+function closePopup(){
+  const cardPopups = document.getElementsByClassName("cardpopup");
+Array.from(cardPopups).forEach((popup) => {
+  popup.style.visibility = "hidden";
+})
+removeOverlay()
 }
-
-
-
-
-
-function drawCard() {
-  let cards = [1, 2,]
-  overlay()
-  random = Math.floor(Math.random() * cards.length);
-  console.log(random)
-
-
-
-  
-
-  if (random === 1){
-    card1()
-  }
-
-}
-
-
-// if card gets displa
-
-function moveForwardOne (){
-  console.log('Move forward one')
-  document.getElementById("cardOne").style.visibility = "hidden";
-  removeOverlay()
-  }
-
-function startAPawn(){
-  console.log('Start A pawn')
-  document.getElementById("cardOne").style.visibility = "hidden";
-  removeOverlay()
-}
-
-// Card Pickup
-
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
 
+function card1(){
+  document.getElementById("cardOne").style.visibility = "visible";
 
-//
+}
+function card2(){
+  document.getElementById("cardTwo").style.visibility = "visible";
+
+}
+function card3(){
+  document.getElementById("cardThree").style.visibility = "visible";
+
+}
+function card4(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardFour").style.visibility = "visible";
+}
+
+//▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+
+// Card Drawing 
+
+function drawCard() {
+  overlay()
+  let cards = [1, 2, 3, 4]
+  random = Math.floor(Math.random() * cards.length);
+
+
+  if (random === 0){
+    card1()
+  } else if (random === 1){
+    card2()
+  } else if (random === 2){
+    card3()
+  } else if (random === 3){
+    card4()
+  }
+}
+
+//▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+// Movement Functions
+
+function moveForwardOne (){
+  console.log('Move forward one')
+  closePopup()
+  }
+
+function startAPawn(){
+  console.log('Start A pawn')
+  closePopup()
+}
+
+
+function moveForwardTwo (){
+  console.log('Move forward two')
+  closePopup()
+}
+
+function moveForwardThree (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveBackwardThree (){
+  console.log('Move backward three')
+  closePopup()
+}
