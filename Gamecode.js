@@ -348,7 +348,7 @@ function addCoin(player) {
         document.getElementById("cs11").style.backgroundColor="yellow"
         document.getElementById("cs11").style.opacity="100%"
 
-
+        document.getAnimations
 
 
       }
