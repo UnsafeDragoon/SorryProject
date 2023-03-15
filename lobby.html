@@ -94,6 +94,22 @@
     </main>
     <script src="https://kit.fontawesome.com/66873e5599.js" crossorigin="anonymous"></script>
     <script src="Gamecode.js"></script>
+    <script type="text/javascript">
+        function confirmMatch(){
+            if (playerCount.value == 0){
+                console.log('Nope, not good enough')
+            } else{
+                if(mapType == undefined){
+                console.log('nope')
+                } else{
+                
+                window.location.href = "index.html";
+
+                }
+            }
+         }
+        localStorage.setItem(playerCount.value,mapType );
+    </script>
 </body>
 
 </html>

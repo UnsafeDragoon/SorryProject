@@ -117,19 +117,19 @@ function setUpMapThree(){
 }
 
 
-function confirmMatch(){
-  if (playerCount.value == 0){
-    console.log('Nope, not good enough')
-  } else{
-    if(mapType == undefined){
-      console.log('nope')
-    } else{
+// function confirmMatch(){
+//   if (playerCount.value == 0){
+//     console.log('Nope, not good enough')
+//   } else{
+//     if(mapType == undefined){
+//       console.log('nope')
+//     } else{
+      
+//       window.location.href = "index.html";
 
-      window.location.href = "index.html";
-
-    }
-  }
-}
+//     }
+//   }
+// }
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
@@ -480,7 +480,7 @@ function addCoin(player) {
   }
 }
 
-addCoin('blue')
-addCoin('red')
-addCoin('yellow')
-addCoin('green')
+// addCoin('blue')
+// addCoin('red')
+// addCoin('yellow')
+// addCoin('green')

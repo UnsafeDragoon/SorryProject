@@ -12,283 +12,363 @@
 <body onload="setMatchPlayers(playerCount.value);
 setMatchMap();" id="bodyone" class="bodyOne">
 
-
-    <div class = "card1 cardpopup" id="cardOne" class = "cardpopup">
-        <h1 class = "card1-choice one" onclick = "startAPawn()">Start A Pawn</h1>  
-        <img src = "images/card1.JPG" alt = "first card">
-        <h1 class = "card1-choice two" onclick = "moveForwardOne()">Move Forward One</h1>
-    </div>
-
-    <div class = "card2 cardpopup" id="cardTwo" class = "cardpopup">
-        <h1 class = "card2-choice one" onclick = "startAPawn()">Start A Pawn</h1>  
-        <img src = "images/output-onlinepngtools.png" alt = "second card card">
-        <h1 class = "card2-choice two" onclick = "moveForwardTwo()">Move Forward Two</h1>
-    </div>
-
-    <div class = "card3 cardpopup" id="cardThree" class = "cardpopup">
-        <h1 class = "card3-choice one" onclick = "moveForwardThree()">Move Forward Three</h1>  
-        <img src = "images/output-onlinepngtools (1).png "second card card">
-    </div>
-
-    
-    <div class = "card4 cardpopup" id="cardFour" class = "cardpopup">
-        <h1 class = "card4-choice one" onclick = "moveBackwardThree()">Move Backward Three</h1>  
-        <img src = "images/output-onlinepngtools (4).png" alt = "second card card">
-    </div>
-    
-    
-
-
-
-    <div class = "cardstack" onclick = "drawCard()">
-        <img id="draw-card" class="drawing-cards" src="images/pngconvert_thumbnail.png"alt = "carddeck">
-    </div>
-
-
-
-    <div class = "blueCard">
-        <div class = "bluePawn">
-            <img src = "images/bluepawn.svg" alt = "bluepawn">
-        </div> 
-        <div class = "coinflex">
-        <div class = "coinSlot" id = "cs1"></div> 
-        <div class = "coinSlot" id = "cs2"></div> 
-        <div class = "coinSlot" id = "cs3"></div> 
-        <div class = "coinSlot" id = "cs4"></div>
-        </div> 
-        <div class = "itemSlot"></div> 
-        </div>
-    </div>
-
-    <div class = "redCard">
-        <div class = "redPawn">
-            <img src = "images/redpawn.svg" alt = "redpawn">
-        </div>
-        <div class = "coinflex">
-        <div class = "coinSlot" id = "cs5"></div> 
-        <div class = "coinSlot" id = "cs6"></div> 
-        <div class = "coinSlot" id = "cs7"></div> 
-        <div class = "coinSlot" id = "cs8"></div> 
-        </div>
-        <div class = "itemSlot"></div> 
-        </div>
-    </div>
-
-    <div class = "greenCard">
-        <div class = "greenPawn">
-            <img src = "images/greenpawn.svg" alt = "greenpawn">
-        </div>
-        <div class = "coinflex">
-        <div class = "coinSlot" id = "cs9"></div> 
-        <div class = "coinSlot" id = "cs10"></div> 
-        <div class = "coinSlot"id = "cs11" > </div> 
-        <div class = "coinSlot" id = "cs12"></div> 
-        </div>
-        <div class = "itemSlot"></div> 
-        </div>
-    </div>
-    <img class='fullscreen' onclick='openFullscreen(); ' src ='images/full-screen-svgrepo-com.svg' alt = 'fullscreen'>
-
-    <div class = "yellowCard">
-        <div class = "yellowPawn">
-            <img src = "images/yellowpawn.svg" alt = "yellowpawn">
-        </div>
-        <div class = "coinflex">
-        <div class = "coinSlot" id = "cs13"></div> 
-        <div class = "coinSlot"id = "cs14"> </div> 
-        <div class = "coinSlot" id = "cs15"></div> 
-        <div class = "coinSlot" id = "cs16"></div>
-        </diV> 
-        <div class = "itemSlot"></div> 
-        </div>
-    </div>
-
-    <a href = "lobby.html">
+<!-- Match settings start -->
+<a href = "">
     <div class = "prevpage">
         <img src = "images/left-arrow-svgrepo-com.svg" alt = "arrow for link">
     </div>
     </a>
-    
+    <img class='fullscreen' onclick='openFullscreen(); ' src ='images/full-screen-svgrepo-com.svg' alt = 'fullscreen'>
+<main class="main2">
+    <section class="Lobby">
+        <section class="lob-maps">
+            <section id="mapOne"  class="one-third">
+                <img id="mapOne" src="images/backgroundBoardOne.png" alt="board background image">
+                <div class="map-text-container">
+                    <div class="centered">
+                        <h2>Mappy Map Map</h2>
+                    </div>
+                </div>
+            </section>
+            <section  id = 'mapTwo'class="one-third">
+                <img   class="Map1" src="images/backgroundBoardOne.png" alt="">
+                <div class="map-text-container">
+                    <div class="centered">
+                        <i class="fa-solid fa-question"></i>
+                    </div>
+            </section>
+            <section id ='mapThree' class="one-third">
+                <img  src="images/backgroundBoardOne.png" alt="board background board one">
+                <div class="map-text-container">
+                    <div class="centered">
+                        <i class="fa-solid fa-question"></i>
+                    </div>
+            </section>
+        </section>
+        </div>
+    </section>
+    <section class="choosing">
+        <div class="one-forth" id = "playerone">
+            <img  id="pawn1" src="images/Group 1.png" alt="">
+            <div class="player">
+            </div>
+        </div>
+        <div class="one-forth"  id = "playertwo">
+            <img  id="GFG_DOWN" src="images/Group 2.png" alt="">
+            <div class="player">
 
-    <main class="mainOne">
-            <div class="spaces-column grid-left">
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='two' class="space-column"></div>
-                <div id='three' class="space-column " ></div>
-                <div id='four' class="space-column"></div>
-                <div id='five' class="space-column"></div>
-                <div id='six' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-             
-             
-             
-             
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
             </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column shop-space" ><img style="transform: rotate(90deg); " src="images/shop.png"></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column empty"></div>
-                <div  class="space-column green-walkway"><img src='images/home-icon.svg'></div>
-                <div  class="space-column green circle-bottom-left"></div>
-                <div class="space-column empty"></div>
-                <div class="space-column empty"></div>
-                <div class="space-column empty"></div>
-                <div class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+        </div>
+        <div class="one-forth"  id = "playerthree">
+            <img  id="pawn3" src="images/Group 3.png" alt="">
+            <div class="player">
             </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column empty"></div>
-                <div id='six' class="space-column green circle-top-right"></div>
-                <div id='seven' class="space-column green circle-bottom-right"></div>
-                <div id='' class="space-column  empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='three' class="space-column shop-space" ><img src="images/shop.png"></div>
-                <div id='' class="space-column"></div>
+        </div>
+        <div class="one-forth"  id = "playerfour">
+            <img  id="GFG_UP" src="images/Group 4.png" alt="">
+            <div class="player">
             </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column circle-bottom-left green"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty "></div>
-                <div id='' class="space-column circle-top-left red"></div>
-                <div id='' class="space-column  red-walkway"></div>
-                <div id='' class="space-column red-walkway"></div>
-                <div id='' class="space-column red-walkway"></div>
-                <div id='' class="space-column "></div>
+        </div>
+    </section>
+
+    <section class="player-amount" onchange = "getPlayerCount()">
+        <select name="amount" id="player-container">
+            <option value='0' hidden>Player Amount: </option>
+            <option   value="1">1 Player</option>
+            <option  value="2">2 Players</option>
+            <option  value="3">3 Players</option>
+            <option  value="4">4 Players</option> 
+        </select>
+    </section>
+
+    <section class="play">
+        <div class="btn-cont">
+            <button  id='confirmMatchButton' onclick='confirmMatch();'  class="start">START</button>
+        </div>
+    </section>
+
+</main>
+
+
+<!-- Match Settings End -->
+    <div class="game-board">
+        <div class = "card1 cardpopup" id="cardOne" class = "cardpopup">
+            <h1 class = "card1-choice one" onclick = "startAPawn()">Start A Pawn</h1>  
+            <img src = "images/card1.JPG" alt = "first card">
+            <h1 class = "card1-choice two" onclick = "moveForwardOne()">Move Forward One</h1>
+        </div>
+
+        <div class = "card2 cardpopup" id="cardTwo" class = "cardpopup">
+            <h1 class = "card2-choice one" onclick = "startAPawn()">Start A Pawn</h1>  
+            <img src = "images/output-onlinepngtools.png" alt = "second card card">
+            <h1 class = "card2-choice two" onclick = "moveForwardTwo()">Move Forward Two</h1>
+        </div>
+
+        <div class = "card3 cardpopup" id="cardThree" class = "cardpopup">
+            <h1 class = "card3-choice one" onclick = "moveForwardThree()">Move Forward Three</h1>  
+            <img src = "images/output-onlinepngtools (1).png "second card card">
+        </div>
+
+        
+        <div class = "card4 cardpopup" id="cardFour" class = "cardpopup">
+            <h1 class = "card4-choice one" onclick = "moveBackwardThree()">Move Backward Three</h1>  
+            <img src = "images/output-onlinepngtools (4).png" alt = "second card card">
+        </div>
+        
+        
+
+
+
+        <div class = "cardstack" onclick = "drawCard()">
+            <img id="draw-card" class="drawing-cards" src="images/pngconvert_thumbnail.png"alt = "carddeck">
+        </div>
+
+
+
+        <div class = "blueCard">
+            <div class = "bluePawn">
+                <img src = "images/bluepawn.svg" alt = "bluepawn">
+            </div> 
+            <div class = "coinflex">
+            <div class = "coinSlot" id = "cs1"></div> 
+            <div class = "coinSlot" id = "cs2"></div> 
+            <div class = "coinSlot" id = "cs3"></div> 
+            <div class = "coinSlot" id = "cs4"></div>
+            </div> 
+            <div class = "itemSlot"></div> 
+            
+        </div>
+
+        <div class = "redCard">
+            <div class = "redPawn">
+                <img src = "images/redpawn.svg" alt = "redpawn">
             </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column circle-top-right green"></div>
-                <div id='five' class="space-column circle-bottom-right green"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-right red"></div>
-                <div id='' class="space-column circle-bottom-right red"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+            <div class = "coinflex">
+            <div class = "coinSlot" id = "cs5"></div> 
+            <div class = "coinSlot" id = "cs6"></div> 
+            <div class = "coinSlot" id = "cs7"></div> 
+            <div class = "coinSlot" id = "cs8"></div> 
             </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='two' class="space-column blue circle-top-left"></div>
-                <div id='three' class="space-column blue circle-bottom-left" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty" style="border-top-left-radius: 2em;"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column empty" style="border-bottom-left-radius: 2em;"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-left red"></div>
-                <div id='' class="space-column red-walkway "><img src='images/home-icon.svg'></div>
-                <div id='' class="space-column"></div>
+            <div class = "itemSlot"></div> 
+        </div>
+
+        <div class = "greenCard">
+            <div class = "greenPawn">
+                <img src = "images/greenpawn.svg" alt = "greenpawn">
             </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column "></div>
-                <div id='three' class="space-column  blue-walkway " ><img src='images/home-icon.svg'></div>
-                <div id='three' class="space-column blue circle-bottom-right" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty" style="border-top-right-radius: 2em;"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column empty" style="border-bottom-right-radius: 2em;"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-right red"></div>
-                <div id='' class="space-column circle-bottom-right red"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
+            <div class = "coinflex">
+            <div class = "coinSlot" id = "cs9"></div> 
+            <div class = "coinSlot" id = "cs10"></div> 
+            <div class = "coinSlot"id = "cs11" > </div> 
+            <div class = "coinSlot" id = "cs12"></div> 
             </div>
+            <div class = "itemSlot"></div> 
+        </div>
+        <!-- <img class='fullscreen' onclick='openFullscreen(); ' src ='images/full-screen-svgrepo-com.svg' alt = 'fullscreen'> -->
+
+        <div class = "yellowCard">
+            <div class = "yellowPawn">
+                <img src = "images/yellowpawn.svg" alt = "yellowpawn">
             </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column circle-top-left blue"></div>
-                <div id='five' class="space-column circle-bottom-left blue"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-left yellow"></div>
-                <div id='' class="space-column circle-bottom-left yellow"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
-            </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column blue-walkway"></div>
-                <div id='three' class="space-column blue-walkway" ></div>
-                <div id='four' class="space-column blue-walkway"></div>
-                <div id='five' class="space-column circle-bottom-right blue"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-right yellow"></div>
-                <div id='' class="space-column yellow-walkway"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
-            </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='three' class="space-column shop-space" ><img style="    transform: rotate(180deg); " src="images/shop.png"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty"></div>
-                <div id='six' class="space-column circle-top-left yellow"></div>
-                <div id='seven' class="space-column   circle-bottom-left yellow"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column yellow-walkway"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
-            </div>
-            <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty"></div>
-                <div id='six' class="space-column circle-top-right yellow"></div>
-                <div id='seven' class="space-column yellow-walkway"><img src='images/home-icon.svg'></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column yellow-walkway"></div>
-                <div id='three' class="space-column shop-space" ><img style="    transform: rotate(270deg); " src="images/shop.png"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
-            </div>
-            <div class="spaces-column grid-right">
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='two' class="space-column"></div>
-                <div id='three' class="space-column" ></div>
-                <div id='four' class="space-column"></div>
-                <div id='five' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='seven' class="space-column "></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
-            </div>
-    </main>
+            <div class = "coinflex">
+            <div class = "coinSlot" id = "cs13"></div> 
+            <div class = "coinSlot"id = "cs14"> </div> 
+            <div class = "coinSlot" id = "cs15"></div> 
+            <div class = "coinSlot" id = "cs16"></div>
+            </div> 
+            <div class = "itemSlot"></div> 
+        </div>
+
+        <!-- <a href = "lobby.html">
+        <div class = "prevpage">
+            <img src = "images/left-arrow-svgrepo-com.svg" alt = "arrow for link">
+        </div>
+        </a> -->
+        
+
+        <main class="mainOne">
+                <div class="spaces-column grid-left">
+                    <div id='one' class="space-column event"><p>?</p></div>
+                    <div id='two' class="space-column"></div>
+                    <div id='three' class="space-column " ></div>
+                    <div id='four' class="space-column"></div>
+                    <div id='five' class="space-column"></div>
+                    <div id='six' class="space-column"></div>
+                    <div id='one' class="space-column event"><p>?</p></div>
+                    <div id='' class="space-column"></div>
+                    <div id='' class="space-column"></div>
+                
+                
+                
+                
+                    <div id='' class="space-column"></div>
+                    <div id='' class="space-column"></div>
+                    <div id='one' class="space-column event"><p>?</p></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='two' class="space-column empty"></div>
+                    <div id='three' class="space-column shop-space" ><img style="transform: rotate(90deg); " src="images/shop.png"></div>
+                    <div id='four' class="space-column green-walkway"></div>
+                    <div id='five' class="space-column empty"></div>
+                    <div  class="space-column green-walkway"><img src='images/home-icon.svg'></div>
+                    <div  class="space-column green circle-bottom-left"></div>
+                    <div class="space-column empty"></div>
+                    <div class="space-column empty"></div>
+                    <div class="space-column empty"></div>
+                    <div class="space-column empty"></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='two' class="space-column empty"></div>
+                    <div id='three' class="space-column empty" ></div>
+                    <div id='four' class="space-column green-walkway"></div>
+                    <div id='five' class="space-column empty"></div>
+                    <div id='six' class="space-column green circle-top-right"></div>
+                    <div id='seven' class="space-column green circle-bottom-right"></div>
+                    <div id='' class="space-column  empty"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='three' class="space-column shop-space" ><img src="images/shop.png"></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='two' class="space-column empty"></div>
+                    <div id='three' class="space-column empty" ></div>
+                    <div id='four' class="space-column green-walkway"></div>
+                    <div id='five' class="space-column circle-bottom-left green"></div>
+                    <div id='six' class="space-column empty"></div>
+                    <div id='seven' class="space-column empty "></div>
+                    <div id='' class="space-column circle-top-left red"></div>
+                    <div id='' class="space-column  red-walkway"></div>
+                    <div id='' class="space-column red-walkway"></div>
+                    <div id='' class="space-column red-walkway"></div>
+                    <div id='' class="space-column "></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='two' class="space-column empty"></div>
+                    <div id='three' class="space-column empty" ></div>
+                    <div id='four' class="space-column circle-top-right green"></div>
+                    <div id='five' class="space-column circle-bottom-right green"></div>
+                    <div id='six' class="space-column empty"></div>
+                    <div id='seven' class="space-column empty"></div>
+                    <div id='' class="space-column circle-top-right red"></div>
+                    <div id='' class="space-column circle-bottom-right red"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column event"><p>?</p></div>
+                    <div id='two' class="space-column blue circle-top-left"></div>
+                    <div id='three' class="space-column blue circle-bottom-left" ></div>
+                    <div id='four' class="space-column empty"></div>
+                    <div id='five' class="space-column empty" style="border-top-left-radius: 2em;"></div>
+                    <div id='six' class="space-column empty"></div>
+                    <div id='seven' class="space-column empty"></div>
+                    <div id='' class="space-column empty" style="border-bottom-left-radius: 2em;"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column circle-top-left red"></div>
+                    <div id='' class="space-column red-walkway "><img src='images/home-icon.svg'></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column "></div>
+                    <div id='three' class="space-column  blue-walkway " ><img src='images/home-icon.svg'></div>
+                    <div id='three' class="space-column blue circle-bottom-right" ></div>
+                    <div id='four' class="space-column empty"></div>
+                    <div id='five' class="space-column empty" style="border-top-right-radius: 2em;"></div>
+                    <div id='six' class="space-column empty"></div>
+                    <div id='seven' class="space-column empty"></div>
+                    <div id='' class="space-column empty" style="border-bottom-right-radius: 2em;"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column circle-top-right red"></div>
+                    <div id='' class="space-column circle-bottom-right red"></div>
+                    <div id='one' class="space-column event"><p>?</p></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='two' class="space-column empty"></div>
+                    <div id='three' class="space-column empty" ></div>
+                    <div id='four' class="space-column circle-top-left blue"></div>
+                    <div id='five' class="space-column circle-bottom-left blue"></div>
+                    <div id='six' class="space-column empty"></div>
+                    <div id='seven' class="space-column empty"></div>
+                    <div id='' class="space-column circle-top-left yellow"></div>
+                    <div id='' class="space-column circle-bottom-left yellow"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='two' class="space-column blue-walkway"></div>
+                    <div id='three' class="space-column blue-walkway" ></div>
+                    <div id='four' class="space-column blue-walkway"></div>
+                    <div id='five' class="space-column circle-bottom-right blue"></div>
+                    <div id='six' class="space-column empty"></div>
+                    <div id='seven' class="space-column empty"></div>
+                    <div id='' class="space-column circle-top-right yellow"></div>
+                    <div id='' class="space-column yellow-walkway"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='three' class="space-column shop-space" ><img style="    transform: rotate(180deg); " src="images/shop.png"></div>
+                    <div id='three' class="space-column empty" ></div>
+                    <div id='four' class="space-column empty"></div>
+                    <div id='five' class="space-column empty"></div>
+                    <div id='six' class="space-column circle-top-left yellow"></div>
+                    <div id='seven' class="space-column   circle-bottom-left yellow"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column yellow-walkway"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column">
+                    <div id='one' class="space-column"></div>
+                    <div id='two' class="space-column empty"></div>
+                    <div id='three' class="space-column empty" ></div>
+                    <div id='four' class="space-column empty"></div>
+                    <div id='five' class="space-column empty"></div>
+                    <div id='six' class="space-column circle-top-right yellow"></div>
+                    <div id='seven' class="space-column yellow-walkway"><img src='images/home-icon.svg'></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column yellow-walkway"></div>
+                    <div id='three' class="space-column shop-space" ><img style="    transform: rotate(270deg); " src="images/shop.png"></div>
+                    <div id='' class="space-column empty"></div>
+                    <div id='' class="space-column"></div>
+                </div>
+                <div class="spaces-column grid-right">
+                    <div id='one' class="space-column event"><p>?</p></div>
+                    <div id='two' class="space-column"></div>
+                    <div id='three' class="space-column" ></div>
+                    <div id='four' class="space-column"></div>
+                    <div id='five' class="space-column"></div>
+                    <div id='one' class="space-column event"><p>?</p></div>
+                    <div id='seven' class="space-column "></div>
+                    <div id='' class="space-column"></div>
+                    <div id='' class="space-column"></div>
+                    <div id='' class="space-column"></div>
+                    <div id='' class="space-column"></div>
+                    <div id='one' class="space-column event"><p>?</p></div>
+                </div>
+        </main>
+    </div>
+
+
     <script src="Gamecode.js"></script>
     <script src="https://kit.fontawesome.com/66873e5599.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        window.onload = openFullscreen;
-    </script>
+    <!-- <script type="text/javascript">
+        var name=localStorage.getItem(mapType);
+        var name=localStorage.getItem(playerCount.value);
+        console.log(mapType, playerCount)
+    </script> -->
 
 </body>
