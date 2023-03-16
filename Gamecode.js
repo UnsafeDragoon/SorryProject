@@ -191,6 +191,7 @@ Array.from(cardPopups).forEach((popup) => {
   popup.style.visibility = "hidden";
 })
 removeOverlay()
+closeglow()
 }
 
 
@@ -254,6 +255,65 @@ function sorryCard (){
   document.getElementById("sorryCard").style.visibility = "visible";
 }
 
+function greenglow(){
+  console.log("Displaying green glow")
+  document.getElementById("greenglow1").style.visibility = "visible";
+  document.getElementById("greenglow2").style.visibility = "visible";
+  document.getElementById("greenglow3").style.visibility = "visible";
+  document.getElementById("greenglow4").style.visibility = "visible";
+
+}
+
+function redglow(){
+  console.log("Displaying red glow")
+  document.getElementById("redglow1").style.visibility = "visible";
+  document.getElementById("redglow2").style.visibility = "visible";
+  document.getElementById("redglow3").style.visibility = "visible";
+  document.getElementById("redglow4").style.visibility = "visible";
+
+}
+
+function yellowglow(){
+  console.log("Displaying yellow glow")
+  document.getElementById("yellowglow1").style.visibility = "visible";
+  document.getElementById("yellowglow2").style.visibility = "visible";
+  document.getElementById("yellowglow3").style.visibility = "visible";
+  document.getElementById("yellowglow4").style.visibility = "visible";
+
+}
+
+function blueglow(){
+  console.log("Displaying blue glow")
+  document.getElementById("blueglow1").style.visibility = "visible";
+  document.getElementById("blueglow2").style.visibility = "visible";
+  document.getElementById("blueglow3").style.visibility = "visible";
+  document.getElementById("blueglow4").style.visibility = "visible";
+
+}
+
+
+function closeglow(){
+  document.getElementById("greenglow1").style.visibility = "hidden";
+  document.getElementById("greenglow2").style.visibility = "hidden";
+  document.getElementById("greenglow3").style.visibility = "hidden";
+  document.getElementById("greenglow4").style.visibility = "hidden";
+
+  document.getElementById("redglow1").style.visibility = "hidden";
+  document.getElementById("redglow2").style.visibility = "hidden";
+  document.getElementById("redglow3").style.visibility = "hidden";
+  document.getElementById("redglow4").style.visibility = "hidden";
+
+  document.getElementById("yellowglow1").style.visibility = "hidden";
+  document.getElementById("yellowglow2").style.visibility = "hidden";
+  document.getElementById("yellowglow3").style.visibility = "hidden";
+  document.getElementById("yellowglow4").style.visibility = "hidden";
+
+  document.getElementById("blueglow1").style.visibility = "hidden";
+  document.getElementById("blueglow2").style.visibility = "hidden";
+  document.getElementById("blueglow3").style.visibility = "hidden";
+  document.getElementById("blueglow4").style.visibility = "hidden";
+
+}
 
 
 
@@ -272,7 +332,7 @@ function drawCard() {
   }
 
   console.log(currentPlayer)
-  
+
   overlay()
   let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   console.log(Math.floor(Math.random() * cards.length))
@@ -301,9 +361,27 @@ function drawCard() {
   } else if (random == 10){
     sorryCard()
   }
+
+  if (currentPlayer === 'green'){
+    greenglow()
+  }
+
+  
+  if (currentPlayer === 'blue'){
+    blueglow()
+  }
+
+  
+  if (currentPlayer === 'red'){
+    redglow()
+  }
+
+  
+  if (currentPlayer === 'yellow'){
+    yellowglow()
+  }
 }
 
-function turnLoop(){}
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
@@ -312,6 +390,7 @@ function turnLoop(){}
 function moveForwardOne (){
   console.log('Move forward one')
   closePopup()
+  
   }
 
 function startAPawn(){
