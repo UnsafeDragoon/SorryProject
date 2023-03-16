@@ -168,13 +168,15 @@ function setMatchMap(mapTypeFinal){
 
 let board = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]
 
-
-function test(newPosition){
+let pos = 0;
+function pieceUpdate(newPosition){
+  // pos + 
   var gamePiece = document.createElement('div'); 
   gamePiece.style.backgroundColor = "red";
   gamePiece.style.height = "80%";
   gamePiece.style.width = "80%";
-  document.getElementById(`${board[newPosition]}`).appendChild(gamePiece);           
+  document.getElementById(`${board[pos]}`).appendChild(gamePiece);
+  return pos;
 }
 
 
@@ -308,73 +310,88 @@ function drawCard() {
 function moveForwardOne (){
   console.log('Move forward one')
   closePopup()
+  // let currentMove = 1
+  pieceUpdate(1)
   }
 
 function startAPawn(){
   console.log('Start A pawn')
   closePopup()
+  pieceUpdate(1)
 }
 
 
 function moveForwardTwo (){
   console.log('Move forward two')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardThree (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveBackwardThree (){
   console.log('Move backward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardFive (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardSeven (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function splitSeven (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardEight (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardTwelve (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardOne (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardTen (){
   console.log('Move forward ten')
   closePopup()
+  pieceUpdate(1)
 }
 
 function moveForwardFour (){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 
 function pawns(){
   console.log('Move forward three')
   closePopup()
+  pieceUpdate(1)
 }
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
