@@ -1283,8 +1283,25 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
     margin-right: 2.5vw;
 }
 
-
 .player-piece{
     width: 100%;
     height: 100%;
 }
+/* 
+.storepage {
+    position: fixed;
+    background-color: white;
+    display: flex;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid black;
+}
+
+.itemslot1,
+.itemslot2, 
+.itemslot3, 
+.itemslot4, 
+.itemslot5 {
+    max-width: 100%;
+    border: 1px solid black;
+} */
