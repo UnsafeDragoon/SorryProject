@@ -165,15 +165,11 @@ function setMatchMap(mapTypeFinal){
 
 
 
+ //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
 
 let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
 
-
-
-
-
-
-//▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 function overlay(){
   const overlay = document.createElement("div");
@@ -196,6 +192,8 @@ Array.from(cardPopups).forEach((popup) => {
 })
 removeOverlay()
 }
+
+
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
@@ -263,8 +261,18 @@ function sorryCard (){
 
 
 // Card Drawing 
+let players = ['green', 'blue', 'red', 'yellow']
+let turn = 0;
 
 function drawCard() {
+  let currentPlayer = players[turn];
+  turn++;
+  if(turn == players.length) {
+     turn = 0;
+  }
+
+  console.log(currentPlayer)
+  
   overlay()
   let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
   console.log(Math.floor(Math.random() * cards.length))
@@ -294,6 +302,8 @@ function drawCard() {
     sorryCard()
   }
 }
+
+function turnLoop(){}
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
@@ -609,7 +619,7 @@ function addCoin(player) {
   }
 }
 
-// addCoin('blue')
-// addCoin('red')
-// addCoin('yellow')
-// addCoin('green')
+ addCoin('blue')
+ addCoin('red')
+ addCoin('yellow')
+ addCoin('green')
