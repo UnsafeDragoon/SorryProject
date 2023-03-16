@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body onload="setMatchPlayers(playerCount.value);
-setMatchMap();" id="bodyone" class="bodyOne">
+<body onload="gameSetUp()" id="bodyone" class="bodyOne">
+    
 
 
     <div class = "card1 cardpopup" id="cardOne" class = "cardpopup">
@@ -27,16 +27,59 @@ setMatchMap();" id="bodyone" class="bodyOne">
 
     <div class = "card3 cardpopup" id="cardThree" class = "cardpopup">
         <h1 class = "card3-choice one" onclick = "moveForwardThree()">Move Forward Three</h1>  
-        <img src = "images/Card3.png"second card card">
+        <img src = "images/output-onlinepngtools (1).png "second card card">
+    </div>
+
+
+    <div class = "card4 cardpopup" id="cardFour" class = "cardpopup">
+        <h1 class = "card4-choice one" onclick = "moveBackwardThree()">Move Backward Three</h1>  
+        <img src = "images/output-onlinepngtools (4).png" alt = "second card card">
+    </div>
+    
+    <div class = "card5 cardpopup" id="cardFive" class = "cardpopup">
+        <h1 class = "card5-choice one" onclick = "moveForwardFive()">Move Backward Three</h1>  
+        <img src = "images/Card5.png" alt = "second card card">
+    </div>
+
+    <div class = "card7 cardpopup" id="cardSeven" class = "cardpopup">
+        <h1 class = "card7-choice one" onclick = "moveForwardSeven()">Move Forward Seven Spaces</h1>  
+        <img src = "images/Card7.png" alt = "second card card">
+        <h1 class = "card7-choice two" onclick = "splitSeven()"> Split Between Seven Spaces</h1>  
+    </div>
+
+    <div class = "card8 cardpopup" id="cardEight" class = "cardpopup">
+        <h1 class = "card8-choice one" onclick = "moveForwardOne()">Move Forward Eight</h1>  
+        <img src = "images/Card8.png" alt = "second card card">
+        <h1 class = "card8-choice one" onclick = "moveForwardTen()">Move Forward Ten</h1>  
+
+    </div>
+
+    <div class = "card10 cardpopup" id="cardTen" class = "cardpopup">
+        <h1 class = "card10-choice one" onclick = "moveForwardOne()">Move Forward One</h1>  
+        <img src = "images/Card10.png" alt = "second card card">
+        <h1 class = "card10-choice two" onclick = "moveForwardTen()">Move Forward Ten</h1>  
+    </div>
+
+    <div class = "card11 cardpopup" id="cardEleven" class = "cardpopup">
+        <h1 class = "card11-choice one" onclick = "moveForwardOne()">Move Forward One</h1>  
+        <img src = "images/Card11.png" alt = "second card card">
+        <h1 class = "card11-choice two" onclick = "moveForwardEleven()">Move Forward Ten</h1>  
+    </div>
+
+    <div class = "card12 cardpopup" id="cardTwelve" class = "cardpopup">
+        <h1 class = "card5-choice one" onclick = "pawnswap()">Swap Pawn</h1>  
+        <img src = "images/Card12.png" alt = "second card card">
+        <h1 class = "card5-choice one" onclick = "moveForwardFour()">Move forward 4</h1>  
     </div>
 
     
-    <div class = "card4 cardpopup" id="cardFour" class = "cardpopup">
-        <h1 class = "card4-choice one" onclick = "moveBackwardThree()">Move Backward Four</h1>  
-        <img src = "images/Card4.png" alt = "second card card">
+    <div class = "card13 cardpopup" id="sorryCard" class = "cardpopup">
+        <h1 class = "card13-choice one" onclick = "moveForwardTwelve()">Move Forward Twelve</h1>  
+        <img src = "images/SorryCard.png" alt = "second card card">
     </div>
-    
-    
+
+
+
 
 
 
@@ -113,183 +156,178 @@ setMatchMap();" id="bodyone" class="bodyOne">
 
     <main class="mainOne">
             <div class="spaces-column grid-left">
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='two' class="space-column"></div>
-                <div id='three' class="space-column " ></div>
-                <div id='four' class="space-column"></div>
-                <div id='five' class="space-column"></div>
-                <div id='six' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-             
-             
-             
-             
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
+                <div id='0' class="space-column event"><p>?</p></div>
+                <div id='1' class="space-column"></div>
+                <div id='2' class="space-column " ></div>
+                <div id='3' class="space-column"></div>
+                <div id='4' class="space-column"></div>
+                <div id='5' class="space-column"></div>
+                <div id='6' class="space-column event"><p>?</p></div>
+                <div id='7' class="space-column"></div>
+                <div id='8' class="space-column"></div>
+                <div id='9' class="space-column"></div>
+                <div id='10' class="space-column"></div>
+                <div id='11' class="space-column event"><p>?</p></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column shop-space" ><img style="transform: rotate(90deg); " src="images/shop.png"></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column empty"></div>
-                <div  class="space-column green-walkway"><img src='images/home-icon.svg'></div>
-                <div  class="space-column green circle-bottom-left"></div>
+                <div id='43' class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column shop-space" ><img style="transform: rotate(90deg); " src="images/shop.png"></div>
+                <div class="space-column green-walkway"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column green-walkway"><img src='images/home-icon.svg'></div>
+                <div class="space-column green circle-bottom-left"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+                <div id='12' class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column empty"></div>
-                <div id='six' class="space-column green circle-top-right"></div>
-                <div id='seven' class="space-column green circle-bottom-right"></div>
-                <div id='' class="space-column  empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='three' class="space-column shop-space" ><img src="images/shop.png"></div>
-                <div id='' class="space-column"></div>
+                <div id='42' class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column green-walkway"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column green circle-top-right"></div>
+                <div class="space-column green circle-bottom-right"></div>
+                <div class="space-column  empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column shop-space" ><img src="images/shop.png"></div>
+                <div id='13' class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column circle-bottom-left green"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty "></div>
-                <div id='' class="space-column circle-top-left red"></div>
-                <div id='' class="space-column  red-walkway"></div>
-                <div id='' class="space-column red-walkway"></div>
-                <div id='' class="space-column red-walkway"></div>
-                <div id='' class="space-column "></div>
+                <div id='41' class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column green-walkway"></div>
+                <div class="space-column circle-bottom-left green"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty "></div>
+                <div class="space-column circle-top-left red"></div>
+                <div class="space-column  red-walkway"></div>
+                <div class="space-column red-walkway"></div>
+                <div class="space-column red-walkway"></div>
+                <div id='14' class="space-column "></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column circle-top-right green"></div>
-                <div id='five' class="space-column circle-bottom-right green"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-right red"></div>
-                <div id='' class="space-column circle-bottom-right red"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+                <div id='40' class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column circle-top-right green"></div>
+                <div class="space-column circle-bottom-right green"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column circle-top-right red"></div>
+                <div class="space-column circle-bottom-right red"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div id='15' class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='two' class="space-column blue circle-top-left"></div>
-                <div id='three' class="space-column blue circle-bottom-left" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty" style="border-top-left-radius: 2em;"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column empty" style="border-bottom-left-radius: 2em;"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-left red"></div>
-                <div id='' class="space-column red-walkway "><img src='images/home-icon.svg'></div>
-                <div id='' class="space-column"></div>
+                <div id='39' class="space-column event"><p>?</p></div>
+                <div class="space-column blue circle-top-left"></div>
+                <div class="space-column blue circle-bottom-left" ></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" style="border-top-left-radius: 2em;"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" style="border-bottom-left-radius: 2em;"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column circle-top-left red"></div>
+                <div class="space-column red-walkway "><img src='images/home-icon.svg'></div>
+                <div id='16' class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column "></div>
-                <div id='three' class="space-column  blue-walkway " ><img src='images/home-icon.svg'></div>
-                <div id='three' class="space-column blue circle-bottom-right" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty" style="border-top-right-radius: 2em;"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column empty" style="border-bottom-right-radius: 2em;"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-right red"></div>
-                <div id='' class="space-column circle-bottom-right red"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
+                <div id='38' class="space-column "></div>
+                <div class="space-column  blue-walkway " ><img src='images/home-icon.svg'></div>
+                <div class="space-column blue circle-bottom-right" ></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" style="border-top-right-radius: 2em;"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" style="border-bottom-right-radius: 2em;"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column circle-top-right red"></div>
+                <div class="space-column circle-bottom-right red"></div>
+                <div id='17' class="space-column event"><p>?</p></div>
             </div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column circle-top-left blue"></div>
-                <div id='five' class="space-column circle-bottom-left blue"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-left yellow"></div>
-                <div id='' class="space-column circle-bottom-left yellow"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+                <div id='37' class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column circle-top-left blue"></div>
+                <div class="space-column circle-bottom-left blue"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column circle-top-left yellow"></div>
+                <div class="space-column circle-bottom-left yellow"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div id='18' class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column blue-walkway"></div>
-                <div id='three' class="space-column blue-walkway" ></div>
-                <div id='four' class="space-column blue-walkway"></div>
-                <div id='five' class="space-column circle-bottom-right blue"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty"></div>
-                <div id='' class="space-column circle-top-right yellow"></div>
-                <div id='' class="space-column yellow-walkway"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+                <div id='36' class="space-column"></div>
+                <div class="space-column blue-walkway"></div>
+                <div class="space-column blue-walkway" ></div>
+                <div class="space-column blue-walkway"></div>
+                <div class="space-column circle-bottom-right blue"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column circle-top-right yellow"></div>
+                <div class="space-column yellow-walkway"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div id='19' class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='three' class="space-column shop-space" ><img style="    transform: rotate(180deg); " src="images/shop.png"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty"></div>
-                <div id='six' class="space-column circle-top-left yellow"></div>
-                <div id='seven' class="space-column   circle-bottom-left yellow"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column yellow-walkway"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+                <div id='35' class="space-column"></div>
+                <div class="space-column shop-space" ><img style="    transform: rotate(180deg); " src="images/shop.png"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column circle-top-left yellow"></div>
+                <div class="space-column   circle-bottom-left yellow"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column yellow-walkway"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div id='20' class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column empty"></div>
-                <div id='five' class="space-column empty"></div>
-                <div id='six' class="space-column circle-top-right yellow"></div>
-                <div id='seven' class="space-column yellow-walkway"><img src='images/home-icon.svg'></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column yellow-walkway"></div>
-                <div id='three' class="space-column shop-space" ><img style="    transform: rotate(270deg); " src="images/shop.png"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+                <div id='34' class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column circle-top-right yellow"></div>
+                <div class="space-column yellow-walkway"><img src='images/home-icon.svg'></div>
+                <div class="space-column empty"></div>
+                <div class="space-column yellow-walkway"></div>
+                <div class="space-column shop-space" ><img style="    transform: rotate(270deg); " src="images/shop.png"></div>
+                <div class="space-column empty"></div>
+                <div id='21' class="space-column"></div>
             </div>
             <div class="spaces-column grid-right">
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='two' class="space-column"></div>
-                <div id='three' class="space-column" ></div>
-                <div id='four' class="space-column"></div>
-                <div id='five' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
-                <div id='seven' class="space-column "></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='' class="space-column"></div>
-                <div id='one' class="space-column event"><p>?</p></div>
+                <div id='33' class="space-column event"><p>?</p></div>
+                <div id='32' class="space-column"></div>
+                <div id='31' class="space-column" ></div>
+                <div id='30' class="space-column"></div>
+                <div id='29' class="space-column"></div>
+                <div id='28' class="space-column event"><p>?</p></div>
+                <div id='27' class="space-column "></div>
+                <div id='26' class="space-column"></div>
+                <div id='25' class="space-column"></div>
+                <div id='24' class="space-column"></div>
+                <div id='23' class="space-column"></div>
+                <div id='22' class="space-column event"><p>?</p></div>
             </div>
     </main>
     <script src="Gamecode.js"></script>
     <script src="https://kit.fontawesome.com/66873e5599.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        window.onload = openFullscreen;
     </script>
 
 </body>

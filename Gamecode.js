@@ -132,17 +132,8 @@ function confirmMatch(){
 }
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
-
-
-
-
-
 // Game Code
-
 let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
-
-
-
 
 
 
@@ -309,12 +300,6 @@ function addCoin(player) {
 
         document.getElementById("cs4").style.backgroundColor="yellow"
         document.getElementById("cs4").style.opacity="100%"
-
-
-
-
-
-
       }
 
       break;
@@ -348,9 +333,7 @@ function addCoin(player) {
         document.getElementById("cs11").style.backgroundColor="yellow"
         document.getElementById("cs11").style.opacity="100%"
 
-        document.getAnimations
-
-
+        document.getElementById("cs11")
       }
       if (greenCoins.coins === 4){
         document.getElementById("cs9").style.backgroundColor="yellow"
@@ -397,9 +380,6 @@ function addCoin(player) {
         document.getElementById("cs7").style.backgroundColor="yellow"
         document.getElementById("cs7").style.opacity="100%"
 
-
-
-
       }
       if (redCoins.coins === 4){
         document.getElementById("cs5").style.backgroundColor="yellow"
@@ -414,16 +394,7 @@ function addCoin(player) {
 
         document.getElementById("cs8").style.backgroundColor="yellow"
         document.getElementById("cs8").style.opacity="100%"
-
-
-
-
       }
-
-
-
-
-
 
       break;
     case 'yellow':
@@ -455,10 +426,6 @@ function addCoin(player) {
 
         document.getElementById("cs15").style.backgroundColor="yellow"
         document.getElementById("cs15").style.opacity="100%"
-
-
-
-
       }
       if (yellowCoins.coins === 4){
         document.getElementById("cs13").style.backgroundColor="yellow"
@@ -484,3 +451,24 @@ addCoin('blue')
 addCoin('red')
 addCoin('yellow')
 addCoin('green')
+
+
+const shop = document.querySelectorAll('')//Needs to be the block player passes by);
+const item1 = document.getElementById('');
+const item2 = document.getElementById('');
+const item3 = document.getElementById('');
+const item4 = document.getElementById('');
+const item5 = document.getElementById('');
+const item6 = document.getElementById('');
+
+
+
+const shopLocation1 = getElementById('2');
+const shopLocation2 = getElementById('35');
+const shopLocation3 = getElementById('24');
+const shopLocation4 = getElementById('13');
+
+
+if (document.getElementById('2') != null) {
+  
+}
