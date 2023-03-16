@@ -138,12 +138,12 @@ function setUpMapOne(){
 }
 
 function setUpMapTwo(){
-  document.getElementById("bodyone").style.cssText='background-image: url(images/background_flow.gif);';
+  document.getElementById("bodyone").style.cssText='background-image: url(images/mc.png);';
 console.log('map2')
 }
 
 function setUpMapThree(){
-  document.getElementById("bodyone").style.cssText='background-image: url(images/top-view-skyscrapers-big-city-night-stock-great-116948797.jpg);';
+  document.getElementById("bodyone").style.cssText='background-image: url(images/doom.jpg);';
 console.log('map3')
 }
 
