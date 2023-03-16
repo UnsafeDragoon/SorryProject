@@ -83,7 +83,7 @@
 
 .bodyOne {
     align-items: center;
-    background-image: url(images/backgroundBoardOne.png);   
+    /* background-image: url(images/backgroundBoardOne.png);    */
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -111,8 +111,8 @@
     padding: 1.5em;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10vh;
-    margin-top: 0px;
+    margin-bottom: auto;
+    margin-top: auto;
     padding: 0px;
     border: 0px;
     background-color:black;

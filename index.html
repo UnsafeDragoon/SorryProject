@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 
-<body onload="setMatchPlayers(playerCount.value);
-setMatchMap();" id="bodyone" class="bodyOne">
+<body onload="gameSetUp()" id="bodyone" class="bodyOne">
+    
 
 
     <div class = "card1 cardpopup" id="cardOne" class = "cardpopup">
@@ -155,7 +155,7 @@ setMatchMap();" id="bodyone" class="bodyOne">
 
     <main class="mainOne">
             <div class="spaces-column grid-left">
-                <div id='one' class="space-column event"><p>?</p></div>
+                <div id='1' class="space-column event"><p>?</p></div>
                 <div id='two' class="space-column"></div>
                 <div id='three' class="space-column " ></div>
                 <div id='four' class="space-column"></div>
@@ -164,55 +164,51 @@ setMatchMap();" id="bodyone" class="bodyOne">
                 <div id='one' class="space-column event"><p>?</p></div>
                 <div id='' class="space-column"></div>
                 <div id='' class="space-column"></div>
-             
-             
-             
-             
                 <div id='' class="space-column"></div>
                 <div id='' class="space-column"></div>
                 <div id='one' class="space-column event"><p>?</p></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column shop-space" ><img style="transform: rotate(90deg); " src="images/shop.png"></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column empty"></div>
-                <div  class="space-column green-walkway"><img src='images/home-icon.svg'></div>
-                <div  class="space-column green circle-bottom-left"></div>
+                <div class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column shop-space" ><img style="transform: rotate(90deg); " src="images/shop.png"></div>
+                <div class="space-column green-walkway"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column green-walkway"><img src='images/home-icon.svg'></div>
+                <div class="space-column green circle-bottom-left"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='' class="space-column"></div>
+                <div class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column empty"></div>
-                <div id='six' class="space-column green circle-top-right"></div>
-                <div id='seven' class="space-column green circle-bottom-right"></div>
-                <div id='' class="space-column  empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='' class="space-column empty"></div>
-                <div id='three' class="space-column shop-space" ><img src="images/shop.png"></div>
-                <div id='' class="space-column"></div>
+                <div class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column green-walkway"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column green circle-top-right"></div>
+                <div class="space-column green circle-bottom-right"></div>
+                <div class="space-column  empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column shop-space" ><img src="images/shop.png"></div>
+                <div class="space-column"></div>
             </div>
             <div class="spaces-column">
-                <div id='one' class="space-column"></div>
-                <div id='two' class="space-column empty"></div>
-                <div id='three' class="space-column empty" ></div>
-                <div id='four' class="space-column green-walkway"></div>
-                <div id='five' class="space-column circle-bottom-left green"></div>
-                <div id='six' class="space-column empty"></div>
-                <div id='seven' class="space-column empty "></div>
-                <div id='' class="space-column circle-top-left red"></div>
-                <div id='' class="space-column  red-walkway"></div>
-                <div id='' class="space-column red-walkway"></div>
-                <div id='' class="space-column red-walkway"></div>
-                <div id='' class="space-column "></div>
+                <div class="space-column"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty" ></div>
+                <div class="space-column green-walkway"></div>
+                <div class="space-column circle-bottom-left green"></div>
+                <div class="space-column empty"></div>
+                <div class="space-column empty "></div>
+                <div class="space-column circle-top-left red"></div>
+                <div class="space-column  red-walkway"></div>
+                <div class="space-column red-walkway"></div>
+                <div class="space-column red-walkway"></div>
+                <div class="space-column "></div>
             </div>
             <div class="spaces-column">
                 <div id='one' class="space-column"></div>
@@ -331,7 +327,6 @@ setMatchMap();" id="bodyone" class="bodyOne">
     <script src="Gamecode.js"></script>
     <script src="https://kit.fontawesome.com/66873e5599.js" crossorigin="anonymous"></script>
     <script type="text/javascript">
-        window.onload = openFullscreen;
     </script>
 
 </body>

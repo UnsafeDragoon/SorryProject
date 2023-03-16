@@ -76,23 +76,13 @@ function setMatchPlayers(count){
   console.log(count)
 }
 
-function setMatchMap(){
-
-  if (mapType === 'mapOne'){
-    setUpMapOne();
-  } else if (mapType == 'mapTwo'){
-    setUpMapTwo();
-  } else if (mapType == 'mapThree'){
-    setUpMapThree();
-  } else{
-    console.log('map not selected')
-  }
-}
 
 let maps = document.querySelectorAll('.one-third');
 let confirmButton = document.getElementById('confirmMatchButton')
 let playerCount = document.getElementById('player-container')
 let mapType;
+
+
 
 maps.forEach(map => {
   map.addEventListener('click', function() {
@@ -103,18 +93,6 @@ maps.forEach(map => {
 });
 
 
-function setUpMapOne(){
-    document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
- 
-}
-
-function setUpMapTwo(){
-  console.log('map2')
-}
-
-function setUpMapThree(){
-  console.log('map3')
-}
 
 
 function confirmMatch(){
@@ -124,12 +102,15 @@ function confirmMatch(){
     if(mapType == undefined){
       console.log('nope')
     } else{
-
+      window.localStorage.setItem('playerCount',playerCount.value)
+      window.localStorage.setItem('mapType',mapType)
       window.location.href = "index.html";
-
     }
   }
 }
+
+// let playerCountFinal = window.localStorage.getItem('playerCount')
+// let mapTypeFinal = window.localStorage.getItem('mapType')
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
@@ -138,6 +119,52 @@ function confirmMatch(){
 
 
 // Game Code
+
+function gameSetUp(){
+  let players = window.localStorage.getItem('playerCount')
+  let map = window.localStorage.getItem('mapType')
+
+
+  console.log(players)
+  console.log(map)
+
+  setMatchMap(map)
+}
+
+
+function setUpMapOne(){
+  document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
+  console.log('map1')
+}
+
+function setUpMapTwo(){
+  document.getElementById("bodyone").style.cssText='background-image: url(images/background_flow.gif);';
+console.log('map2')
+}
+
+function setUpMapThree(){
+  document.getElementById("bodyone").style.cssText='background-image: url(images/top-view-skyscrapers-big-city-night-stock-great-116948797.jpg);';
+console.log('map3')
+}
+
+function setMatchMap(mapTypeFinal){
+  let condOne = mapTypeFinal === 'mapOne';
+  let condTwo = mapTypeFinal === 'mapTwo';
+  let condThree = mapTypeFinal === 'mapThree';
+
+  if (condOne === true){
+    setUpMapOne();
+  } else if (condTwo === true){
+    setUpMapTwo();
+  } else if (condThree === true){
+    setUpMapThree();
+  } else{
+    setUpMapOne();
+  }
+}
+
+
+
 
 let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
 
@@ -582,7 +609,7 @@ function addCoin(player) {
   }
 }
 
-addCoin('blue')
-addCoin('red')
-addCoin('yellow')
-addCoin('green')
+// addCoin('blue')
+// addCoin('red')
+// addCoin('yellow')
+// addCoin('green')
