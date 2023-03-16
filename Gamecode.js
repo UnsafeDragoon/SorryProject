@@ -94,6 +94,8 @@ let confirmButton = document.getElementById('confirmMatchButton')
 let playerCount = document.getElementById('player-container')
 let mapType;
 
+
+
 maps.forEach(map => {
   map.addEventListener('click', function() {
     maps.forEach(mp => mp.classList.remove('java-one-third'));
@@ -126,18 +128,67 @@ function confirmMatch(){
     } else{
 
       window.location.href = "index.html";
-
     }
   }
 }
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 // Game Code
+
+function gameSetUp(){
+  let players = window.localStorage.getItem('playerCount')
+  let map = window.localStorage.getItem('mapType')
+
+
+  console.log(players)
+  console.log(map)
+
+  setMatchMap(map)
+}
+
+
+function setUpMapOne(){
+  document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
+  console.log('map1')
+}
+
+function setUpMapTwo(){
+  document.getElementById("bodyone").style.cssText='background-image: url(images/mc.png);';
+console.log('map2')
+}
+
+function setUpMapThree(){
+  document.getElementById("bodyone").style.cssText='background-image: url(images/doom.jpg);';
+console.log('map3')
+}
+
+function setMatchMap(mapTypeFinal){
+  let condOne = mapTypeFinal === 'mapOne';
+  let condTwo = mapTypeFinal === 'mapTwo';
+  let condThree = mapTypeFinal === 'mapThree';
+
+  if (condOne === true){
+    setUpMapOne();
+  } else if (condTwo === true){
+    setUpMapTwo();
+  } else if (condThree === true){
+    setUpMapThree();
+  } else{
+    setUpMapOne();
+  }
+}
+
+
+
+ //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+
 let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
 
 
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
 
 function overlay(){
   const overlay = document.createElement("div");
@@ -159,7 +210,10 @@ Array.from(cardPopups).forEach((popup) => {
   popup.style.visibility = "hidden";
 })
 removeOverlay()
+closeglow()
 }
+
+
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
@@ -181,16 +235,127 @@ function card4(){
   document.getElementById("cardFour").style.visibility = "visible";
 }
 
+function card5(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardFive").style.visibility = "visible";
+}
+
+
+function card7(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardSeven").style.visibility = "visible";
+}
+
+function card8(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+
+function card10(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+function card11(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+
+
+function card12(){
+  console.log('Displaying fourth card')
+  document.getElementById("cardEight").style.visibility = "visible";
+}
+
+function sorryCard (){
+  console.log('Displaying fourth card')
+  document.getElementById("sorryCard").style.visibility = "visible";
+}
+
+function greenglow(){
+  console.log("Displaying green glow")
+  document.getElementById("greenglow1").style.visibility = "visible";
+  document.getElementById("greenglow2").style.visibility = "visible";
+  document.getElementById("greenglow3").style.visibility = "visible";
+  document.getElementById("greenglow4").style.visibility = "visible";
+
+}
+
+function redglow(){
+  console.log("Displaying red glow")
+  document.getElementById("redglow1").style.visibility = "visible";
+  document.getElementById("redglow2").style.visibility = "visible";
+  document.getElementById("redglow3").style.visibility = "visible";
+  document.getElementById("redglow4").style.visibility = "visible";
+
+}
+
+function yellowglow(){
+  console.log("Displaying yellow glow")
+  document.getElementById("yellowglow1").style.visibility = "visible";
+  document.getElementById("yellowglow2").style.visibility = "visible";
+  document.getElementById("yellowglow3").style.visibility = "visible";
+  document.getElementById("yellowglow4").style.visibility = "visible";
+
+}
+
+function blueglow(){
+  console.log("Displaying blue glow")
+  document.getElementById("blueglow1").style.visibility = "visible";
+  document.getElementById("blueglow2").style.visibility = "visible";
+  document.getElementById("blueglow3").style.visibility = "visible";
+  document.getElementById("blueglow4").style.visibility = "visible";
+
+}
+
+
+function closeglow(){
+  document.getElementById("greenglow1").style.visibility = "hidden";
+  document.getElementById("greenglow2").style.visibility = "hidden";
+  document.getElementById("greenglow3").style.visibility = "hidden";
+  document.getElementById("greenglow4").style.visibility = "hidden";
+
+  document.getElementById("redglow1").style.visibility = "hidden";
+  document.getElementById("redglow2").style.visibility = "hidden";
+  document.getElementById("redglow3").style.visibility = "hidden";
+  document.getElementById("redglow4").style.visibility = "hidden";
+
+  document.getElementById("yellowglow1").style.visibility = "hidden";
+  document.getElementById("yellowglow2").style.visibility = "hidden";
+  document.getElementById("yellowglow3").style.visibility = "hidden";
+  document.getElementById("yellowglow4").style.visibility = "hidden";
+
+  document.getElementById("blueglow1").style.visibility = "hidden";
+  document.getElementById("blueglow2").style.visibility = "hidden";
+  document.getElementById("blueglow3").style.visibility = "hidden";
+  document.getElementById("blueglow4").style.visibility = "hidden";
+
+}
+
+
+
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
 // Card Drawing 
+let players = ['green', 'blue', 'red', 'yellow']
+let turn = 0;
 
 function drawCard() {
-  overlay()
-  let cards = [1, 2, 3, 4]
-  random = Math.floor(Math.random() * cards.length);
+  let currentPlayer = players[turn];
+  turn++;
+  if(turn == players.length) {
+     turn = 0;
+  }
 
+  console.log(currentPlayer)
+
+  overlay()
+  let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+  console.log(Math.floor(Math.random() * cards.length))
+  random = Math.floor(Math.random() * cards.length);
 
   if (random === 0){
     card1()
@@ -200,8 +365,42 @@ function drawCard() {
     card3()
   } else if (random === 3){
     card4()
+  } else if (random === 4){
+    card5()
+  } else if (random === 5){
+    card7()
+  } else if (random === 6){
+    card8()
+  } else if (random === 7){
+    card10()
+  } else if (random === 8){
+    card11()
+  } else if (random === 9){
+    card12()
+  } else if (random == 10){
+    sorryCard()
+  }
+
+  if (currentPlayer === 'green'){
+    greenglow()
+  }
+
+  
+  if (currentPlayer === 'blue'){
+    blueglow()
+  }
+
+  
+  if (currentPlayer === 'red'){
+    redglow()
+  }
+
+  
+  if (currentPlayer === 'yellow'){
+    yellowglow()
   }
 }
+
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
@@ -210,6 +409,7 @@ function drawCard() {
 function moveForwardOne (){
   console.log('Move forward one')
   closePopup()
+  
   }
 
 function startAPawn(){
@@ -230,6 +430,52 @@ function moveForwardThree (){
 
 function moveBackwardThree (){
   console.log('Move backward three')
+  closePopup()
+}
+
+function moveForwardFive (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardSeven (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function splitSeven (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardEight (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardTwelve (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardOne (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+function moveForwardTen (){
+  console.log('Move forward ten')
+  closePopup()
+}
+
+function moveForwardFour (){
+  console.log('Move forward three')
+  closePopup()
+}
+
+
+function pawns(){
+  console.log('Move forward three')
   closePopup()
 }
 

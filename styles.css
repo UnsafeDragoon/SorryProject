@@ -84,6 +84,7 @@
 .bodyOne {
     align-items: center;
     /* background-image: url(images/backgroundBoardOne.png);    */
+    /* background-image: url(images/backgroundBoardOne.png);    */
     margin: 0;
     display: flex;
     justify-content: space-between;
@@ -993,16 +994,6 @@ box-shadow: 0px 0px 101px 40px rgba(206,217,46,0.36);
     z-index: 99999999;
 }
 
-.card6 h1{
-    font-family: sans-serif;
-    color:white;
-    font-size: 4vh;
-    display: flex;
-    flex-direction: row;
-    white-space: nowrap;
-    margin-left: 2.5vw;
-    margin-right: 2.5vw;
-}
 
 .card6 h1:hover{
     font-family: sans-serif;
