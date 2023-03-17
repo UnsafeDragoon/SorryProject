@@ -11,6 +11,8 @@
 
 <body onload="gameSetUp()" id="bodyone" class="bodyOne">
     <div class="shopOver"></div>
+    <audio id='music' src="audio/watermarked_Bobo_Renthlei_Follow_My_Heart_instrumental_2_26.mp3" loop></audio>
+    
     <div class = "greenborderglowtop" id = "greenglow1" class = "greenglow"> </div>
     <div class = "greenborderglowright" id = "greenglow2" class = "greenglow"> </div>
     <div class = "greenborderglowleft" id = "greenglow3" class = "greenglow"></div>
@@ -51,6 +53,7 @@
     <div class = "card3 cardpopup" id="cardThree" class = "cardpopup">
         <h1 class = "card3-choice one" onclick = "moveForwardThree()">Move Forward Three</h1>  
         <img src = "images/Card3.png "second card card">
+        <h1 class = "card3-choice two" onclick = "pass()"> Pass</h1>  
     </div>
 
 
@@ -155,7 +158,7 @@
         </div>
     </div>
     <img class='fullscreen' onclick='openFullscreen(); ' src ='images/full-screen-svgrepo-com.svg' alt = 'fullscreen'>
-
+    <button onclick='useItemColorCheck()' id=itemButton class="use-Item">Use Item</button>
     <div class = "yellowCard">
         <div class = "yellowPawn">
             <img src = "images/yellowpawn.svg" alt = "yellowpawn">
@@ -181,7 +184,7 @@
             <div class="spaces-column grid-left">
                 <div id='0' class="space-column event"><p>?</p></div>
                 <div id='1' class="space-column"></div>
-                <div id='2' class="space-column " ></div>
+                <div id='2' class="space-column"></div>
                 <div id='3' class="space-column"></div>
                 <div id='4' class="space-column"></div>
                 <div id='5' class="space-column"></div>
@@ -199,7 +202,7 @@
                 <div class="space-column green-walkway"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column green-walkway"><img src='images/home-icon.svg'></div>
-                <div class="space-column green circle-bottom-left"></div>
+                <div class="space-column green circle-bottom-left"><div style="background-color: green; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
@@ -212,8 +215,8 @@
                 <div class="space-column empty" ></div>
                 <div class="space-column green-walkway"></div>
                 <div class="space-column empty"></div>
-                <div class="space-column green circle-top-right"></div>
-                <div class="space-column green circle-bottom-right"></div>
+                <div class="space-column green circle-top-right"><div style="background-color: green; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div></div>
+                <div class="space-column green circle-bottom-right"><div style="background-color: green; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div></div>
                 <div class="space-column  empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>

@@ -135,6 +135,17 @@ function confirmMatch(){
 
 // Game Code
 
+
+// function pieceUpdate(newPosition){
+//   var gamePiece = document.createElement('div'); 
+//   gamePiece.style.backgroundColor = "red";
+//   gamePiece.style.height = "80%";
+//   gamePiece.style.width = "80%";
+//   document.getElementById(`${board[pos]+4}`).appendChild(gamePiece);
+//   return pos;
+// }
+
+
 function gameSetUp(){
   let players = window.localStorage.getItem('playerCount')
   let map = window.localStorage.getItem('mapType')
@@ -149,17 +160,26 @@ function gameSetUp(){
 
 function setUpMapOne(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
+  let music =document.getElementById('music')
+  music.src="audio/Smoove Groove.mp3"
+  music.play()
   console.log('map1')
 }
 
 function setUpMapTwo(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/mc.png);';
-console.log('map2')
+  let music =document.getElementById('music')
+  music.src="audio/Markus_Huber_Memories_Of_Forever_instrumental_3_18.mp3"
+  music.play()
+  console.log('map2')
 }
 
 function setUpMapThree(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/doom.jpg);';
-console.log('map3')
+  let music =document.getElementById('music')
+  music.src="audio/watermarked_Bobo_Renthlei_Follow_My_Heart_instrumental_2_26.mp3"
+  music.play()
+  console.log('map3')
 }
 
 function setMatchMap(mapTypeFinal){
@@ -182,9 +202,141 @@ function setMatchMap(mapTypeFinal){
 
  //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
+let board = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43']
 
-let board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44]
+let redPieces = [16,16,16];
+let bluePieces =[38,38,38];
+let yellowPieces =[27,27,27];
+let greenPieces =[5,5,5];
 
+let redItem = 'none';
+let blueItem = 'none';
+let greenItem = 'none';
+let yellowItem = 'none';
+
+
+
+
+
+// let redStart = 3;
+// let blueStart =3;
+// let yellowStart =3;
+// let greenStart =3;
+
+const home = {
+  redHome: 0,
+  blueHome: 0,
+  yellowHome: 0,
+  greenHome: 0
+};
+
+// let playerPosition = 10;
+// const space = document.getElementById(playerPosition.toString());
+
+
+const handler = {
+  set(target, property, value) {
+    const oldValue = target[property];
+    target[property] = value;
+    if (value === 3) {
+      console.log(`${property} has a value of 3`);
+      playerWin(property, value);
+    }
+    return true;
+  }
+};
+
+const proxy = new Proxy(home, handler);
+
+function playerWin(property, value) {
+  console.log(`${property} has won because they reached ${value} pawns first! End Game`);
+}
+
+
+
+function updatePiece(oldPosition,newPosition) {
+  let pos = document.getElementById(board[newPosition]);
+  let oldpos = document.getElementById(board[oldPosition])
+  if (oldpos.firstChild) {
+    oldpos.removeChild(oldpos.firstChild);
+  }
+  var gamePiece = document.createElement('div'); 
+  gamePiece.style.backgroundColor = "red";
+  gamePiece.style.height = "80%";
+  gamePiece.style.width = "80%";
+  gamePiece.style.borderRadius= '25px';
+  gamePiece.style.border= '2px solid black';
+  pos.appendChild(gamePiece);
+  getNextPlayerColor()
+}
+
+
+
+
+// TURN SYSTEM
+
+const turnOrder = ["green", "blue", "red", "yellow"];
+
+// let current=['']
+
+let currentTurn = 0;
+
+function getNextPlayerColor() {
+  const currentPlayerColor = turnOrder[currentTurn];
+  currentTurn++;
+  if (currentTurn >= turnOrder.length) {
+    currentTurn = 0;
+  }
+
+  if (currentPlayerColor == 'green'){
+    greenTurn();
+    console.log('g')
+  }else if (currentPlayerColor == 'blue'){
+    blueTurn();
+    console.log('b')
+  }else if (currentPlayerColor == 'red'){
+    redTurn();
+    console.log('r')
+  }else if (currentPlayerColor == 'yellow'){
+    yellowTurn();
+    console.log('y')
+  }
+  return currentPlayerColor;
+}
+getNextPlayerColor()
+
+function greenTurn(){
+  
+}
+function blueTurn(){
+
+}
+function redTurn(){
+
+}
+function yellowTurn(){
+
+}
+
+function useItemColorCheck(){
+  if (currentTurn == 1 && greenItem != 'none'){
+    itemTypeCheck('green')
+  } else if (currentTurn == 1 && blueItem != 'none'){
+    itemTypeCheck('blue')
+  } else if (currentTurn == 1 && redItem != 'none'){
+    itemTypeCheck('red')
+  } else if (currentTurn == 1 && yellowItem != 'none'){
+    itemTypeCheck('yellow')
+  } else{
+    console.log('You do not have any items to use')
+  }
+}
+
+function itemTypeCheck(){
+  // List and check player inventory for type of item and run its function
+}
+
+//▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
@@ -406,9 +558,14 @@ function drawCard() {
 
 // Movement Functions
 
+
+
 function moveForwardOne (){
   console.log('Move forward one')
   closePopup()
+  x = 1;
+  let color = turnOrder[currentTurn-1];
+  
   
   }
 
@@ -458,10 +615,7 @@ function moveForwardTwelve (){
   closePopup()
 }
 
-function moveForwardOne (){
-  console.log('Move forward three')
-  closePopup()
-}
+
 
 function moveForwardTen (){
   console.log('Move forward ten')
@@ -476,6 +630,10 @@ function moveForwardFour (){
 
 function pawns(){
   console.log('Move forward three')
+  closePopup()
+}
+
+function pass(){
   closePopup()
 }
 
@@ -718,3 +876,296 @@ const shopLocation4 = getElementById('13');
 if (document.getElementById('2') != null) {
   
 }
+function removeCoin(player) {
+  switch (player) {
+    case 'blue':
+      if (blueCoins.coins < 4) {
+        blueCoins.coins--;
+        console.log(`Blue player has ${blueCoins.coins} coins.`);
+      }
+      if (blueCoins.coins === 0){
+        document.getElementById("cs1").style = "default"
+        document.getElementById("cs2").style = "default"
+        document.getElementById("cs3").style = "default"
+        document.getElementById("cs4").style = "default"
+      }
+
+      if (blueCoins.coins === 1){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+
+        document.getElementById("cs2").style = "default"
+        document.getElementById("cs3").style = "default"
+        document.getElementById("cs4").style = "default"
+      }
+
+      if (blueCoins.coins === 2){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+
+        document.getElementById("cs2").style.backgroundColor="yellow"
+        document.getElementById("cs2").style.opacity="100%"
+
+        document.getElementById("cs3").style = "default"
+        document.getElementById("cs4").style = "default"
+      }
+
+      if (blueCoins.coins === 3){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+
+        document.getElementById("cs2").style.backgroundColor="yellow"
+        document.getElementById("cs2").style.opacity="100%"
+
+        document.getElementById("cs3").style.backgroundColor="yellow"
+        document.getElementById("cs3").style.opacity="100%"
+
+        document.getElementById("cs4").style = "default"
+
+
+
+
+      }
+      if (blueCoins.coins === 4){
+        document.getElementById("cs1").style.backgroundColor="yellow"
+        document.getElementById("cs1").style.opacity="100%"
+
+        document.getElementById("cs2").style.backgroundColor="yellow"
+        document.getElementById("cs2").style.opacity="100%"
+
+        document.getElementById("cs3").style.backgroundColor="yellow"
+        document.getElementById("cs3").style.opacity="100%"
+
+
+        document.getElementById("cs4").style.backgroundColor="yellow"
+        document.getElementById("cs4").style.opacity="100%"
+
+
+
+
+
+
+      }
+
+      break;
+    case 'green':
+      if (greenCoins.coins < 4) {
+        greenCoins.coins--;
+        console.log(`Green player has ${greenCoins.coins} coins.`);
+      }
+
+      if (greenCoins.coins === 0){
+        document.getElementById("cs9").style = "default"
+        document.getElementById("cs10").style = "default"
+        document.getElementById("cs11").style = "default"
+        document.getElementById("cs12").style = "default"
+      }
+
+      if (greenCoins.coins === 1){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+      
+        document.getElementById("cs10").style ="default"
+        document.getElementById("cs11").style ="default"
+        document.getElementById("cs12").style ="default"
+
+
+      
+      
+      }
+
+      if (greenCoins.coins === 2){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+
+        document.getElementById("cs10").style.backgroundColor="yellow"
+        document.getElementById("cs10").style.opacity="100%"
+
+        document.getElementById("cs11").style ="default"
+        document.getElementById("cs12").style ="default"
+      }
+
+      if (greenCoins.coins === 3){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+
+        document.getElementById("cs10").style.backgroundColor="yellow"
+        document.getElementById("cs10").style.opacity="100%"
+
+        document.getElementById("cs11").style.backgroundColor="yellow"
+        document.getElementById("cs11").style.opacity="100%"
+
+        document.getElementById("cs12").style ="default"
+
+
+
+
+
+      }
+      if (greenCoins.coins === 4){
+        document.getElementById("cs9").style.backgroundColor="yellow"
+        document.getElementById("cs9").style.opacity="100%"
+
+        document.getElementById("cs10").style.backgroundColor="yellow"
+        document.getElementById("cs10").style.opacity="100%"
+
+        document.getElementById("cs11").style.backgroundColor="yellow"
+        document.getElementById("cs11").style.opacity="100%"
+
+
+        document.getElementById("cs12").style.backgroundColor="yellow"
+        document.getElementById("cs12").style.opacity="100%"
+      }
+      break;
+    case 'red':
+      if (redCoins.coins < 4) {
+        redCoins.coins--;
+        console.log(`Red player has ${redCoins.coins} coins.`);
+      }
+
+      
+      if (redCoins.coins === 0){
+        document.getElementById("cs5").style = "default"
+        document.getElementById("cs6").style = "default"
+        document.getElementById("cs7").style = "default"
+        document.getElementById("cs8").style = "default"
+      }
+
+
+      if (redCoins.coins === 1){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+
+        document.getElementById("cs6").style = "default"
+        document.getElementById("cs7").style = "default"
+        document.getElementById("cs8").style = "default"
+
+
+      }
+
+      if (redCoins.coins === 2){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+
+        document.getElementById("cs6").style.backgroundColor="yellow"
+        document.getElementById("cs6").style.opacity="100%"
+        document.getElementById("cs7").style = "default"
+        document.getElementById("cs8").style = "default"
+      }
+
+      if (redCoins.coins === 3){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+
+        document.getElementById("cs6").style.backgroundColor="yellow"
+        document.getElementById("cs6").style.opacity="100%"
+
+        document.getElementById("cs7").style.backgroundColor="yellow"
+        document.getElementById("cs7").style.opacity="100%"
+
+        document.getElementById("cs8").style = "default"
+
+
+
+
+
+      }
+      if (redCoins.coins === 4){
+        document.getElementById("cs5").style.backgroundColor="yellow"
+        document.getElementById("cs5").style.opacity="100%"
+
+        document.getElementById("cs6").style.backgroundColor="yellow"
+        document.getElementById("cs6").style.opacity="100%"
+
+        document.getElementById("cs7").style.backgroundColor="yellow"
+        document.getElementById("cs7").style.opacity="100%"
+
+
+        document.getElementById("cs8").style.backgroundColor="yellow"
+        document.getElementById("cs8").style.opacity="100%"
+
+
+
+
+      }
+
+
+
+
+
+
+      break;
+    case 'yellow':
+      if (yellowCoins.coins < 4) {
+        yellowCoins.coins--;
+        console.log(`Yellow player has ${yellowCoins.coins} coins.`);
+      }
+
+      if (yellowCoins.coins === 0){
+        document.getElementById("cs13").style = "default"
+        document.getElementById("cs14").style = "default"
+        document.getElementById("cs15").style = "default"
+        document.getElementById("cs16").style = "default"
+      }
+      
+      if (yellowCoins.coins === 1){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+
+        document.getElementById("cs14").style = "default"
+        document.getElementById("cs15").style = "default"
+        document.getElementById("cs16").style = "default"
+
+
+      }
+
+      if (yellowCoins.coins === 2){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+
+        document.getElementById("cs14").style.backgroundColor="yellow"
+        document.getElementById("cs14").style.opacity="100%"
+
+        document.getElementById("cs15").style = "default"
+        document.getElementById("cs16").style = "default"
+      }
+
+      if (yellowCoins.coins === 3){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+
+        document.getElementById("cs14").style.backgroundColor="yellow"
+        document.getElementById("cs14").style.opacity="100%"
+
+        document.getElementById("cs15").style.backgroundColor="yellow"
+        document.getElementById("cs15").style.opacity="100%"
+
+        document.getElementById("cs16").style = "default"
+
+
+
+
+      }
+      if (yellowCoins.coins === 4){
+        document.getElementById("cs13").style.backgroundColor="yellow"
+        document.getElementById("cs13").style.opacity="100%"
+
+        document.getElementById("cs14").style.backgroundColor="yellow"
+        document.getElementById("cs14").style.opacity="100%"
+
+        document.getElementById("cs15").style.backgroundColor="yellow"
+        document.getElementById("cs15").style.opacity="100%"
+
+
+        document.getElementById("cs16").style.backgroundColor="yellow"
+        document.getElementById("cs16").style.opacity="100%"
+      }
+      break;
+    default:
+      break;
+  }
+}
+
+
+addCoin('green')
+removeCoin('green')
