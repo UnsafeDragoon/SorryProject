@@ -857,25 +857,69 @@ addCoin('yellow')
 addCoin('green')
 
 
-const shop = document.querySelectorAll('')//Needs to be the block player passes by);
-const item1 = document.getElementById('');
-const item2 = document.getElementById('');
-const item3 = document.getElementById('');
-const item4 = document.getElementById('');
-const item5 = document.getElementById('');
-const item6 = document.getElementById('');
+const shop = document.querySelectorAll('.storepage')
+const item1 = document.getElementById('#1');
+const item01 = document.querySelector('.itemslot1')
+const item2 = document.getElementById('#2');
+const item02 = document.querySelector('.itemslot2')
+const item3 = document.getElementById('#3');
+const item03 = document.querySelector('.itemslot3')
+const item4 = document.getElementById('#4');
+const item04 = document.querySelector('.itemslot4')
+const item5 = document.getElementById('#5');
+const item05 = document.querySelector('.itemslot5')
+const item6 = document.getElementById('#6');
+const item06 = document.querySelector('.itemslot6')
 
 
 
-const shopLocation1 = getElementById('2');
-const shopLocation2 = getElementById('35');
-const shopLocation3 = getElementById('24');
-const shopLocation4 = getElementById('13');
+const shopLocation1 = document.getElementById('2');
+const shopLocation2 = document.getElementById('35');
+const shopLocation3 = document.getElementById('24');
+const shopLocation4 = document.getElementById('13');
 
+function Shop () {
+  if (document.getElementById('2') != null) {
+  shopScreen() 
+}
+}
 
-if (document.getElementById('2') != null) {
+item1.addEventListener('click', () => {
+  item01.style.visibility = 'hidden';
+  console.log('hello')
+})
+
+item2.addEventListener('click', () => {
+  item02.style.visibility = 'hidden';
+  console.log('rock')
+})
+
+item3.addEventListener('click', () => {
+  item03.style.visibility = 'hidden';
+  console.log('walnut')
+})
+
+item4.addEventListener('click', () => {
+  item04.style.visibility = 'hidden';
+  console.log('cat')
+})
+
+item5.addEventListener('click', () => {
+  item05.style.visibility = 'hidden';
+  console.log('buff')
+})
+
+item6.addEventListener('click', () => {
+  item06.style.visibility = 'hidden';
+  console.log('ball')
+})
+
+function shopScreen () {
+  const shopsLocations = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
   
 }
+
+
 function removeCoin(player) {
   switch (player) {
     case 'blue':
