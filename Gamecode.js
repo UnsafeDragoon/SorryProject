@@ -158,6 +158,8 @@ function gameSetUp(){
   console.log(map)
 
   setMatchMap(map)
+  getNextPlayerColor()
+  
 }
 
 
@@ -264,20 +266,39 @@ function playerWin(property, value) {
 
 
 
-
+//  (5,13)
 function updatePiece(oldPosition,newPosition) {
+  console.log(oldPosition)
+  console.log(newPosition)
+
   let pos = document.getElementById(board[newPosition]);
   let oldpos = document.getElementById(board[oldPosition])
-  if (oldpos.firstChild) {
-    oldpos.removeChild(oldpos.firstChild);
+
+  console.log(pos)
+  console.log(oldpos)
+
+  // if (oldpos.firstChild) {
+  //   oldpos.removeChild(oldpos.firstChild);
+  // }
+  if(oldpos.hasChildNodes()===true){
+    for (let i = oldpos.children.length - 1; i >= 0; i--) {
+      oldpos.children[i].remove();
+    }
+  } else{
+    console.log('s')
   }
+
   var gamePiece = document.createElement('div'); 
-  gamePiece.style.backgroundColor = "red";
+  gamePiece.classList.add(String(currentColorTurn)+'-pawn');
+  gamePiece.classList.add('pawn');
+  gamePiece.setAttribute('id', pawnNum.id);
+  gamePiece.style.backgroundColor = String(currentColorTurn);
   gamePiece.style.height = "80%";
   gamePiece.style.width = "80%";
   gamePiece.style.borderRadius= '25px';
   gamePiece.style.border= '2px solid black';
   pos.appendChild(gamePiece);
+  greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition
 }
 
 
@@ -297,6 +318,7 @@ function getNextPlayerColor() {
   if (currentTurn >= turnOrder.length) {
     currentTurn = 0;
   }
+  textBox.innerHTML="It is "+String(currentPlayerColor)+"'s turn."
 
   if (currentPlayerColor == 'green'){
     console.log(currentPlayerColor)
@@ -315,29 +337,101 @@ function getNextPlayerColor() {
     yellowTurn();
     console.log('y')
   }
-  return currentColorTurn = currentPlayerColor;
+  currentColorTurn = currentPlayerColor;
+  selectPawnToMove()
+  return currentColorTurn;
 };
 
 // let x = getNextPlayerColor;
-// getNextPlayerColor()
 
 
 
 
+// let pawnNum;
+// function selectPawnToMove(){
+//   let Pawns = document.querySelectorAll('.'+currentColorTurn+'-pawn')
+//   let allPawns = document.querySelectorAll('.pawn')
+//   allPawns.removeEventListener('click', pawnSelection());
+
+//   Pawns.forEach(pawn => {
+//     pawn.addEventListener('click', function pawnSelection() {
+//       Pawns.forEach(mp => mp.classList.remove('java-one-third'));
+//       pawn.classList.add('java-one-third');
+//       pawnNum = pawn.id;
+//     });
+//   });
+// }
+
+let pawnNum;
 
 function selectPawnToMove(){
-  let Pawns = document.querySelectorAll('.'+currentColorTurn+'-pawn')
-  let pawnNum;
+  pawnNum = undefined;
+  let Pawns = document.querySelectorAll('.'+currentColorTurn+'-pawn');
+  let allPawns = document.querySelectorAll('.pawn');
+
+  // Remove event listener from all elements with class 'pawn'
+  allPawns.forEach(pawn => {
+    pawn.removeEventListener('click', pawnSelection);
+  });
+
+  // Add event listener to specific pawns
   Pawns.forEach(pawn => {
-    pawn.addEventListener('click', function() {
-      Pawns.forEach(mp => mp.classList.remove('java-one-third'));
-      pawn.classList.add('java-one-third');
-      pawnNum = pawn.id;
-    });
+    pawn.addEventListener('click', pawnSelection);
   });
 }
+
+function pawnSelection() {
+  let Pawns = document.querySelectorAll('.'+currentColorTurn+'-pawn');
+  Pawns.forEach(mp => mp.classList.remove('java-one-third'));
+  this.classList.add('java-one-third');
+  pawnNum = this;
+}
+
+
+// let redPieces = [16,16,16];
+// let bluePieces =[38,38,38];
+// let yellowPieces =[27,27,27];
+// let greenPieces =[5,5,5];
+
+
+
 function confirmPawnToMove(){
-  
+  if (playerMove!=0 && pawnNum != undefined){
+    let pawnMoved = Number(pawnNum.id.match(/\d+/)[0])
+    // let pawnPos = window[currentColorTurn]+'Pieces'
+    if (currentColorTurn == 'green'){
+      console.log(currentColorTurn)
+      let oldPos = greenPieces[pawnMoved];
+      console.log('The old position is ',oldPos)
+
+      let newPosition = oldPos + playerMove;
+      console.log('The uncalulated position is',newPosition)
+      if (newPosition<0){
+        newPosition +=44;
+      } else if (newPosition>43){
+        newPosition -=44 ;
+      }
+      console.log('The new position is',newPosition)
+      console.log(greenPieces)
+      // greenPieces[pawnMoved] = newPosition
+      updatePiece(oldPos,newPosition)
+    }else if (currentColorTurn == 'blue'){
+      console.log(currentColorTurn)
+      console.log(bluePieces[pawnMoved])
+    }else if (currentColorTurn == 'red'){
+      console.log(currentColorTurn)
+      console.log(redPieces[pawnMoved])
+    }else if (currentColorTurn == 'yellow'){
+      console.log(currentColorTurn)
+      console.log(yellowPieces[pawnMoved])
+    }
+  } else if(playerMove!=0 && pawnNum === undefined){
+    textBox.innerHTML='You need to select a pawn to move!'
+  } else if(playerMove===0 && pawnNum != undefined){
+    textBox.innerHTML='You need to draw a card to move!'
+  } else {
+    textBox.innerHTML='You need to select a pawn and draw a card to move!'
+  }
 }
 
 
@@ -543,7 +637,7 @@ function drawCard() {
   // if(turn == players.length) {
   //    turn = 0;
   // }
-
+  selectPawnToMove()
   console.log(currentColorTurn)
 
   overlay()
@@ -600,46 +694,49 @@ function drawCard() {
 
 // Movement Functions
 
-
+let playerMove = 0;
 
 function moveForwardOne (){
   console.log('Move forward one')
   closePopup()
-  x = 1;
-  let color = turnOrder[currentTurn-1];
-  
-  
+  return playerMove = 1;
   }
 
 function startAPawn(){
   console.log('Start A pawn')
   closePopup()
+  
 }
 
 
 function moveForwardTwo (){
   console.log('Move forward two')
   closePopup()
+  return playerMove = 2;
 }
 
 function moveForwardThree (){
   console.log('Move forward three')
   closePopup()
+  return playerMove = 3;
 }
 
 function moveBackwardThree (){
   console.log('Move backward three')
   closePopup()
+  return playerMove = -3;
 }
 
 function moveForwardFive (){
   console.log('Move forward three')
   closePopup()
+  return playerMove = 5;
 }
 
 function moveForwardSeven (){
   console.log('Move forward three')
   closePopup()
+  return playerMove = 7;
 }
 
 function splitSeven (){
@@ -650,11 +747,13 @@ function splitSeven (){
 function moveForwardEight (){
   console.log('Move forward three')
   closePopup()
+  return playerMove = 8;
 }
 
 function moveForwardTwelve (){
   console.log('Move forward three')
   closePopup()
+  return playerMove = 12;
 }
 
 
@@ -662,11 +761,13 @@ function moveForwardTwelve (){
 function moveForwardTen (){
   console.log('Move forward ten')
   closePopup()
+  return playerMove = 10;
 }
 
 function moveForwardFour (){
   console.log('Move forward three')
   closePopup()
+  return playerMove = 4;
 }
 
 
@@ -903,69 +1004,69 @@ addCoin('green')
 
 // store system
 
-const shop = document.querySelectorAll('.storepage')
-const item1 = document.getElementById('#1');
-const item01 = document.querySelector('.itemslot1')
-const item2 = document.getElementById('#2');
-const item02 = document.querySelector('.itemslot2')
-const item3 = document.getElementById('#3');
-const item03 = document.querySelector('.itemslot3')
-const item4 = document.getElementById('#4');
-const item04 = document.querySelector('.itemslot4')
-const item5 = document.getElementById('#5');
-const item05 = document.querySelector('.itemslot5')
-const item6 = document.getElementById('#6');
-const item06 = document.querySelector('.itemslot6')
+// const shop = document.querySelectorAll('.storepage')
+// const item1 = document.getElementById('#1');
+// const item01 = document.querySelector('.itemslot1')
+// const item2 = document.getElementById('#2');
+// const item02 = document.querySelector('.itemslot2')
+// const item3 = document.getElementById('#3');
+// const item03 = document.querySelector('.itemslot3')
+// const item4 = document.getElementById('#4');
+// const item04 = document.querySelector('.itemslot4')
+// const item5 = document.getElementById('#5');
+// const item05 = document.querySelector('.itemslot5')
+// const item6 = document.getElementById('#6');
+// const item06 = document.querySelector('.itemslot6')
 
 
 
-const shopLocation1 = document.getElementById('2');
-const shopLocation2 = document.getElementById('35');
-const shopLocation3 = document.getElementById('24');
-const shopLocation4 = document.getElementById('13');
+// const shopLocation1 = document.getElementById('2');
+// const shopLocation2 = document.getElementById('35');
+// const shopLocation3 = document.getElementById('24');
+// const shopLocation4 = document.getElementById('13');
 
-function Shop () {
-  if (document.getElementById('2') != null) {
-  shopScreen() 
-}
-}
+// function Shop () {
+//   if (document.getElementById('2') != null) {
+//   shopScreen() 
+// }
+// }
 
 
-item1.addEventListener('click', () => {
-  item01.style.visibility = 'hidden';
+// item1.addEventListener('click', () => {
+//   item01.style.visibility = 'hidden';
+//   shop.style.visibility = 'hidden';
+//   console.log('hello')
+// })
+
+// item2.addEventListener('click', () => {
+//   item02.style.visibility = 'hidden';
+//   console.log('rock')
+// })
+
+// item3.addEventListener('click', () => {
+//   item03.style.visibility = 'hidden';
+//   console.log('walnut')
+// })
+
+// item4.addEventListener('click', () => {
+//   item04.style.visibility = 'hidden';
+//   console.log('cat')
+// })
+
+// item5.addEventListener('click', () => {
+//   item05.style.visibility = 'hidden';
+//   console.log('buff')
+// })
+
+// item6.addEventListener('click', () => {
+//   item06.style.visibility = 'hidden';
+//   console.log('ball')
+// })
+
+// function shopScreen () {
+//   const shopsLocations = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
   
-  console.log('hello')
-})
-
-item2.addEventListener('click', () => {
-  item02.style.visibility = 'hidden';
-  console.log('rock')
-})
-
-item3.addEventListener('click', () => {
-  item03.style.visibility = 'hidden';
-  console.log('walnut')
-})
-
-item4.addEventListener('click', () => {
-  item04.style.visibility = 'hidden';
-  console.log('cat')
-})
-
-item5.addEventListener('click', () => {
-  item05.style.visibility = 'hidden';
-  console.log('buff')
-})
-
-item6.addEventListener('click', () => {
-  item06.style.visibility = 'hidden';
-  console.log('ball')
-})
-
-function shopScreen () {
-  const shopsLocations = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
-  
-}
+// }
 
 
 function removeCoin(player) {
