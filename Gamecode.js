@@ -126,7 +126,10 @@ function confirmMatch(){
     if(mapType == undefined){
       console.log('nope')
     } else{
-
+      window.localStorage.setItem('playerCount', playerCount.value)
+      window.localStorage.setItem('mapType', mapType)
+      // console.log(playerCount.value)
+      // console.log(mapType)
       window.location.href = "index.html";
     }
   }
