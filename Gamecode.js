@@ -233,6 +233,10 @@ const home = {
   greenHome: 0
 };
 
+
+let textBox = document.getElementById('gameMessages')
+
+
 // let playerPosition = 10;
 // const space = document.getElementById(playerPosition.toString());
 
@@ -257,6 +261,10 @@ function playerWin(property, value) {
 
 
 
+
+
+
+
 function updatePiece(oldPosition,newPosition) {
   let pos = document.getElementById(board[newPosition]);
   let oldpos = document.getElementById(board[oldPosition])
@@ -270,7 +278,6 @@ function updatePiece(oldPosition,newPosition) {
   gamePiece.style.borderRadius= '25px';
   gamePiece.style.border= '2px solid black';
   pos.appendChild(gamePiece);
-  getNextPlayerColor()
 }
 
 
@@ -279,10 +286,10 @@ function updatePiece(oldPosition,newPosition) {
 // TURN SYSTEM
 
 const turnOrder = ["green", "blue", "red", "yellow"];
-
-// let current=['']
-
 let currentTurn = 0;
+
+
+let currentColorTurn;
 
 function getNextPlayerColor() {
   const currentPlayerColor = turnOrder[currentTurn];
@@ -292,27 +299,54 @@ function getNextPlayerColor() {
   }
 
   if (currentPlayerColor == 'green'){
+    console.log(currentPlayerColor)
     greenTurn();
     console.log('g')
   }else if (currentPlayerColor == 'blue'){
+    console.log(currentPlayerColor)
     blueTurn();
     console.log('b')
   }else if (currentPlayerColor == 'red'){
+    console.log(currentPlayerColor)
     redTurn();
     console.log('r')
   }else if (currentPlayerColor == 'yellow'){
+    console.log(currentPlayerColor)
     yellowTurn();
     console.log('y')
   }
-  return currentPlayerColor;
+  return currentColorTurn = currentPlayerColor;
+};
+
+// let x = getNextPlayerColor;
+// getNextPlayerColor()
+
+
+
+
+
+function selectPawnToMove(){
+  let Pawns = document.querySelectorAll('.'+currentColorTurn+'-pawn')
+  let pawnNum;
+  Pawns.forEach(pawn => {
+    pawn.addEventListener('click', function() {
+      Pawns.forEach(mp => mp.classList.remove('java-one-third'));
+      pawn.classList.add('java-one-third');
+      pawnNum = pawn.id;
+    });
+  });
 }
-getNextPlayerColor()
+function confirmPawnToMove(){
+  
+}
+
 
 function greenTurn(){
+
   
 }
 function blueTurn(){
-
+  
 }
 function redTurn(){
 
@@ -322,16 +356,21 @@ function yellowTurn(){
 }
 
 function useItemColorCheck(){
-  if (currentTurn == 1 && greenItem != 'none'){
+  if (currentColorTurn == 'green' && greenItem != 'none'){
     itemTypeCheck('green')
-  } else if (currentTurn == 1 && blueItem != 'none'){
+  } else if (currentColorTurn == 'blue' && blueItem != 'none'){
     itemTypeCheck('blue')
-  } else if (currentTurn == 1 && redItem != 'none'){
+  } else if (currentColorTurn == 'red' && redItem != 'none'){
     itemTypeCheck('red')
-  } else if (currentTurn == 1 && yellowItem != 'none'){
+  } else if (currentColorTurn === 'yellow' && yellowItem != 'none'){
+    console.log('neat item')
+
+
+
     itemTypeCheck('yellow')
+
   } else{
-    console.log('You do not have any items to use')
+    textBox.innerHTML='You do not have any items to use'
   }
 }
 
@@ -495,17 +534,17 @@ function closeglow(){
 
 
 // Card Drawing 
-let players = ['green', 'blue', 'red', 'yellow']
-let turn = 0;
+// let players = ['green', 'blue', 'red', 'yellow']
+// let turn = 0;
 
 function drawCard() {
-  let currentPlayer = players[turn];
-  turn++;
-  if(turn == players.length) {
-     turn = 0;
-  }
+  // let currentPlayer = players[turn];
+  // turn++;
+  // if(turn == players.length) {
+  //    turn = 0;
+  // }
 
-  console.log(currentPlayer)
+  console.log(currentColorTurn)
 
   overlay()
   let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
@@ -536,22 +575,22 @@ function drawCard() {
     sorryCard()
   }
 
-  if (currentPlayer === 'green'){
+  if (currentColorTurn === 'green'){
     greenglow()
   }
 
   
-  if (currentPlayer === 'blue'){
+  if (currentColorTurn === 'blue'){
     blueglow()
   }
 
   
-  if (currentPlayer === 'red'){
+  if (currentColorTurn === 'red'){
     redglow()
   }
 
   
-  if (currentPlayer === 'yellow'){
+  if (currentColorTurn === 'yellow'){
     yellowglow()
   }
 }
@@ -860,6 +899,10 @@ addCoin('yellow')
 addCoin('green')
 
 
+
+
+// store system
+
 const shop = document.querySelectorAll('.storepage')
 const item1 = document.getElementById('#1');
 const item01 = document.querySelector('.itemslot1')
@@ -887,8 +930,10 @@ function Shop () {
 }
 }
 
+
 item1.addEventListener('click', () => {
   item01.style.visibility = 'hidden';
+  
   console.log('hello')
 })
 
