@@ -112,7 +112,7 @@
 
 
 
-        <div class="cardstack" onclick="drawCard()">
+        <div class="cardstack" onclick="checkDraw()">
             <img id="draw-card" class="drawing-cards" src="images/pngconvert_thumbnail.png" alt="carddeck">
         </div>
 
@@ -162,7 +162,7 @@
         </div>
         <img class='fullscreen' onclick='openFullscreen(); ' src='images/full-screen-svgrepo-com.svg' alt='fullscreen'>
         <button onclick='useItemColorCheck()' id=itemButton class="use-Item">Use Item</button>
-        <button onclick='confirmPawnToMove()' class="confirm-pawn">Confirm Pawn To Move</button>
+        <button onclick='confirmPawnToMove()' id='pawnButton' class="confirm-pawn">Confirm Pawn To Move</button>
 
         <div class="yellowCard playerBannerGlow">
             <div class="yellowPawn">
@@ -193,7 +193,7 @@
                 <div id='2' class="space-column"></div>
                 <div id='3' class="space-column"></div>
                 <div id='4' class="space-column"></div>
-                <div id='5' class="space-column"></div>
+                <div id='5' class="space-column diretional-arrows" style="transform: rotate(270deg);"></div>
                 <div id='6' class="space-column event">
        
                 </div>
@@ -210,10 +210,10 @@
                 <div class="space-column empty"></div>
                 <div class="space-column shop-space"><img style="transform: rotate(90deg); " src="images/shop.png">
                 </div>
-                <div class="space-column green-walkway"></div>
+                <div class="space-column green-walkway" id="greenHomeWalk1"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column green-walkway"><img src='images/home-icon.svg'></div>
-                <div id='greenStart0' class="space-column green circle-bottom-left">
+                <div id='greenStart0' class="space-column green circle-bottom-left start-space">
                     <div class='green-pawn pawn' id="greenp0" style="background-color: green; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column empty"></div>
@@ -226,12 +226,12 @@
                 <div id='42' class="space-column"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div class="space-column green-walkway"></div>
+                <div class="space-column green-walkway" id="greenHomeWalk2"></div>
                 <div class="space-column empty"></div>
-                <div id='greenStart1' class="space-column green circle-top-right">
+                <div id='greenStart1' class="space-column green circle-top-right start-space">
                     <div class='green-pawn pawn' id="greenp1" style="background-color: green; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
-                <div id='greenStart2' class="space-column green circle-bottom-right">
+                <div id='greenStart2' class="space-column green circle-bottom-right start-space">
                     <div class='green-pawn pawn' id="greenp2" style="background-color: green; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column  empty"></div>
@@ -244,11 +244,11 @@
                 <div id='41' class="space-column"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div class="space-column green-walkway"></div>
-                <div id='greenHome3' class="space-column circle-bottom-left green"></div>
+                <div class="space-column green-walkway" id="greenHomeWalk3"></div>
+                <div id='greenHome0' class="space-column circle-bottom-left green"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty "></div>
-                <div id='redHome3' class="space-column circle-top-left red"></div>
+                <div id='redHome0' class="space-column circle-top-left red"></div>
                 <div class="space-column  red-walkway"></div>
                 <div class="space-column red-walkway"></div>
                 <div class="space-column red-walkway"></div>
@@ -272,11 +272,11 @@
                 <div id='39' class="space-column event">
                 
                 </div>
-                <div id='blueStart1' class="space-column blue circle-top-left">
-                    <div class="blue-pawn pawn" style="background-color: blue; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='blueStart0' class="space-column blue circle-top-left start-space">
+                    <div class="blue-pawn pawn" id="bluep0" style="background-color: blue; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
-                <div id='blueStart2' class="space-column blue circle-bottom-left">
-                    <div class="blue-pawn pawn" style="background-color: blue; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='blueStart1' class="space-column blue circle-bottom-left start-space">
+                    <div class="blue-pawn pawn" id='bluep1' style="background-color: blue; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty" style="border-top-left-radius: 2em;"></div>
@@ -284,17 +284,17 @@
                 <div class="space-column empty"></div>
                 <div class="space-column empty" style="border-bottom-left-radius: 2em;"></div>
                 <div class="space-column empty"></div>
-                <div id='redStart1' class="space-column circle-top-left red">
-                    <div class='red-pawn pawn' style="background-color: red; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='redStart0' class="space-column circle-top-left red start-space">
+                    <div class='red-pawn pawn' id='redp0' style="background-color: red; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column red-walkway "><img src='images/home-icon.svg'></div>
-                <div id='16' class="space-column"></div>
+                <div id='16' class="space-column diretional-arrows" style="transform: rotate(180deg);"></div>
             </div>
             <div class="spaces-column">
-                <div id='38' class="space-column "></div>
+                <div id='38' class="space-column diretional-arrows" ></div>
                 <div class="space-column  blue-walkway "><img src='images/home-icon.svg'></div>
-                <div id='blueStart3' class="space-column blue circle-bottom-right">
-                    <div class="blue-pawn pawn" style="background-color: blue; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='blueStart3' class="space-column blue circle-bottom-right start-space">
+                    <div class="blue-pawn pawn" id='bluep2'style="background-color: blue; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty" style="border-top-right-radius: 2em;"></div>
@@ -302,11 +302,11 @@
                 <div class="space-column empty"></div>
                 <div class="space-column empty" style="border-bottom-right-radius: 2em;"></div>
                 <div class="space-column empty"></div>
-                <div id='redStart2' class="space-column circle-top-right red">
-                    <div class='red-pawn pawn'  style="background-color: red; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='redStart1' class="space-column circle-top-right red start-space">
+                    <div class='red-pawn pawn' id="redp1" style="background-color: red; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
-                <div id='redStart3' class="space-column circle-bottom-right red">
-                    <div class='red-pawn pawn'  style="background-color: red; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='redStart2' class="space-column circle-bottom-right red start-space">
+                    <div class='red-pawn pawn' id="redp2" style="background-color: red; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div id='17' class="space-column event">
                     <!-- <p>?</p> -->
@@ -322,7 +322,7 @@
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div id='yellowHome2' class="space-column circle-top-left yellow"></div>
-                <div id='yellowHome3' class="space-column circle-bottom-left yellow"></div>
+                <div id='yellowHome0' class="space-column circle-bottom-left yellow"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div id='18' class="space-column"></div>
@@ -332,7 +332,7 @@
                 <div class="space-column blue-walkway"></div>
                 <div class="space-column blue-walkway"></div>
                 <div class="space-column blue-walkway"></div>
-                <div id='blueHome3' class="space-column circle-bottom-right blue"></div>
+                <div id='blueHome0' class="space-column circle-bottom-right blue"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div id='yellowHome1' class="space-column circle-top-right yellow"></div>
@@ -348,11 +348,11 @@
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='yellowStart1' class="space-column circle-top-left yellow">
-                    <div class='yellow-pawn pawn' style="background-color: yellow; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='yellowStart0' class="space-column circle-top-left yellow start-space">
+                    <div class='yellow-pawn pawn' id="yellowp0" style="background-color: yellow; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
-                <div id='yellowStart2' class="space-column   circle-bottom-left yellow">
-                    <div class='yellow-pawn pawn' style="background-color: yellow; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='yellowStart1' class="space-column   circle-bottom-left yellow start-space">
+                    <div class='yellow-pawn pawn' id="yellowp1" style="background-color: yellow; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column empty"></div>
                 <div class="space-column yellow-walkway"></div>
@@ -366,8 +366,8 @@
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='yellowStart3' class="space-column circle-top-right yellow">
-                    <div class='yellow-pawn pawn' style="background-color: yellow; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
+                <div id='yellowStart2' class="space-column circle-top-right yellow start-space">
+                    <div class='yellow-pawn pawn' id="yellowp2" style="background-color: yellow; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column yellow-walkway"><img src='images/home-icon.svg'></div>
                 <div class="space-column empty"></div>
@@ -386,7 +386,7 @@
                 <div id='29' class="space-column"></div>
                 <div id='28' class="space-column event">
                 </div>
-                <div id='27' class="space-column "></div>
+                <div id='27' class="space-column diretional-arrows" style="transform: rotate(90deg);"></div>
                 <div id='26' class="space-column"></div>
                 <div id='25' class="space-column"></div>
                 <div id='24' class="space-column"></div>

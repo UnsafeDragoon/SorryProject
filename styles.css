@@ -1615,3 +1615,11 @@
     text-align: center;
     color: red;
 }
+
+.diretional-arrows{
+    background-image: url(images/left-arrow-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 0%;
+    
+}
