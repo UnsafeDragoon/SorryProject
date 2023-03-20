@@ -175,7 +175,7 @@
 
 .green-walkway {
 
-    border-color: green;.red
+    border-color: green;
     background-color: #b1ffa1;
 }
 
@@ -396,6 +396,10 @@
 }
 
 .event {
+    background-image: url(images/event-space.png);
+    background-position: center;
+    background-size: 60%;
+    background-repeat: no-repeat;
     background-color: gold;
     display: flex;
     justify-content: center;
@@ -533,6 +537,11 @@
 .one-third.glow {
     border-color: #9ecaed;
     box-shadow: 0 0 15px #ffffff;
+}
+
+.playerBannerGlow{
+    border: black solid .2em;
+    box-shadow: 0 0 4em white; 
 }
 
 /* This Is for the lobby coding below */
@@ -734,6 +743,7 @@
 .start:hover {
     animation: animate 8s linear infinite;
     transition: 0.5s;
+    
     cursor: pointer;
 }
 
@@ -1578,8 +1588,40 @@
 .use-Item {
     background-color: green;
     position: absolute;
-    right: 5%;
-    top: 30%;
-    width: 10em;
-    height: 3em;
+    right: 39%;
+    top: 45.8%;
+    font-size: .8em;
+    width: 8em;
+    height: 4em;
+
+}
+.confirm-pawn{
+    background-color: green;
+    position: absolute;
+    left:40%;
+    top: 46%;
+    width: 8em;
+    font-size: .8em;
+    height: 4em;
+}
+.message-box{
+    position: absolute;
+    right: 0;
+    background-color: white;
+    border: solid black .15em;
+    top:30%;
+    width: 20em;
+    height: 5em;
+}
+.message-box h2{
+    text-align: center;
+    color: red;
+}
+
+.diretional-arrows{
+    background-image: url(images/left-arrow-svgrepo-com.svg);
+    background-repeat: no-repeat;
+    background-size: 50%;
+    background-position: 0%;
+    
 }
