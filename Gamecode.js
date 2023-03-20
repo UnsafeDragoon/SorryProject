@@ -340,6 +340,7 @@ function checkForHome(oldPosition, newPosition){
   } 
   if(homePosition > 0 && homePosition < 4){
     placeToMoveTo = String(currentColorTurn)+'HomeWalk'+String(homePosition)
+    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
     var gamePiece = document.createElement('div'); 
     gamePiece.classList.add(String(currentColorTurn)+'-pawn');
     gamePiece.classList.add('pawn');
@@ -488,6 +489,9 @@ function confirmPawnToMove(){
           newPosition +=44;
         } else if (newPosition>43){
           newPosition -=44 ;
+        }
+        if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
+          console.log('HomeWalkway Dectected')
         }
         if (String(pawnNum.parentElement.id) === String(currentColorTurn)+'Start'+Number(pawnNum.id.match(/\d+/)[0])){
           pawnNum.remove();
