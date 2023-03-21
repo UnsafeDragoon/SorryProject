@@ -718,10 +718,11 @@ function drawCard() {
   selectPawnToMove()
   console.log(currentColorTurn)
   overlay()
-  let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-  console.log(Math.floor(Math.random() * cards.length))
-  random = Math.floor(Math.random() * cards.length);
-
+  let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  let random = new Uint32Array(1);
+  window.crypto.getRandomValues(random);
+  random = random[0] % cards.length;
+console.log(random)
   if (random === 0){
     card1()
   } else if (random === 1){
