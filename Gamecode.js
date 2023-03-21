@@ -354,6 +354,7 @@ function checkForHome(oldPosition, newPosition){
     let x = document.getElementById(placeToMoveTo)
     x.appendChild(gamePiece)
   } else if(homePosition > 3){
+    console.log(homePosition)
     placeToMoveTo = String(currentColorTurn)+'Home'+String(Number(pawnNum.id.match(/\d+/)[0]))
     var gamePiece = document.createElement('div'); 
   gamePiece.classList.add(String(currentColorTurn)+'-pawn');
@@ -367,6 +368,8 @@ function checkForHome(oldPosition, newPosition){
 
   let x = document.getElementById(placeToMoveTo)
   x.appendChild(gamePiece)
+  } else{
+    console.log('no home detected')
   }
   console.log(placeToMoveTo)
   
@@ -499,6 +502,8 @@ function confirmPawnToMove(){
           console.log('turn end')
         }
         updatePiece(oldPos,newPosition)
+        selectPawnToMove()
+        playerMove = 1
     } else if(playerMove!=0 && pawnNum === undefined){
       textBox.innerHTML='You need to select a pawn to move!'
     } else if(playerMove===0 && pawnNum != undefined){
