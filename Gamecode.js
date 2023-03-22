@@ -294,11 +294,7 @@ function updatePiece(oldPosition,newPosition) {
     return
   } 
 
-  // if(checkForHome(oldPosition,newPosition)!=undefined){
-  //   x = checkForHome(oldPosition,newPosition)
-  //   x.appendChild(gamePiece);
-  //   return
-  // }
+
 
 
   pos.appendChild(gamePiece);
@@ -319,14 +315,10 @@ function updatePiece(oldPosition,newPosition) {
   playerMove = 0;
 }
 
-// let greenHomeSpaces=[]
 
 function checkForHome(oldPosition, newPosition){
   let homePosition;
-  // if(oldPosition>=35&&oldPosition<=43){
-  //   homeMove = oldPosition-47;
-  //   console.log(homeMove)
-  // }
+
   let placeToMoveTo;
 
   if(currentColorTurn === 'green' && ((oldPosition>=35 && oldPosition<=43) || oldPosition<4) && newPosition >=4){
@@ -391,7 +383,12 @@ function getNextPlayerColor() {
   if (currentTurn >= turnOrder.length) {
     currentTurn = 0;
   }
+
   textBox.innerHTML="It is "+String(currentPlayerColor)+"'s turn."
+
+  
+  
+  document.getElementById('gameBoard').style.boxShadow = '0 0 60px ' +String(currentPlayerColor)
 
   if (currentPlayerColor == 'green'){
     console.log(currentPlayerColor)
@@ -418,27 +415,9 @@ function getNextPlayerColor() {
   itemButton.style.backgroundColor = String(currentColorTurn);
   selectPawnToMove()
   return currentColorTurn;
+
 };
 
-// let x = getNextPlayerColor;
-
-
-
-
-// let pawnNum;
-// function selectPawnToMove(){
-//   let Pawns = document.querySelectorAll('.'+currentColorTurn+'-pawn')
-//   let allPawns = document.querySelectorAll('.pawn')
-//   allPawns.removeEventListener('click', pawnSelection());
-
-//   Pawns.forEach(pawn => {
-//     pawn.addEventListener('click', function pawnSelection() {
-//       Pawns.forEach(mp => mp.classList.remove('java-one-third'));
-//       pawn.classList.add('java-one-third');
-//       pawnNum = pawn.id;
-//     });
-//   });
-// }
 
 let pawnNum;
 
@@ -585,61 +564,42 @@ closeglow()
 
 
 
+
 function card1(){
   document.getElementById("cardOne").style.visibility = "visible";
-
 }
 function card2(){
   document.getElementById("cardTwo").style.visibility = "visible";
-
 }
 function card3(){
   document.getElementById("cardThree").style.visibility = "visible";
-
 }
 function card4(){
-  console.log('Displaying fourth card')
   document.getElementById("cardFour").style.visibility = "visible";
 }
-
 function card5(){
-  console.log('Displaying fourth card')
   document.getElementById("cardFive").style.visibility = "visible";
 }
-
-
 function card7(){
-  console.log('Displaying fourth card')
   document.getElementById("cardSeven").style.visibility = "visible";
 }
-
 function card8(){
-  console.log('Displaying fourth card')
   document.getElementById("cardEight").style.visibility = "visible";
 }
-
-
 function card10(){
-  console.log('Displaying fourth card')
-  document.getElementById("cardEight").style.visibility = "visible";
+  document.getElementById("cardTen").style.visibility = "visible";
 }
-
 function card11(){
-  console.log('Displaying fourth card')
-  document.getElementById("cardEight").style.visibility = "visible";
+    document.getElementById("cardEleven").style.visibility = "visible";
 }
-
-
-
 function card12(){
-  console.log('Displaying fourth card')
-  document.getElementById("cardEight").style.visibility = "visible";
+    document.getElementById("cardTwelve").style.visibility = "visible";
+}
+function sorryCard (){
+    document.getElementById("sorryCard").style.visibility = "visible";
 }
 
-function sorryCard (){
-  console.log('Displaying fourth card')
-  document.getElementById("sorryCard").style.visibility = "visible";
-}
+
 
 function greenglow(){
   console.log("Displaying green glow")
@@ -1454,3 +1414,7 @@ function removeCoin(player) {
 
 addCoin('green')
 removeCoin('green')
+
+
+
+// Glow
