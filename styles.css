@@ -1656,7 +1656,43 @@
     z-index: 99999999999;
 }
 
-.blockgif{
-    margin-left: 37.5vw;
+
+.eventspacetext img{
+    position: fixed;
+    top: 25%;
+    margin-left: 10%;
+    width: 50vw;
+    white-space: nowrap;
+    font-family: sans-serif;
+    color:white;
+    font-size: 5rem;
+    font-weight: 800;
     z-index: 99999999999;
+}
+
+
+
+.slotmachine{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 50%;
+    left: 30vw;
+
+    margin-left: 10%;
+    visibility: hidden;
+    background-color:white;   
+    width: 20vw;
+    height: 30vh;
+    z-index: 9999999999999999999999999999999999;
+}
+
+
+.slotmachine img{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    max-height:100%;
+     max-width:100%;
 }

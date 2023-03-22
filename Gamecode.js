@@ -507,6 +507,7 @@ function confirmPawnToMove(){
         }
         if (newPosition === 0){
           eventspacepopup()
+          
         }
         if (newPosition === 6){
           eventspacepopup()
@@ -1515,16 +1516,27 @@ function black(){
 
 }
 
-function eventspacepopup(){
-  
-  music.src="audio/cele.mp3"
-  music.play()
-  black()
-  let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1)
-  let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
-  document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn)
-  document.getElementById('eventspacepopup').style.visibility = 'visible'
-  startConfetti()
+
+
+
+
+function eventspacepopup() {
+  setTimeout(function() {
+  }, 2500)
+
+    music.src = "audio/cele.mp3";
+    music.play();
+    black();
+    let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
+    let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
+    document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
+    document.getElementById('eventspacepopup').style.visibility = 'visible';
+    document.getElementById('slotmachine').style.visibility = 'visible';
+    startConfetti();
+    eventspacetransition()
+
+  myLoop()
+
 }
 
 function getcoinevent(){
@@ -1551,3 +1563,64 @@ function removecoinevent(){
   }
 }
 
+function randomevent(){
+  let events = [1, 2];
+  let randomevent = new Uint32Array(1);
+  window.crypto.getRandomValues(randomevent);
+  randomevent = randomevent[0] % events.length;
+  console.log(randomevent)
+
+  if (randomevent === 0){
+    console.log('You lost a coin!')
+    removecoinevent()
+  }
+
+  if (randomevent === 1){
+    console.log('You got a coin!')
+    getcoinevent()
+  }
+}
+
+
+
+function myLoop() {
+  for (let i = 0; i < 100; i++) {
+    setTimeout(function() {
+      
+      let images = [1, 2];
+      let randomimage = new Uint32Array(1);
+      window.crypto.getRandomValues(randomimage);
+      randomimage = randomimage[0] % images.length;
+      console.log(randomimage)
+    
+      if (randomimage === 1){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/coin.png')"
+      }
+
+      if (randomimage === 0){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.png')"
+      }
+    }, i * 10); 
+  }
+  setTimeout(function() {
+    if (randomevent === 0){
+      console.log('You lost a coin!')
+      removecoinevent()
+      return randomevent
+    }
+  
+    if (randomevent === 1){
+      console.log('You got a coin!')
+      getcoinevent()
+      return randomevent
+    }
+
+  }, 2000);
+
+
+
+
+}
+
+
+  
