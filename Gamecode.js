@@ -268,6 +268,46 @@ function playerWin(property, value) {
 
 //  (5,13)
 function updatePiece(oldPosition,newPosition) {
+  
+// let arrays = [redPieces, bluePieces, yellowPieces, greenPieces];
+
+  if (currentColorTurn == 'green'){
+    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'blue'){
+    bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'red'){
+    redPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'yellow'){
+    yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }
+  let allPieces = redPieces.concat(bluePieces, yellowPieces, greenPieces);
+
+  for (let i = 0; i < allPieces.length; i++) {
+    let currentItem = allPieces[i];
+    for (let j = i + 1; j < allPieces.length; j++) {
+      let compareItem = allPieces[j];
+      if (currentItem === compareItem) {
+        let index1 = i;
+        let index2 = j;
+        let sameArray = false;
+        for (let k = 0; k < 4; k++) {
+          if (index1 < k * 3 + 3 && index2 < k * 3 + 3 && index1 >= k * 3 && index2 >= k * 3) {
+            sameArray = true;
+            break;
+          }
+        }
+        if (sameArray) {
+          console.log(allPieces)
+          console.log(`Found a match in the same array  at index ${i} and ${j}`);
+          
+        } else {
+          console.log(allPieces)
+          console.log(`Found a match between different arrays at index ${i} and ${j}`);
+        }
+      }
+    }
+  }
+  
   let pos = document.getElementById(board[newPosition]);
   let oldpos = document.getElementById(board[oldPosition])
   if(oldpos.hasChildNodes()===true){
@@ -302,15 +342,7 @@ function updatePiece(oldPosition,newPosition) {
 
 
   pos.appendChild(gamePiece);
-  if (currentColorTurn == 'green'){
-    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }else if (currentColorTurn == 'blue'){
-    bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }else if (currentColorTurn == 'red'){
-    redPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }else if (currentColorTurn == 'yellow'){
-    yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }
+
 
   if (cardDraws === 0){
     getNextPlayerColor()
@@ -861,6 +893,7 @@ function pawns(){
 
 function pass(){
   closePopup()
+  addCoin(String(currentColorTurn))
   getNextPlayerColor()
   cardDraws = 1;
 }
@@ -1164,7 +1197,7 @@ if (oldPosition > shopPos >= newPosition) {
 function removeCoin(player) {
   switch (player) {
     case 'blue':
-      if (blueCoins.coins < 4) {
+      if (blueCoins.coins <= 4) {
         blueCoins.coins--;
         console.log(`Blue player has ${blueCoins.coins} coins.`);
       }
@@ -1234,7 +1267,7 @@ function removeCoin(player) {
 
       break;
     case 'green':
-      if (greenCoins.coins < 4) {
+      if (greenCoins.coins <= 4) {
         greenCoins.coins--;
         console.log(`Green player has ${greenCoins.coins} coins.`);
       }
@@ -1303,7 +1336,7 @@ function removeCoin(player) {
       }
       break;
     case 'red':
-      if (redCoins.coins < 4) {
+      if (redCoins.coins <= 4) {
         redCoins.coins--;
         console.log(`Red player has ${redCoins.coins} coins.`);
       }
@@ -1381,7 +1414,7 @@ function removeCoin(player) {
 
       break;
     case 'yellow':
-      if (yellowCoins.coins < 4) {
+      if (yellowCoins.coins <= 4) {
         yellowCoins.coins--;
         console.log(`Yellow player has ${yellowCoins.coins} coins.`);
       }
