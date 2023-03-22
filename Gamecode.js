@@ -268,6 +268,46 @@ function playerWin(property, value) {
 
 //  (5,13)
 function updatePiece(oldPosition,newPosition) {
+  
+// let arrays = [redPieces, bluePieces, yellowPieces, greenPieces];
+
+  if (currentColorTurn == 'green'){
+    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'blue'){
+    bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'red'){
+    redPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'yellow'){
+    yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }
+  let allPieces = redPieces.concat(bluePieces, yellowPieces, greenPieces);
+
+  for (let i = 0; i < allPieces.length; i++) {
+    let currentItem = allPieces[i];
+    for (let j = i + 1; j < allPieces.length; j++) {
+      let compareItem = allPieces[j];
+      if (currentItem === compareItem) {
+        let index1 = i;
+        let index2 = j;
+        let sameArray = false;
+        for (let k = 0; k < 4; k++) {
+          if (index1 < k * 3 + 3 && index2 < k * 3 + 3 && index1 >= k * 3 && index2 >= k * 3) {
+            sameArray = true;
+            break;
+          }
+        }
+        if (sameArray) {
+          console.log(allPieces)
+          console.log(`Found a match in the same array  at index ${i} and ${j}`);
+          
+        } else {
+          console.log(allPieces)
+          console.log(`Found a match between different arrays at index ${i} and ${j}`);
+        }
+      }
+    }
+  }
+  
   let pos = document.getElementById(board[newPosition]);
   let oldpos = document.getElementById(board[oldPosition])
   if(oldpos.hasChildNodes()===true){
@@ -294,23 +334,11 @@ function updatePiece(oldPosition,newPosition) {
     return
   } 
 
-  // if(checkForHome(oldPosition,newPosition)!=undefined){
-  //   x = checkForHome(oldPosition,newPosition)
-  //   x.appendChild(gamePiece);
-  //   return
-  // }
+
 
 
   pos.appendChild(gamePiece);
-  if (currentColorTurn == 'green'){
-    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }else if (currentColorTurn == 'blue'){
-    bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }else if (currentColorTurn == 'red'){
-    redPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }else if (currentColorTurn == 'yellow'){
-    yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
-  }
+
 
   if (cardDraws === 0){
     getNextPlayerColor()
@@ -319,14 +347,10 @@ function updatePiece(oldPosition,newPosition) {
   playerMove = 0;
 }
 
-// let greenHomeSpaces=[]
 
 function checkForHome(oldPosition, newPosition){
   let homePosition;
-  // if(oldPosition>=35&&oldPosition<=43){
-  //   homeMove = oldPosition-47;
-  //   console.log(homeMove)
-  // }
+
   let placeToMoveTo;
 
   if(currentColorTurn === 'green' && ((oldPosition>=35 && oldPosition<=43) || oldPosition<4) && newPosition >=4){
@@ -354,6 +378,7 @@ function checkForHome(oldPosition, newPosition){
     let x = document.getElementById(placeToMoveTo)
     x.appendChild(gamePiece)
   } else if(homePosition > 3){
+    console.log(homePosition)
     placeToMoveTo = String(currentColorTurn)+'Home'+String(Number(pawnNum.id.match(/\d+/)[0]))
     var gamePiece = document.createElement('div'); 
   gamePiece.classList.add(String(currentColorTurn)+'-pawn');
@@ -367,6 +392,8 @@ function checkForHome(oldPosition, newPosition){
 
   let x = document.getElementById(placeToMoveTo)
   x.appendChild(gamePiece)
+  } else{
+    console.log('no home detected')
   }
   console.log(placeToMoveTo)
   
@@ -388,7 +415,12 @@ function getNextPlayerColor() {
   if (currentTurn >= turnOrder.length) {
     currentTurn = 0;
   }
+
   textBox.innerHTML="It is "+String(currentPlayerColor)+"'s turn."
+
+  
+  
+  document.getElementById('gameBoard').style.boxShadow = '0 0 60px ' +String(currentPlayerColor)
 
   if (currentPlayerColor == 'green'){
     console.log(currentPlayerColor)
@@ -415,27 +447,9 @@ function getNextPlayerColor() {
   itemButton.style.backgroundColor = String(currentColorTurn);
   selectPawnToMove()
   return currentColorTurn;
+
 };
 
-// let x = getNextPlayerColor;
-
-
-
-
-// let pawnNum;
-// function selectPawnToMove(){
-//   let Pawns = document.querySelectorAll('.'+currentColorTurn+'-pawn')
-//   let allPawns = document.querySelectorAll('.pawn')
-//   allPawns.removeEventListener('click', pawnSelection());
-
-//   Pawns.forEach(pawn => {
-//     pawn.addEventListener('click', function pawnSelection() {
-//       Pawns.forEach(mp => mp.classList.remove('java-one-third'));
-//       pawn.classList.add('java-one-third');
-//       pawnNum = pawn.id;
-//     });
-//   });
-// }
 
 let pawnNum;
 
@@ -485,10 +499,45 @@ function confirmPawnToMove(){
       }
       console.log('s')
       let newPosition = oldPos + playerMove;
+
         if (newPosition<0){
           newPosition +=44;
         } else if (newPosition>43){
           newPosition -=44 ;
+        }
+        if (newPosition === 0){
+          eventspacepopup()
+        }
+        if (newPosition === 6){
+          eventspacepopup()
+        }
+        if (newPosition === 11){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 17){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 22){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 28){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 33){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 39){
+          eventspacepopup()
+        
+        }
+        if (newPosition ===  1){
+          eventspacepopup()
+        
         }
         if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
           console.log('HomeWalkway Dectected')
@@ -499,6 +548,8 @@ function confirmPawnToMove(){
           console.log('turn end')
         }
         updatePiece(oldPos,newPosition)
+        selectPawnToMove()
+        playerMove = 1
     } else if(playerMove!=0 && pawnNum === undefined){
       textBox.innerHTML='You need to select a pawn to move!'
     } else if(playerMove===0 && pawnNum != undefined){
@@ -506,7 +557,15 @@ function confirmPawnToMove(){
     } else {
       textBox.innerHTML='You need to select a pawn and draw a card to move!'
     }
-}
+
+    
+
+
+
+
+    }
+    
+
 
 
 function greenTurn(){
@@ -522,6 +581,8 @@ function redTurn(){
 function yellowTurn(){
 
 }
+
+
 
 function useItemColorCheck(){
   if (currentColorTurn == 'green' && greenItem != 'none'){
@@ -541,6 +602,7 @@ function useItemColorCheck(){
     textBox.innerHTML='You do not have any items to use'
   }
 }
+
 
 function itemTypeCheck(){
   // List and check player inventory for type of item and run its function
@@ -580,61 +642,42 @@ closeglow()
 
 
 
+
 function card1(){
   document.getElementById("cardOne").style.visibility = "visible";
-
 }
 function card2(){
   document.getElementById("cardTwo").style.visibility = "visible";
-
 }
 function card3(){
   document.getElementById("cardThree").style.visibility = "visible";
-
 }
 function card4(){
-  console.log('Displaying fourth card')
   document.getElementById("cardFour").style.visibility = "visible";
 }
-
 function card5(){
-  console.log('Displaying fourth card')
   document.getElementById("cardFive").style.visibility = "visible";
 }
-
-
 function card7(){
-  console.log('Displaying fourth card')
   document.getElementById("cardSeven").style.visibility = "visible";
 }
-
 function card8(){
-  console.log('Displaying fourth card')
   document.getElementById("cardEight").style.visibility = "visible";
 }
-
-
 function card10(){
-  console.log('Displaying fourth card')
-  document.getElementById("cardEight").style.visibility = "visible";
+  document.getElementById("cardTen").style.visibility = "visible";
 }
-
 function card11(){
-  console.log('Displaying fourth card')
-  document.getElementById("cardEight").style.visibility = "visible";
+    document.getElementById("cardEleven").style.visibility = "visible";
 }
-
-
-
 function card12(){
-  console.log('Displaying fourth card')
-  document.getElementById("cardEight").style.visibility = "visible";
+    document.getElementById("cardTwelve").style.visibility = "visible";
+}
+function sorryCard (){
+    document.getElementById("sorryCard").style.visibility = "visible";
 }
 
-function sorryCard (){
-  console.log('Displaying fourth card')
-  document.getElementById("sorryCard").style.visibility = "visible";
-}
+
 
 function greenglow(){
   console.log("Displaying green glow")
@@ -713,6 +756,7 @@ function checkDraw(){
     drawCard()
   }
 }
+
 
 function drawCard() {
   selectPawnToMove()
@@ -805,6 +849,12 @@ function moveBackwardThree (){
   return playerMove = -3;
 }
 
+function moveBackwardFour (){
+  console.log('Move backward four')
+  closePopup()
+  return playerMove = -4;
+}
+
 function moveForwardFive (){
   console.log('Move forward three')
   closePopup()
@@ -856,9 +906,11 @@ function pawns(){
 
 function pass(){
   closePopup()
+  addCoin(String(currentColorTurn))
   getNextPlayerColor()
   cardDraws = 1;
 }
+
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
@@ -1159,7 +1211,7 @@ item01.addEventListener('click', () =>{
 function removeCoin(player) {
   switch (player) {
     case 'blue':
-      if (blueCoins.coins < 4) {
+      if (blueCoins.coins <= 4) {
         blueCoins.coins--;
         console.log(`Blue player has ${blueCoins.coins} coins.`);
       }
@@ -1229,7 +1281,7 @@ function removeCoin(player) {
 
       break;
     case 'green':
-      if (greenCoins.coins < 4) {
+      if (greenCoins.coins <= 4) {
         greenCoins.coins--;
         console.log(`Green player has ${greenCoins.coins} coins.`);
       }
@@ -1298,7 +1350,7 @@ function removeCoin(player) {
       }
       break;
     case 'red':
-      if (redCoins.coins < 4) {
+      if (redCoins.coins <= 4) {
         redCoins.coins--;
         console.log(`Red player has ${redCoins.coins} coins.`);
       }
@@ -1376,7 +1428,7 @@ function removeCoin(player) {
 
       break;
     case 'yellow':
-      if (yellowCoins.coins < 4) {
+      if (yellowCoins.coins <= 4) {
         yellowCoins.coins--;
         console.log(`Yellow player has ${yellowCoins.coins} coins.`);
       }
@@ -1407,8 +1459,7 @@ function removeCoin(player) {
         document.getElementById("cs14").style.opacity="100%"
 
         document.getElementById("cs15").style = "default"
-        document.getElementById("cs16").style = "default"
-      }
+        document.getElementById("cs16").style = "default"      }
 
       if (yellowCoins.coins === 3){
         document.getElementById("cs13").style.backgroundColor="yellow"
@@ -1449,3 +1500,54 @@ function removeCoin(player) {
 
 addCoin('green')
 removeCoin('green')
+
+
+
+// Event Spaces
+
+
+  
+
+function black(){
+  const overlay2 = document.createElement("div");
+  overlay2.classList.add("overlay2");
+  document.body.appendChild(overlay2);
+
+}
+
+function eventspacepopup(){
+  
+  music.src="audio/cele.mp3"
+  music.play()
+  black()
+  let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1)
+  let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
+  document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn)
+  document.getElementById('eventspacepopup').style.visibility = 'visible'
+  startConfetti()
+}
+
+function getcoinevent(){
+  if (currentColorTurn == 'green'){
+    addCoin('green')
+  }else if (currentColorTurn == 'blue'){
+    addCoin('blue')
+  }else if (currentColorTurn == 'red'){ 
+    addCoin('red')
+  }else if (currentColorTurn == 'yellow'){
+    addCoin('yellow')
+  }
+}
+
+function removecoinevent(){
+  if (currentColorTurn == 'green'){
+    removeCoin('green')
+  }else if (currentColorTurn == 'blue'){
+    removeCoin('blue')
+  }else if (currentColorTurn == 'red'){ 
+    removeCoin('red')
+  }else if (currentColorTurn == 'yellow'){
+    removeCoin('yellow')
+  }
+}
+
