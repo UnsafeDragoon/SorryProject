@@ -849,6 +849,12 @@ function moveBackwardThree (){
   return playerMove = -3;
 }
 
+function moveBackwardFour (){
+  console.log('Move backward four')
+  closePopup()
+  return playerMove = -4;
+}
+
 function moveForwardFive (){
   console.log('Move forward three')
   closePopup()
