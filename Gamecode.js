@@ -340,6 +340,7 @@ function checkForHome(oldPosition, newPosition){
   } 
   if(homePosition > 0 && homePosition < 4){
     placeToMoveTo = String(currentColorTurn)+'HomeWalk'+String(homePosition)
+    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
     var gamePiece = document.createElement('div'); 
     gamePiece.classList.add(String(currentColorTurn)+'-pawn');
     gamePiece.classList.add('pawn');
@@ -353,6 +354,7 @@ function checkForHome(oldPosition, newPosition){
     let x = document.getElementById(placeToMoveTo)
     x.appendChild(gamePiece)
   } else if(homePosition > 3){
+    console.log(homePosition)
     placeToMoveTo = String(currentColorTurn)+'Home'+String(Number(pawnNum.id.match(/\d+/)[0]))
     var gamePiece = document.createElement('div'); 
   gamePiece.classList.add(String(currentColorTurn)+'-pawn');
@@ -366,6 +368,8 @@ function checkForHome(oldPosition, newPosition){
 
   let x = document.getElementById(placeToMoveTo)
   x.appendChild(gamePiece)
+  } else{
+    console.log('no home detected')
   }
   console.log(placeToMoveTo)
   
@@ -489,12 +493,17 @@ function confirmPawnToMove(){
         } else if (newPosition>43){
           newPosition -=44 ;
         }
+        if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
+          console.log('HomeWalkway Dectected')
+        }
         if (String(pawnNum.parentElement.id) === String(currentColorTurn)+'Start'+Number(pawnNum.id.match(/\d+/)[0])){
           pawnNum.remove();
         } else{
           console.log('turn end')
         }
         updatePiece(oldPos,newPosition)
+        selectPawnToMove()
+        playerMove = 1
     } else if(playerMove!=0 && pawnNum === undefined){
       textBox.innerHTML='You need to select a pawn to move!'
     } else if(playerMove===0 && pawnNum != undefined){
@@ -714,10 +723,11 @@ function drawCard() {
   selectPawnToMove()
   console.log(currentColorTurn)
   overlay()
-  let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-  console.log(Math.floor(Math.random() * cards.length))
-  random = Math.floor(Math.random() * cards.length);
-
+  let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+  let random = new Uint32Array(1);
+  window.crypto.getRandomValues(random);
+  random = random[0] % cards.length;
+console.log(random)
   if (random === 0){
     card1()
   } else if (random === 1){
@@ -1084,69 +1094,71 @@ addCoin('green')
 
 
 
-// const shop = document.querySelectorAll('.storepage')
-// const item1 = document.getElementById('#1');
-// const item01 = document.querySelector('.itemslot1')
-// const item2 = document.getElementById('#2');
-// const item02 = document.querySelector('.itemslot2')
-// const item3 = document.getElementById('#3');
-// const item03 = document.querySelector('.itemslot3')
-// const item4 = document.getElementById('#4');
-// const item04 = document.querySelector('.itemslot4')
-// const item5 = document.getElementById('#5');
-// const item05 = document.querySelector('.itemslot5')
-// const item6 = document.getElementById('#6');
-// const item06 = document.querySelector('.itemslot6')
+const shop = document.querySelectorAll('.storepage')
+const item1 = document.getElementById('#1');
+const item01 = document.querySelector('.itemslot1')
+const item2 = document.getElementById('#2');
+const item02 = document.querySelector('.itemslot2')
+const item3 = document.getElementById('#3');
+const item03 = document.querySelector('.itemslot3')
+const item4 = document.getElementById('#4');
+const item04 = document.querySelector('.itemslot4')
+const item5 = document.getElementById('#5');
+const item05 = document.querySelector('.itemslot5')
+const item6 = document.getElementById('#6');
+const item06 = document.querySelector('.itemslot6')
 
 
 
-// const shopLocation1 = document.getElementById('2');
-// const shopLocation2 = document.getElementById('35');
-// const shopLocation3 = document.getElementById('24');
-// const shopLocation4 = document.getElementById('13');
+const shopLocation1 = document.getElementById('2');
+const shopLocation2 = document.getElementById('35');
+const shopLocation3 = document.getElementById('24');
+const shopLocation4 = document.getElementById('13');
+const shopPos = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
 
-// function Shop () {
-//   if (document.getElementById('2') != null) {
-//   shopScreen() 
-// }
-// }
+function Shop () {
+  if (document.getElementById('2') != null) {
+  shopScreen() 
+}
+}
+function Updating() {
+  shopPos = oldPosition
+}
 
+item1.addEventListener('click', () => {
+  item01.style.visibility = 'hidden';
+  shop.style.visibility = 'hidden';
+  console.log('hello')
+})
 
-// item1.addEventListener('click', () => {
-//   item01.style.visibility = 'hidden';
-//   shop.style.visibility = 'hidden';
-//   console.log('hello')
-// })
+item2.addEventListener('click', () => {
+  item02.style.visibility = 'hidden';
+  console.log('rock')
+})
 
-// item2.addEventListener('click', () => {
-//   item02.style.visibility = 'hidden';
-//   console.log('rock')
-// })
+item3.addEventListener('click', () => {
+  item03.style.visibility = 'hidden';
+  console.log('walnut')
+})
 
-// item3.addEventListener('click', () => {
-//   item03.style.visibility = 'hidden';
-//   console.log('walnut')
-// })
+item4.addEventListener('click', () => {
+  item04.style.visibility = 'hidden';
+  console.log('cat')
+})
 
-// item4.addEventListener('click', () => {
-//   item04.style.visibility = 'hidden';
-//   console.log('cat')
-// })
+item5.addEventListener('click', () => {
+  item05.style.visibility = 'hidden';
+  console.log('buff')
+})
 
-// item5.addEventListener('click', () => {
-//   item05.style.visibility = 'hidden';
-//   console.log('buff')
-// })
+item6.addEventListener('click', () => {
+  item06.style.visibility = 'hidden';
+  console.log('ball')
+})
 
-// item6.addEventListener('click', () => {
-//   item06.style.visibility = 'hidden';
-//   console.log('ball')
-// })
-
-// function shopScreen () {
-//   const shopsLocations = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
-  
-// }
+if (oldPosition > shopPos >= newPosition) { 
+  Shop()
+}
 
 
 function removeCoin(player) {
