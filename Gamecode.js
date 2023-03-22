@@ -298,16 +298,56 @@ function updatePiece(oldPosition,newPosition) {
         }
         if (sameArray) {
           console.log(allPieces)
-          console.log(`Found a match in the same array  at index ${i} and ${j}`);
+          // console.log(`Found a match in the same array  at index ${i} and ${j}`);
           
+          console.log(newPosition)
+          if (newPosition === currentItem || newPosition === compareItem){
+            console.log('The same array has been detected')
+            newPosition += 1;
+          }
         } else {
+          let redArr = [ allPieces[0],allPieces[1],allPieces[2]]
+          let blueArr = [ allPieces[3],allPieces[4],allPieces[5]]
+          let yellowArr = [ allPieces[6],allPieces[7],allPieces[8]]
+          let greenArr = [ allPieces[9],allPieces[10],allPieces[11]]
+          console.log(greenArr)
+          console.log(blueArr)
+          console.log(redArr)
+          console.log(yellowArr)
           console.log(allPieces)
           console.log(`Found a match between different arrays at index ${i} and ${j}`);
+
+
+// WORK IN PROGRESS
+
+
+          if (0<=i<=4 || 0<=j<=4){
+            console.log('greenarray')
+           }
+          else if (3<=i<=8 || 0<=j<=4){
+            console.log('greenarray')
+          } else if (0<=i<=4 || 0<=j<=4){
+            console.log('greenarray')
+          } else if (0<=i<=4 || 0<=j<=4){
+            console.log('greenarray')
+          }
+
+
+
+          
         }
       }
     }
   }
-  
+  if (currentColorTurn == 'green'){
+    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'blue'){
+    bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'red'){
+    redPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'yellow'){
+    yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }
   let pos = document.getElementById(board[newPosition]);
   let oldpos = document.getElementById(board[oldPosition])
   if(oldpos.hasChildNodes()===true){
@@ -499,7 +539,6 @@ function confirmPawnToMove(){
       }
       console.log('s')
       let newPosition = oldPos + playerMove;
-
         if (newPosition<0){
           newPosition +=44;
         } else if (newPosition>43){
@@ -539,6 +578,11 @@ function confirmPawnToMove(){
           eventspacepopup()
         
         }
+
+
+
+
+
         if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
           console.log('HomeWalkway Dectected')
         }
