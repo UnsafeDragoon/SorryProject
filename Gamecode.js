@@ -467,10 +467,45 @@ function confirmPawnToMove(){
       }
       console.log('s')
       let newPosition = oldPos + playerMove;
+
         if (newPosition<0){
           newPosition +=44;
         } else if (newPosition>43){
           newPosition -=44 ;
+        }
+        if (newPosition === 0){
+          eventspacepopup()
+        }
+        if (newPosition === 6){
+          eventspacepopup()
+        }
+        if (newPosition === 11){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 17){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 22){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 28){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 33){
+          eventspacepopup()
+        
+        }
+        if (newPosition === 39){
+          eventspacepopup()
+        
+        }
+        if (newPosition ===  1){
+          eventspacepopup()
+        
         }
         if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
           console.log('HomeWalkway Dectected')
@@ -490,7 +525,15 @@ function confirmPawnToMove(){
     } else {
       textBox.innerHTML='You need to select a pawn and draw a card to move!'
     }
-}
+
+    
+
+
+
+
+    }
+    
+
 
 
 function greenTurn(){
@@ -506,6 +549,8 @@ function redTurn(){
 function yellowTurn(){
 
 }
+
+
 
 function useItemColorCheck(){
   if (currentColorTurn == 'green' && greenItem != 'none'){
@@ -525,6 +570,7 @@ function useItemColorCheck(){
     textBox.innerHTML='You do not have any items to use'
   }
 }
+
 
 function itemTypeCheck(){
   // List and check player inventory for type of item and run its function
@@ -679,6 +725,7 @@ function checkDraw(){
   }
 }
 
+
 function drawCard() {
   selectPawnToMove()
   console.log(currentColorTurn)
@@ -824,6 +871,7 @@ function pass(){
   getNextPlayerColor()
   cardDraws = 1;
 }
+
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
@@ -1372,8 +1420,7 @@ function removeCoin(player) {
         document.getElementById("cs14").style.opacity="100%"
 
         document.getElementById("cs15").style = "default"
-        document.getElementById("cs16").style = "default"
-      }
+        document.getElementById("cs16").style = "default"      }
 
       if (yellowCoins.coins === 3){
         document.getElementById("cs13").style.backgroundColor="yellow"
@@ -1417,4 +1464,51 @@ removeCoin('green')
 
 
 
-// Glow
+// Event Spaces
+
+
+  
+
+function black(){
+  const overlay2 = document.createElement("div");
+  overlay2.classList.add("overlay2");
+  document.body.appendChild(overlay2);
+
+}
+
+function eventspacepopup(){
+  
+  music.src="audio/cele.mp3"
+  music.play()
+  black()
+  let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1)
+  let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
+  document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn)
+  document.getElementById('eventspacepopup').style.visibility = 'visible'
+  startConfetti()
+}
+
+function getcoinevent(){
+  if (currentColorTurn == 'green'){
+    addCoin('green')
+  }else if (currentColorTurn == 'blue'){
+    addCoin('blue')
+  }else if (currentColorTurn == 'red'){ 
+    addCoin('red')
+  }else if (currentColorTurn == 'yellow'){
+    addCoin('yellow')
+  }
+}
+
+function removecoinevent(){
+  if (currentColorTurn == 'green'){
+    removeCoin('green')
+  }else if (currentColorTurn == 'blue'){
+    removeCoin('blue')
+  }else if (currentColorTurn == 'red'){ 
+    removeCoin('red')
+  }else if (currentColorTurn == 'yellow'){
+    removeCoin('yellow')
+  }
+}
+
