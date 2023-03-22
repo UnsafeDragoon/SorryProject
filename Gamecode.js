@@ -1143,7 +1143,7 @@ addCoin('green')
 
 
 const shop = document.querySelectorAll('.storepage')
-const item1 = document.getElementById('#1');
+const item1 = document.getElementById('#1').getAttribute('src');
 const item01 = document.querySelector('.itemslot1')
 const item2 = document.getElementById('#2');
 const item02 = document.querySelector('.itemslot2')
@@ -1155,6 +1155,7 @@ const item5 = document.getElementById('#5');
 const item05 = document.querySelector('.itemslot5')
 const item6 = document.getElementById('#6');
 const item06 = document.querySelector('.itemslot6')
+const holder = document.getElementById('itemholder')
 
 
 
@@ -1164,49 +1165,48 @@ const shopLocation3 = document.getElementById('24');
 const shopLocation4 = document.getElementById('13');
 const shopPos = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
 
-function Shop () {
-  if (document.getElementById('2') != null) {
-  shopScreen() 
-}
-}
-function Updating() {
-  shopPos = oldPosition
-}
 
-item1.addEventListener('click', () => {
-  item01.style.visibility = 'hidden';
-  shop.style.visibility = 'hidden';
-  console.log('hello')
+
+
+item01.addEventListener('click', () =>{
+  item01 == holder;
+  holder.innerHTML = item01
+  
 })
 
-item2.addEventListener('click', () => {
-  item02.style.visibility = 'hidden';
-  console.log('rock')
-})
 
-item3.addEventListener('click', () => {
-  item03.style.visibility = 'hidden';
-  console.log('walnut')
-})
+// item1.addEventListener('click', () => {
+//   item01.style.visibility = 'hidden';
+//   shop.style.visibility = 'hidden';
+//   console.log('hello')
+// })
 
-item4.addEventListener('click', () => {
-  item04.style.visibility = 'hidden';
-  console.log('cat')
-})
+// item2.addEventListener('click', () => {
+//   item02.style.visibility = 'hidden';
+//   console.log('rock')
+// })
 
-item5.addEventListener('click', () => {
-  item05.style.visibility = 'hidden';
-  console.log('buff')
-})
+// item3.addEventListener('click', () => {
+//   item03.style.visibility = 'hidden';
+//   console.log('walnut')
+// })
 
-item6.addEventListener('click', () => {
-  item06.style.visibility = 'hidden';
-  console.log('ball')
-})
+// item4.addEventListener('click', () => {
+//   item04.style.visibility = 'hidden';
+//   console.log('cat')
+// })
 
-if (oldPosition > shopPos >= newPosition) { 
-  Shop()
-}
+// item5.addEventListener('click', () => {
+//   item05.style.visibility = 'hidden';
+//   console.log('buff')
+// })
+
+// item6.addEventListener('click', () => {
+//   item06.style.visibility = 'hidden';
+//   console.log('ball')
+// })
+
+
 
 
 function removeCoin(player) {
