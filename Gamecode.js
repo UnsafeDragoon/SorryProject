@@ -174,7 +174,7 @@ function setUpMapOne(){
 function setUpMapTwo(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/mc.png);';
   let music =document.getElementById('music')
-  music.src="audio/Markus_Huber_Memories_Of_Forever_instrumental_3_18.mp3"
+  music.src="audio/Mice_On_Venus.mp3"
   music.play()
   console.log('map2')
 }
@@ -480,6 +480,9 @@ function pawnSelection() {
 
 
 
+// Checking if the pawn is within the possition of the store down below and other information
+
+
 function confirmPawnToMove(){
     if (playerMove!=0 && pawnNum != undefined){
       let pawnMoved = Number(pawnNum.id.match(/\d+/)[0])
@@ -533,12 +536,55 @@ function confirmPawnToMove(){
         }
         if (newPosition === 39){
           eventspacepopup()
-        
         }
         if (newPosition ===  1){
           eventspacepopup()
-        
         }
+
+        if(newPosition === 2) {
+          store ()
+        }
+
+        if(newPosition === 3) {
+          store()
+        }
+
+        if(newPosition === 12) {
+          store()
+        }
+
+        if(newPosition === 14) {
+          store()
+        }
+
+        if(newPosition === 23) {
+          store()
+        }
+
+        if(newPosition === 24) {
+          store()
+        }
+
+        if(newPosition === 25) {
+          store()
+        }
+
+        if(newPosition === 34) {
+          store()
+        }
+
+        if(newPosition === 35) {
+          store()
+        }
+
+        if(newPosition === 36) {
+          store()
+        }
+
+        if(newPosition === 1) {
+          store()
+        }
+
         if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
           console.log('HomeWalkway Dectected')
         }
@@ -558,11 +604,7 @@ function confirmPawnToMove(){
       textBox.innerHTML='You need to select a pawn and draw a card to move!'
     }
 
-    
-
-
-
-
+  
     }
     
 
@@ -1141,7 +1183,7 @@ addCoin('green')
 
 
 
-const shop = document.querySelectorAll('.storepage')
+
 const item1 = document.getElementById('#1').getAttribute('src');
 const item01 = document.querySelector('.itemslot1')
 const item2 = document.getElementById('#2');
@@ -1154,7 +1196,12 @@ const item5 = document.getElementById('#5');
 const item05 = document.querySelector('.itemslot5')
 const item6 = document.getElementById('#6');
 const item06 = document.querySelector('.itemslot6')
-const holder = document.getElementById('itemholder')
+const holder = document.getElementById('holder1')
+const holderBlue = document.getElementById('holder2')
+const holderRed = document.getElementById('holder3')
+const holderYellow = document.getElementById('holder4')
+
+const ITEM = document.querySelectorAll('.itemslot');
 
 
 
@@ -1173,37 +1220,42 @@ item01.addEventListener('click', () =>{
   
 })
 
+function store() {
+  const shop = document.getElementById('storepage')
+  shop.classList.add('active')
+  overlay()
+}
 
-// item1.addEventListener('click', () => {
-//   item01.style.visibility = 'hidden';
-//   shop.style.visibility = 'hidden';
-//   console.log('hello')
-// })
 
-// item2.addEventListener('click', () => {
-//   item02.style.visibility = 'hidden';
-//   console.log('rock')
-// })
+item1.addEventListener('click', () => {
+  item1.style.visibility = 'hidden';
+  console.log('hello')
+})
 
-// item3.addEventListener('click', () => {
-//   item03.style.visibility = 'hidden';
-//   console.log('walnut')
-// })
+item2.addEventListener('click', () => {
+  item2.style.visibility = 'hidden';
+  console.log('rock')
+})
 
-// item4.addEventListener('click', () => {
-//   item04.style.visibility = 'hidden';
-//   console.log('cat')
-// })
+item3.addEventListener('click', () => {
+  item3.style.visibility = 'hidden';
+  console.log('walnut')
+})
 
-// item5.addEventListener('click', () => {
-//   item05.style.visibility = 'hidden';
-//   console.log('buff')
-// })
+item4.addEventListener('click', () => {
+  item4.style.visibility = 'hidden';
+  console.log('cat')
+})
 
-// item6.addEventListener('click', () => {
-//   item06.style.visibility = 'hidden';
-//   console.log('ball')
-// })
+item5.addEventListener('click', () => {
+  item5.style.visibility = 'hidden';
+  console.log('buff')
+})
+
+item6.addEventListener('click', () => {
+  item6.style.visibility = 'hidden';
+  console.log('ball')
+})
 
 
 
@@ -1420,10 +1472,6 @@ function removeCoin(player) {
 
 
       }
-
-
-
-
 
 
       break;

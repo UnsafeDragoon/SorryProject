@@ -791,7 +791,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, .5);
+    background-color: rgba(0, 0, 0, 0.726);
     z-index: 9999;
 }
 
@@ -1347,12 +1347,19 @@
     position: absolute;
     max-width: 60%;
     top: 25%;
-    visibility: hidden;
     z-index: 0;
+    visibility: hidden;
+    transition: 100ms ease;
+    color: white;
+    margin-top: 8em;
 }
 
 .storepage.active {
-    visibility: h
+
+    height: 100%;
+   
+    z-index: 99999;
+    visibility: visible;
 
 }
 
@@ -1365,15 +1372,17 @@
 .itemslot3 img,
 .itemslot4 img,
 .itemslot5 img,
-.itemslot6 {
-    background-color: white;
+.itemslot6 img{
+    background-color: rgba(255, 255, 255, 0.632);
     max-width: 100%;
     display: flex;
     width: 7em;
     height: 8em;
     cursor: pointer;
- 
+    padding: 2em;
+    border-radius: .5em;
 }
+
 
 .greenborderglowtop {
     position: absolute;
