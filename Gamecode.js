@@ -298,16 +298,56 @@ function updatePiece(oldPosition,newPosition) {
         }
         if (sameArray) {
           console.log(allPieces)
-          console.log(`Found a match in the same array  at index ${i} and ${j}`);
+          // console.log(`Found a match in the same array  at index ${i} and ${j}`);
           
+          console.log(newPosition)
+          if (newPosition === currentItem || newPosition === compareItem){
+            console.log('The same array has been detected')
+            newPosition += 1;
+          }
         } else {
+          let redArr = [ allPieces[0],allPieces[1],allPieces[2]]
+          let blueArr = [ allPieces[3],allPieces[4],allPieces[5]]
+          let yellowArr = [ allPieces[6],allPieces[7],allPieces[8]]
+          let greenArr = [ allPieces[9],allPieces[10],allPieces[11]]
+          console.log(greenArr)
+          console.log(blueArr)
+          console.log(redArr)
+          console.log(yellowArr)
           console.log(allPieces)
           console.log(`Found a match between different arrays at index ${i} and ${j}`);
+
+
+// WORK IN PROGRESS
+
+
+          if (0<=i<=4 || 0<=j<=4){
+            console.log('greenarray')
+           }
+          else if (3<=i<=8 || 0<=j<=4){
+            console.log('greenarray')
+          } else if (0<=i<=4 || 0<=j<=4){
+            console.log('greenarray')
+          } else if (0<=i<=4 || 0<=j<=4){
+            console.log('greenarray')
+          }
+
+
+
+          
         }
       }
     }
   }
-  
+  if (currentColorTurn == 'green'){
+    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'blue'){
+    bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'red'){
+    redPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }else if (currentColorTurn == 'yellow'){
+    yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
+  }
   let pos = document.getElementById(board[newPosition]);
   let oldpos = document.getElementById(board[oldPosition])
   if(oldpos.hasChildNodes()===true){
@@ -502,7 +542,6 @@ function confirmPawnToMove(){
       }
       console.log('s')
       let newPosition = oldPos + playerMove;
-
         if (newPosition<0){
           newPosition +=44;
         } else if (newPosition>43){
@@ -510,6 +549,7 @@ function confirmPawnToMove(){
         }
         if (newPosition === 0){
           eventspacepopup()
+          
         }
         if (newPosition === 6){
           eventspacepopup()
@@ -1563,16 +1603,27 @@ function black(){
 
 }
 
-function eventspacepopup(){
-  
-  music.src="audio/cele.mp3"
-  music.play()
-  black()
-  let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1)
-  let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
-  document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn)
-  document.getElementById('eventspacepopup').style.visibility = 'visible'
-  startConfetti()
+
+
+
+
+function eventspacepopup() {
+  setTimeout(function() {
+  }, 2500)
+
+    music.src = "audio/cele.mp3";
+    music.play();
+    black();
+    let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
+    let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
+    document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
+    document.getElementById('eventspacepopup').style.visibility = 'visible';
+    document.getElementById('slotmachine').style.visibility = 'visible';
+    startConfetti();
+    eventspacetransition()
+
+  myLoop()
+
 }
 
 function getcoinevent(){
@@ -1599,3 +1650,64 @@ function removecoinevent(){
   }
 }
 
+function randomevent(){
+  let events = [1, 2];
+  let randomevent = new Uint32Array(1);
+  window.crypto.getRandomValues(randomevent);
+  randomevent = randomevent[0] % events.length;
+  console.log(randomevent)
+
+  if (randomevent === 0){
+    console.log('You lost a coin!')
+    removecoinevent()
+  }
+
+  if (randomevent === 1){
+    console.log('You got a coin!')
+    getcoinevent()
+  }
+}
+
+
+
+function myLoop() {
+  for (let i = 0; i < 100; i++) {
+    setTimeout(function() {
+      
+      let images = [1, 2];
+      let randomimage = new Uint32Array(1);
+      window.crypto.getRandomValues(randomimage);
+      randomimage = randomimage[0] % images.length;
+      console.log(randomimage)
+    
+      if (randomimage === 1){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/coin.png')"
+      }
+
+      if (randomimage === 0){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.png')"
+      }
+    }, i * 10); 
+  }
+  setTimeout(function() {
+    if (randomevent === 0){
+      console.log('You lost a coin!')
+      removecoinevent()
+      return randomevent
+    }
+  
+    if (randomevent === 1){
+      console.log('You got a coin!')
+      getcoinevent()
+      return randomevent
+    }
+
+  }, 2000);
+
+
+
+
+}
+
+
+  
