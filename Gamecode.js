@@ -1224,7 +1224,7 @@ addCoin('green')
 
 
 
-const item1 = document.getElementById('#1').getAttribute('src');
+const item1 = document.getElementById('#1')
 const item01 = document.querySelector('.itemslot1')
 const item2 = document.getElementById('#2');
 const item02 = document.querySelector('.itemslot2')
@@ -1244,14 +1244,12 @@ const holderYellow = document.getElementById('holder4')
 const ITEM = document.querySelectorAll('.itemslot');
 
 
-
+const shop = document.getElementById('storepage')
 const shopLocation1 = document.getElementById('2');
 const shopLocation2 = document.getElementById('35');
 const shopLocation3 = document.getElementById('24');
 const shopLocation4 = document.getElementById('13');
 const shopPos = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
-
-
 
 
 item01.addEventListener('click', () =>{
@@ -1261,39 +1259,73 @@ item01.addEventListener('click', () =>{
 })
 
 function store() {
-  const shop = document.getElementById('storepage')
   shop.classList.add('active')
   overlay()
 }
 
+function removeStore() {
+  shop.classList.remove('active')
+}
+ let money = 0; 
+// function addItem () {
+//   if item1 = holder1
+// }
+
 
 item1.addEventListener('click', () => {
-  item1.style.visibility = 'hidden';
+  removeOverlay()
+  removeStore()
+  removecoinevent()
   console.log('hello')
 })
 
 item2.addEventListener('click', () => {
-  item2.style.visibility = 'hidden';
+  removeOverlay()
+  removeStore()
+  removecoinevent()
   console.log('rock')
 })
 
 item3.addEventListener('click', () => {
-  item3.style.visibility = 'hidden';
+  money = greenCoins
+  if(greenCoins >= money) {
+  removeOverlay()
+  removeStore()
+  removecoinevent()
+  removecoinevent()
+  }
+  
   console.log('walnut')
 })
 
 item4.addEventListener('click', () => {
-  item4.style.visibility = 'hidden';
+  removeOverlay()
+  removeStore()
+  removecoinevent()
+  removecoinevent()
   console.log('cat')
 })
 
 item5.addEventListener('click', () => {
-  item5.style.visibility = 'hidden';
+  money = greenCoins || blueCoins || redCoins || yellowCoins;
+  if (greenCoins == money) {
+     removeOverlay()
+  removeStore()
+  
+  removecoinevent()
+  removecoinevent()
+  removecoinevent()
+  removecoinevent()
   console.log('buff')
+  }
 })
 
 item6.addEventListener('click', () => {
-  item6.style.visibility = 'hidden';
+  removeOverlay()
+  removeStore()
+  removecoinevent()
+  removecoinevent()
+  removecoinevent()
   console.log('ball')
 })
 
