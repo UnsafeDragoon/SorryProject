@@ -1563,25 +1563,21 @@ function black(){
 
 
 
-
 function eventspacepopup() {
-  setTimeout(function() {
-  }, 2500)
-
-    music.src = "audio/cele.mp3";
-    music.play();
-    black();
-    let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
-    let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
-    document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
-    document.getElementById('eventspacepopup').style.visibility = 'visible';
-    document.getElementById('slotmachine').style.visibility = 'visible';
-    startConfetti();
-    eventspacetransition()
-
+  music.src = "audio/cele.mp3";
+  music.play();
+  black();
+  let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
+  let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
+  document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
+  document.getElementById('eventspacepopup').style.visibility = 'visible';
+  document.getElementById('slotmachine').style.visibility = 'visible';
+  startConfetti();
   myLoop()
 
 }
+
+
 
 function getcoinevent(){
   if (currentColorTurn == 'green'){
@@ -1607,28 +1603,13 @@ function removecoinevent(){
   }
 }
 
-function randomevent(){
-  let events = [1, 2];
-  let randomevent = new Uint32Array(1);
-  window.crypto.getRandomValues(randomevent);
-  randomevent = randomevent[0] % events.length;
-  console.log(randomevent)
-
-  if (randomevent === 0){
-    console.log('You lost a coin!')
-    removecoinevent()
-  }
-
-  if (randomevent === 1){
-    console.log('You got a coin!')
-    getcoinevent()
-  }
-}
 
 
 
 function myLoop() {
-  for (let i = 0; i < 100; i++) {
+  music.src = "audio/jingle.mp3";
+  music.play();
+  for (let i = 0; i < 300; i++) {
     setTimeout(function() {
       
       let images = [1, 2];
@@ -1638,33 +1619,64 @@ function myLoop() {
       console.log(randomimage)
     
       if (randomimage === 1){
-        document.getElementById('slotmachine').style.backgroundImage = "url('events/coin.png')"
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/currency-coin-cartoon-png.webp')"
       }
 
       if (randomimage === 0){
-        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.png')"
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
+      }
+      if (i === 299){
+        music.pause();
+        randomevent();
+        setTimeout(function() {
+          closeeventpopup();
+        }, 2000); 
       }
     }, i * 10); 
+
+    function randomevent(){
+      let events = [1, 2];
+      let randomevent = new Uint32Array(1);
+      window.crypto.getRandomValues(randomevent);
+      randomevent = randomevent[0] % events.length;
+      console.log(randomevent)
+    
+      if (randomevent === 0){
+        console.log('You lost a coin!')
+        document.getElementById('eventspacepopuptext').innerHTML = "You lost a coin"
+        removecoinevent()
+      }
+    
+      if (randomevent === 1){
+        console.log('You got a coin!')
+        document.getElementById('eventspacepopuptext').innerHTML = "You got a coin"
+        getcoinevent()
+      }
+    
+  if (randomevent === 0){
+    console.log('You lost a coin!')
+    removecoinevent()
+    return randomevent
   }
-  setTimeout(function() {
-    if (randomevent === 0){
-      console.log('You lost a coin!')
-      removecoinevent()
-      return randomevent
-    }
-  
-    if (randomevent === 1){
-      console.log('You got a coin!')
-      getcoinevent()
-      return randomevent
-    }
 
-  }, 2000);
+  if (randomevent === 1){
+    console.log('You got a coin!')
+    getcoinevent()
+   return randomevent
+  }
+  }
 
-
-
-
+}
 }
 
 
-  
+
+function closeeventpopup() {
+  stopConfetti(); 
+  document.getElementById('eventspacepopup').style.visibility = 'hidden';
+  document.getElementById('slotmachine').style.visibility = 'hidden';
+  const overlay2 = document.querySelector(".overlay2");
+  if (overlay2) {
+    overlay2.parentNode.removeChild(overlay2);
+  }
+}

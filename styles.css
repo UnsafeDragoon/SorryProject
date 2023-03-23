@@ -1597,6 +1597,7 @@
 }
 
 .use-Item {
+    border-radius: 25rem;
     background-color: green;
     position: absolute;
     right: 39%;
@@ -1604,9 +1605,15 @@
     font-size: .8em;
     width: 8em;
     height: 4em;
-
+    color: white;
+    font-family: sans-serif;
+    font-weight: 800;
 }
+
+
 .confirm-pawn{
+    border-radius: 25rem;
+
     background-color: green;
     position: absolute;
     left:40%;
@@ -1614,6 +1621,9 @@
     width: 8em;
     font-size: .8em;
     height: 4em;
+     color: white;
+    font-family: sans-serif;
+    font-weight: 600;
 }
 .message-box{
     position: absolute;
@@ -1673,26 +1683,20 @@
 
 
 .slotmachine{
-    background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
     top: 50%;
     left: 30vw;
-
     margin-left: 10%;
     visibility: hidden;
-    background-color:white;   
-    width: 20vw;
-    height: 30vh;
+    background-color: transparent;
+    width: 20em;
+    height: 20em;
     z-index: 9999999999999999999999999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
-
-.slotmachine img{
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    max-height:100%;
-     max-width:100%;
-}
