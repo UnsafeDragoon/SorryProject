@@ -280,65 +280,123 @@ function updatePiece(oldPosition,newPosition) {
   }else if (currentColorTurn == 'yellow'){
     yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
   }
-  let allPieces = redPieces.concat(bluePieces, yellowPieces, greenPieces);
 
-  for (let i = 0; i < allPieces.length; i++) {
-    let currentItem = allPieces[i];
-    for (let j = i + 1; j < allPieces.length; j++) {
-      let compareItem = allPieces[j];
-      if (currentItem === compareItem) {
-        let index1 = i;
-        let index2 = j;
-        let sameArray = false;
-        for (let k = 0; k < 4; k++) {
-          if (index1 < k * 3 + 3 && index2 < k * 3 + 3 && index1 >= k * 3 && index2 >= k * 3) {
-            sameArray = true;
-            break;
-          }
-        }
-        if (sameArray) {
-          console.log(allPieces)
-          // console.log(`Found a match in the same array  at index ${i} and ${j}`);
+
+  // let allPieces = redPieces.concat(bluePieces, yellowPieces, greenPieces);
+
+  // for (let i = 0; i < allPieces.length; i++) {
+  //   let currentItem = allPieces[i];
+  //   for (let j = i + 1; j < allPieces.length; j++) {
+  //     let compareItem = allPieces[j];
+  //     if (currentItem === compareItem) {
+  //       let index1 = i;
+  //       let index2 = j;
+  //       let sameArray = false;
+  //       for (let k = 0; k < 4; k++) {
+  //         if (index1 < k * 3 + 3 && index2 < k * 3 + 3 && index1 >= k * 3 && index2 >= k * 3) {
+  //           sameArray = true;
+  //           break;
+  //         }
+  //       }
+  //       if (sameArray) {
+  //         console.log(allPieces)
+  //         // console.log(`Found a match in the same array  at index ${i} and ${j}`);
           
-          console.log(newPosition)
+  //         console.log(newPosition)
+  //         if (newPosition === currentItem || newPosition === compareItem){
+  //           console.log('The same array has been detected')
+  //           newPosition += 1;
+  //         }
+  //       } else {
+  //         let redArr = [ allPieces[0],allPieces[1],allPieces[2]]
+  //         let blueArr = [ allPieces[3],allPieces[4],allPieces[5]]
+  //         let yellowArr = [ allPieces[6],allPieces[7],allPieces[8]]
+  //         let greenArr = [ allPieces[9],allPieces[10],allPieces[11]]
+  //         console.log('start')
+  //         console.log(greenArr)
+  //         console.log(greenPieces)
+  //         console.log('end')
+  //         console.log(blueArr)
+  //         console.log(redArr)
+  //         console.log(yellowArr)
+  //         console.log(allPieces)
+  //         console.log(`Found a match between different arrays at index ${i} and ${j}`);
+  //         if (0<=i<=4){
+  //           console.log('greenarray')
+  //          }
+  //         else if (3<=i<=8){
+  //           console.log('greenarray')
+  //         } else if (0<=i<=4){
+  //           console.log('greenarray')
+  //         } else if (0<=i<=4){
+  //           console.log('greenarray')
+  //         }
+
+
+
+          
+  //       }
+  //     }
+  //   }
+  // }
+
+
+let arrays = [redPieces, bluePieces, yellowPieces, greenPieces];
+
+for (let i = 0; i < arrays.length; i++) {
+  let currentArray = arrays[i];
+  for (let j = 0; j < currentArray.length; j++) {
+    let currentItem = currentArray[j];
+    for (let k = 0; k < currentArray.length; k++) {
+      if (k !== j) {
+        let compareItem = currentArray[k];
+        if (currentItem === compareItem) {
+          console.log(`Found a match within ${arrays[i]} array at index ${j} and ${k}`);
           if (newPosition === currentItem || newPosition === compareItem){
             console.log('The same array has been detected')
             newPosition += 1;
+}
+          // perform action for matched items within same array
+        }
+        for (let l = i + 1; l < arrays.length; l++) {
+          let compareArray = arrays[l];
+          for (let m = 0; m < compareArray.length; m++) {
+            let compareItem = compareArray[m];
+            if (currentItem === compareItem) {
+              console.log(`Found a match between ${arrays[i]} and ${arrays[l]} at index ${j} and ${m}`);
+              console.log((arrays[l])[m])
+              // perform action for matched items between different arrays
+              if (newPosition === currentItem || newPosition === compareItem){
+                          console.log('The same array has been detected')
+                          newPosition += 1;
+              }
+              if(newPosition === (arrays[i])[j]){
+                console.log((arrays[i]))
+                console.log(newPosition)
+                // compareArray[m] = 0
+                // currentArray[k] = 600
+                if (currentArray === greenPieces){
+                  console.log('greenp'+m)
+                } else if (currentArray === bluePieces){
+                  console.log('bluep'+m)
+                } else if (currentArray === redPieces){
+                  console.log('redp'+m)
+                } else if (currentArray === yellowPieces){
+                  console.log('yellowp'+m)
+                }
+                newPosition+=1
+              }
+            }
           }
-        } else {
-          let redArr = [ allPieces[0],allPieces[1],allPieces[2]]
-          let blueArr = [ allPieces[3],allPieces[4],allPieces[5]]
-          let yellowArr = [ allPieces[6],allPieces[7],allPieces[8]]
-          let greenArr = [ allPieces[9],allPieces[10],allPieces[11]]
-          console.log(greenArr)
-          console.log(blueArr)
-          console.log(redArr)
-          console.log(yellowArr)
-          console.log(allPieces)
-          console.log(`Found a match between different arrays at index ${i} and ${j}`);
-
-
-// WORK IN PROGRESS
-
-
-          if (0<=i<=4 || 0<=j<=4){
-            console.log('greenarray')
-           }
-          else if (3<=i<=8 || 0<=j<=4){
-            console.log('greenarray')
-          } else if (0<=i<=4 || 0<=j<=4){
-            console.log('greenarray')
-          } else if (0<=i<=4 || 0<=j<=4){
-            console.log('greenarray')
-          }
-
-
-
-          
         }
       }
     }
   }
+}
+
+
+
+  
   if (currentColorTurn == 'green'){
     greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
   }else if (currentColorTurn == 'blue'){
@@ -1272,6 +1330,9 @@ function removeStore() {
 // }
 
 
+// store()
+
+
 item1.addEventListener('click', () => {
   removeOverlay()
   removeStore()
@@ -1638,25 +1699,21 @@ function black(){
 
 
 
-
 function eventspacepopup() {
-  setTimeout(function() {
-  }, 2500)
-
-    music.src = "audio/cele.mp3";
-    music.play();
-    black();
-    let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
-    let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
-    document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
-    document.getElementById('eventspacepopup').style.visibility = 'visible';
-    document.getElementById('slotmachine').style.visibility = 'visible';
-    startConfetti();
-    eventspacetransition()
-
+  music.src = "audio/cele.mp3";
+  music.play();
+  black();
+  let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
+  let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
+  document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
+  document.getElementById('eventspacepopup').style.visibility = 'visible';
+  document.getElementById('slotmachine').style.visibility = 'visible';
+  startConfetti();
   myLoop()
 
 }
+
+
 
 function getcoinevent(){
   if (currentColorTurn == 'green'){
@@ -1682,28 +1739,13 @@ function removecoinevent(){
   }
 }
 
-function randomevent(){
-  let events = [1, 2];
-  let randomevent = new Uint32Array(1);
-  window.crypto.getRandomValues(randomevent);
-  randomevent = randomevent[0] % events.length;
-  console.log(randomevent)
-
-  if (randomevent === 0){
-    console.log('You lost a coin!')
-    removecoinevent()
-  }
-
-  if (randomevent === 1){
-    console.log('You got a coin!')
-    getcoinevent()
-  }
-}
 
 
 
 function myLoop() {
-  for (let i = 0; i < 100; i++) {
+  music.src = "audio/jingle.mp3";
+  music.play();
+  for (let i = 0; i < 300; i++) {
     setTimeout(function() {
       
       let images = [1, 2];
@@ -1713,33 +1755,64 @@ function myLoop() {
       console.log(randomimage)
     
       if (randomimage === 1){
-        document.getElementById('slotmachine').style.backgroundImage = "url('events/coin.png')"
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/currency-coin-cartoon-png.webp')"
       }
 
       if (randomimage === 0){
-        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.png')"
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
+      }
+      if (i === 299){
+        music.pause();
+        randomevent();
+        setTimeout(function() {
+          closeeventpopup();
+        }, 2000); 
       }
     }, i * 10); 
+
+    function randomevent(){
+      let events = [1, 2];
+      let randomevent = new Uint32Array(1);
+      window.crypto.getRandomValues(randomevent);
+      randomevent = randomevent[0] % events.length;
+      console.log(randomevent)
+    
+      if (randomevent === 0){
+        console.log('You lost a coin!')
+        document.getElementById('eventspacepopuptext').innerHTML = "You lost a coin"
+        removecoinevent()
+      }
+    
+      if (randomevent === 1){
+        console.log('You got a coin!')
+        document.getElementById('eventspacepopuptext').innerHTML = "You got a coin"
+        getcoinevent()
+      }
+    
+  if (randomevent === 0){
+    console.log('You lost a coin!')
+    removecoinevent()
+    return randomevent
   }
-  setTimeout(function() {
-    if (randomevent === 0){
-      console.log('You lost a coin!')
-      removecoinevent()
-      return randomevent
-    }
-  
-    if (randomevent === 1){
-      console.log('You got a coin!')
-      getcoinevent()
-      return randomevent
-    }
 
-  }, 2000);
+  if (randomevent === 1){
+    console.log('You got a coin!')
+    getcoinevent()
+   return randomevent
+  }
+  }
 
-
-
-
+}
 }
 
 
-  
+
+function closeeventpopup() {
+  stopConfetti(); 
+  document.getElementById('eventspacepopup').style.visibility = 'hidden';
+  document.getElementById('slotmachine').style.visibility = 'hidden';
+  const overlay2 = document.querySelector(".overlay2");
+  if (overlay2) {
+    overlay2.parentNode.removeChild(overlay2);
+  }
+}
