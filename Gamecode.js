@@ -1294,13 +1294,18 @@ const item5 = document.getElementById('#5');
 const item05 = document.querySelector('.itemslot5')
 const item6 = document.getElementById('#6');
 const item06 = document.querySelector('.itemslot6')
-const holder = document.getElementById('holder1')
+const holderGreen = document.getElementById('test1')
 const holderBlue = document.getElementById('holder2')
 const holderRed = document.getElementById('holder3')
 const holderYellow = document.getElementById('holder4')
 
 const ITEM = document.querySelectorAll('.itemslot');
+ 
+let holder = holderGreen || holderBlue || holderRed || holderYellow
 
+let hi = currentColorTurn
+
+hi = holder
 
 const shop = document.getElementById('storepage')
 const shopLocation1 = document.getElementById('2');
@@ -1311,9 +1316,7 @@ const shopPos = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
 
 
 item01.addEventListener('click', () =>{
-  item01 == holder;
-  holder.innerHTML = item01
-  
+  holder.innerHTML.src = "images/block.gif"
 })
 
 function store() {
@@ -1334,13 +1337,14 @@ function removeStore() {
 
 
 item1.addEventListener('click', () => {
+  hi.src = "images/item1.png"
   removeOverlay()
   removeStore()
   removecoinevent()
-  console.log('hello')
 })
 
 item2.addEventListener('click', () => {
+  holderBlue
   removeOverlay()
   removeStore()
   removecoinevent()
