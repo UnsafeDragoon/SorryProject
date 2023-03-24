@@ -280,65 +280,123 @@ function updatePiece(oldPosition,newPosition) {
   }else if (currentColorTurn == 'yellow'){
     yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
   }
-  let allPieces = redPieces.concat(bluePieces, yellowPieces, greenPieces);
 
-  for (let i = 0; i < allPieces.length; i++) {
-    let currentItem = allPieces[i];
-    for (let j = i + 1; j < allPieces.length; j++) {
-      let compareItem = allPieces[j];
-      if (currentItem === compareItem) {
-        let index1 = i;
-        let index2 = j;
-        let sameArray = false;
-        for (let k = 0; k < 4; k++) {
-          if (index1 < k * 3 + 3 && index2 < k * 3 + 3 && index1 >= k * 3 && index2 >= k * 3) {
-            sameArray = true;
-            break;
-          }
-        }
-        if (sameArray) {
-          console.log(allPieces)
-          // console.log(`Found a match in the same array  at index ${i} and ${j}`);
+
+  // let allPieces = redPieces.concat(bluePieces, yellowPieces, greenPieces);
+
+  // for (let i = 0; i < allPieces.length; i++) {
+  //   let currentItem = allPieces[i];
+  //   for (let j = i + 1; j < allPieces.length; j++) {
+  //     let compareItem = allPieces[j];
+  //     if (currentItem === compareItem) {
+  //       let index1 = i;
+  //       let index2 = j;
+  //       let sameArray = false;
+  //       for (let k = 0; k < 4; k++) {
+  //         if (index1 < k * 3 + 3 && index2 < k * 3 + 3 && index1 >= k * 3 && index2 >= k * 3) {
+  //           sameArray = true;
+  //           break;
+  //         }
+  //       }
+  //       if (sameArray) {
+  //         console.log(allPieces)
+  //         // console.log(`Found a match in the same array  at index ${i} and ${j}`);
           
-          console.log(newPosition)
+  //         console.log(newPosition)
+  //         if (newPosition === currentItem || newPosition === compareItem){
+  //           console.log('The same array has been detected')
+  //           newPosition += 1;
+  //         }
+  //       } else {
+  //         let redArr = [ allPieces[0],allPieces[1],allPieces[2]]
+  //         let blueArr = [ allPieces[3],allPieces[4],allPieces[5]]
+  //         let yellowArr = [ allPieces[6],allPieces[7],allPieces[8]]
+  //         let greenArr = [ allPieces[9],allPieces[10],allPieces[11]]
+  //         console.log('start')
+  //         console.log(greenArr)
+  //         console.log(greenPieces)
+  //         console.log('end')
+  //         console.log(blueArr)
+  //         console.log(redArr)
+  //         console.log(yellowArr)
+  //         console.log(allPieces)
+  //         console.log(`Found a match between different arrays at index ${i} and ${j}`);
+  //         if (0<=i<=4){
+  //           console.log('greenarray')
+  //          }
+  //         else if (3<=i<=8){
+  //           console.log('greenarray')
+  //         } else if (0<=i<=4){
+  //           console.log('greenarray')
+  //         } else if (0<=i<=4){
+  //           console.log('greenarray')
+  //         }
+
+
+
+          
+  //       }
+  //     }
+  //   }
+  // }
+
+
+let arrays = [redPieces, bluePieces, yellowPieces, greenPieces];
+
+for (let i = 0; i < arrays.length; i++) {
+  let currentArray = arrays[i];
+  for (let j = 0; j < currentArray.length; j++) {
+    let currentItem = currentArray[j];
+    for (let k = 0; k < currentArray.length; k++) {
+      if (k !== j) {
+        let compareItem = currentArray[k];
+        if (currentItem === compareItem) {
+          console.log(`Found a match within ${arrays[i]} array at index ${j} and ${k}`);
           if (newPosition === currentItem || newPosition === compareItem){
             console.log('The same array has been detected')
             newPosition += 1;
+}
+          // perform action for matched items within same array
+        }
+        for (let l = i + 1; l < arrays.length; l++) {
+          let compareArray = arrays[l];
+          for (let m = 0; m < compareArray.length; m++) {
+            let compareItem = compareArray[m];
+            if (currentItem === compareItem) {
+              console.log(`Found a match between ${arrays[i]} and ${arrays[l]} at index ${j} and ${m}`);
+              console.log((arrays[l])[m])
+              // perform action for matched items between different arrays
+              if (newPosition === currentItem || newPosition === compareItem){
+                          console.log('The same array has been detected')
+                          newPosition += 1;
+              }
+              if(newPosition === (arrays[i])[j]){
+                console.log((arrays[i]))
+                console.log(newPosition)
+                // compareArray[m] = 0
+                // currentArray[k] = 600
+                if (currentArray === greenPieces){
+                  console.log('greenp'+m)
+                } else if (currentArray === bluePieces){
+                  console.log('bluep'+m)
+                } else if (currentArray === redPieces){
+                  console.log('redp'+m)
+                } else if (currentArray === yellowPieces){
+                  console.log('yellowp'+m)
+                }
+                newPosition+=1
+              }
+            }
           }
-        } else {
-          let redArr = [ allPieces[0],allPieces[1],allPieces[2]]
-          let blueArr = [ allPieces[3],allPieces[4],allPieces[5]]
-          let yellowArr = [ allPieces[6],allPieces[7],allPieces[8]]
-          let greenArr = [ allPieces[9],allPieces[10],allPieces[11]]
-          console.log(greenArr)
-          console.log(blueArr)
-          console.log(redArr)
-          console.log(yellowArr)
-          console.log(allPieces)
-          console.log(`Found a match between different arrays at index ${i} and ${j}`);
-
-
-// WORK IN PROGRESS
-
-
-          if (0<=i<=4 || 0<=j<=4){
-            console.log('greenarray')
-           }
-          else if (3<=i<=8 || 0<=j<=4){
-            console.log('greenarray')
-          } else if (0<=i<=4 || 0<=j<=4){
-            console.log('greenarray')
-          } else if (0<=i<=4 || 0<=j<=4){
-            console.log('greenarray')
-          }
-
-
-
-          
         }
       }
     }
   }
+}
+
+
+
+  
   if (currentColorTurn == 'green'){
     greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = newPosition;
   }else if (currentColorTurn == 'blue'){
@@ -1254,6 +1312,8 @@ const shopPos = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
 
 
 
+
+
 item01.addEventListener('click', () =>{
   item01 == holder;
   holder.innerHTML = item01
@@ -1261,10 +1321,14 @@ item01.addEventListener('click', () =>{
 })
 
 function store() {
-  const shop = document.getElementById('storepage')
-  shop.classList.add('active')
-  overlay()
+  
+    const shop = document.getElementById('storepage')
+    shop.classList.add('active')
+    overlay()
 }
+
+
+// store()
 
 
 item1.addEventListener('click', () => {

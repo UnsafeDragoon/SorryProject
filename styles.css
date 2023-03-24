@@ -80,6 +80,7 @@
     max-width: 90%;
     max-height: 100%;
     margin-left: 5%;
+    filter: invert(100%) sepia(12%) saturate(7452%) hue-rotate(207deg) brightness(111%) contrast(113%);
 }
 
 /* Board Style*/
@@ -1709,3 +1710,9 @@
 
 }
 
+.store-space{
+    background-image: url(images/money.png);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
