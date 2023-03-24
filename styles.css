@@ -1709,7 +1709,14 @@
 
 .store-space{
     background-image: url(images/money.png);
-    background-size: 20%;
+    background-size: 40%;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: white;;
+}
+.normal{
+    /* background-image: url(images/red-blood-cell-count.jpg); */
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }

@@ -167,6 +167,10 @@ function setUpMapOne(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
   let music =document.getElementById('music')
   music.src="audio/Smoove Groove.mp3"
+  const elements = document.querySelectorAll('.normal');
+  // for (let i = 0; i < elements.length; i++) {
+  //   elements[i].style.backgroundImage = 'url(images/red-blood-cell-count.jpg';
+  // }
   music.play()
   console.log('map1')
 }
@@ -175,6 +179,10 @@ function setUpMapTwo(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/mc.png);';
   let music =document.getElementById('music')
   music.src="audio/Mice_On_Venus.mp3"
+  const elements = document.querySelectorAll('.normal');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundImage = 'url(images/iron-block.png';
+  }
   music.play()
   console.log('map2')
 }
@@ -183,6 +191,10 @@ function setUpMapThree(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/doom.jpg);';
   let music =document.getElementById('music')
   music.src="audio/watermarked_Bobo_Renthlei_Follow_My_Heart_instrumental_2_26.mp3"
+  const elements = document.querySelectorAll('.normal');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundImage = 'url(images/red-blood-cell-count.jpg';
+  }
   music.play()
   console.log('map3')
 }
