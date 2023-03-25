@@ -20,6 +20,7 @@
 
 
 * {
+    font-family: 'Libre Franklin';
     font-size: .85vw;
 }
 
@@ -1604,6 +1605,8 @@
 }
 
 .use-Item {
+    font-family: 'Libre Franklin';
+    font-weight: 800;
     border-radius: 25rem;
     background-color: green;
     position: absolute;
@@ -1613,12 +1616,13 @@
     width: 8em;
     height: 4em;
     color: white;
-    font-family: sans-serif;
-    font-weight: 800;
+
 }
 
 
 .confirm-pawn{
+    font-family: 'Libre Franklin';
+    font-weight: 800;
     border-radius: 25rem;
 
     background-color: green;
@@ -1629,8 +1633,7 @@
     font-size: .8em;
     height: 4em;
      color: white;
-    font-family: sans-serif;
-    font-weight: 600;
+
 }
 .message-box{
     position: absolute;
@@ -1650,8 +1653,8 @@
 }
 
 .gameMessages{
-    font-size: 2rem;
-    font-family: sans-serif;
+    font-size: 1.25rem;
+    font-family: 'Libre Franklin';
 }
 
 @keyframes floating {
@@ -1707,7 +1710,8 @@
 }
 
 
-.slotcarrier{
+.slotcarrier {
+    visibility: visible;
     background-size: cover;
     background-repeat: no-repeat;
     position: fixed;
@@ -1724,17 +1728,11 @@
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background: gray;
-    opacity: 50;
-    animation-name: horizontal-shaking;
+    visibility: hidden;
+    
 }
 
-@keyframes horizontal-shaking {
-    0% { transform: translateX(0) }
-    25% { transform: translateX(5px) }
-    50% { transform: translateX(-5px) }
-    75% { transform: translateX(5px) }
-    100% { transform: translateX(0) }
-   }
+
 
 .slotmachine{
     background-size: cover;
@@ -1754,9 +1752,12 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
+    opacity: 100%;
 }
 
 .slotmachine img{
+    opacity: 100%;
+
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;

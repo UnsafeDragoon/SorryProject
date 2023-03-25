@@ -1710,16 +1710,18 @@ function black(){
 
 
 
-
 function eventspacepopup() {
   music.src = "audio/cele.mp3";
   music.play();
   black();
+  document.getElementById('bruh').style.boxShadow = '0 0 60px ' +String(currentColorTurn)
   let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
   let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
   document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
   document.getElementById('eventspacepopup').style.visibility = 'visible';
   document.getElementById('slotmachine').style.visibility = 'visible';
+  document.getElementById('bruh').style.visibility = 'visible';
+
   startConfetti();
   myLoop()
 
@@ -1826,10 +1828,15 @@ function myLoop() {
 
 function closeeventpopup() {
   stopConfetti(); 
+  document.getElementById('bruh').style.visibility = 'hidden';
   document.getElementById('eventspacepopup').style.visibility = 'hidden';
   document.getElementById('slotmachine').style.visibility = 'hidden';
   const overlay2 = document.querySelector(".overlay2");
   if (overlay2) {
     overlay2.parentNode.removeChild(overlay2);
   }
+}
+
+function testing(){
+  document.getElementById('bruh').style.animation = "shake 30s";
 }
