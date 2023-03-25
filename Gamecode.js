@@ -1802,16 +1802,20 @@ function myLoop() {
         getcoinevent()
       }
     
-  if (randomevent === 0){
-    console.log('You lost a coin!')
+    if (randomevent === 0){
+      document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
+
+      console.log('You lost a coin!')
     removecoinevent()
     return randomevent
   }
 
   if (randomevent === 1){
+    document.getElementById('slotmachine').style.backgroundImage = "url('events/currency-coin-cartoon-png.webp')"
     console.log('You got a coin!')
     getcoinevent()
    return randomevent
+
   }
   }
 

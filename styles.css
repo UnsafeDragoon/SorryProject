@@ -1707,6 +1707,34 @@
 }
 
 
+.slotcarrier{
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 50%;
+    left: 30vw;
+    margin-left: 10%;
+    width: 20em;
+    height: 20em;
+    z-index: 9999999999999999999999999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background: gray;
+    opacity: 50;
+    animation-name: horizontal-shaking;
+}
+
+@keyframes horizontal-shaking {
+    0% { transform: translateX(0) }
+    25% { transform: translateX(5px) }
+    50% { transform: translateX(-5px) }
+    75% { transform: translateX(5px) }
+    100% { transform: translateX(0) }
+   }
 
 .slotmachine{
     background-size: cover;
