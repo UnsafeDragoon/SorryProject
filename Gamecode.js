@@ -1798,6 +1798,7 @@ function myLoop() {
       if (randomevent === 1){
         console.log('You got a coin!')
         document.getElementById('eventspacepopuptext').innerHTML = "You got a coin"
+        document.getElementById('eventspacepopuptext').style.marginLeft = "50"
         getcoinevent()
       }
     
