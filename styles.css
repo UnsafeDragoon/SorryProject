@@ -121,7 +121,8 @@
     margin-top: auto;
     padding: 0px;
     border: 0px;
-    /* background-image: url(images/awefa.png) */
+    /* background-Image :url(images/doom-pit.jpg); */
+
     background-color: black;
 }
 
@@ -401,8 +402,8 @@
 .event {
     background-image: url(images/event-space.png);
     background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
+    background-size: 60%,100%;
+    background-repeat: no-repeat,repeat;
     background-color: gold;
     display: flex;
     justify-content: center;
@@ -506,8 +507,8 @@
 }
 
 .shop-space {
-    background-color: #37303d;
-    border-color: #37303d;
+    background-color: black;
+    /* border-color: #37303d; */
 }
 
 .shop-space img {
@@ -1669,10 +1670,11 @@
 }
 
 .diretional-arrows{
+    /* background-image: url(images/left-arrow-svgrepo-com.svg); */
     background-image: url(images/left-arrow-svgrepo-com.svg);
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-position: 0%;
+    background-repeat: no-repeat,repeat;
+    background-size: 50%,100%;
+    background-position: 0%,center;
     
 }
 
@@ -1765,13 +1767,12 @@
 
 .store-space{
     background-image: url(images/money.png);
-    background-size: 40%;
-    background-repeat: no-repeat;
+    background-size: 40%,100%;
+    background-repeat: no-repeat,repeat;
     background-position: center;
     background-color: white;;
 }
 .normal{
-    /* background-image: url(images/red-blood-cell-count.jpg); */
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;

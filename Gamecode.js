@@ -183,6 +183,30 @@ function setUpMapTwo(){
   for (let i = 0; i < elements.length; i++) {
     elements[i].style.backgroundImage = 'url(images/iron-block.png';
   }
+  let eventElements = document.querySelectorAll('.event')
+  for (let i = 0; i < eventElements.length; i++) {
+    eventElements[i].style.backgroundImage = 'url(images/event-space.png),url(images/gold-block.png)';
+  }
+  let shopIcons = document.querySelectorAll('.shop-space img')
+  for (let i = 0; i < shopIcons.length; i++) {
+    shopIcons[i].src = 'images/villager.png';
+    shopIcons[i].style.width = '80%';
+
+  }
+  let arrowSpaces = document.querySelectorAll('.diretional-arrows')
+  for (let i = 0; i < arrowSpaces.length; i++) {
+    arrowSpaces[i].style.backgroundImage = 'url(images/left-arrow-svgrepo-com.svg), url(images/iron-block.png)';
+  }
+  let storeSpaces = document.querySelectorAll('.store-space')
+  for (let i = 0; i < storeSpaces.length; i++) {
+    storeSpaces[i].style.backgroundImage = 'url(images/emerald.png), url(images/iron-block.png)';
+  }
+
+  // document.getElementById('gameBoard').style.backgroundImage = 'url('images/doom-pit.jpg')'
+
+
+
+
   music.play()
   console.log('map2')
 }
@@ -193,7 +217,23 @@ function setUpMapThree(){
   music.src="audio/watermarked_Bobo_Renthlei_Follow_My_Heart_instrumental_2_26.mp3"
   const elements = document.querySelectorAll('.normal');
   for (let i = 0; i < elements.length; i++) {
-    elements[i].style.backgroundImage = 'url(images/red-blood-cell-count.jpg';
+    elements[i].style.backgroundImage = 'url(images/y7fiwdoy02wl.png';
+  }
+  let eventElements = document.querySelectorAll('.event')
+  for (let i = 0; i < eventElements.length; i++) {
+    eventElements[i].style.backgroundColor = 'maroon';
+  }
+  let shopIcons = document.querySelectorAll('.shop-space img')
+  for (let i = 0; i < shopIcons.length; i++) {
+    shopIcons[i].src = 'images/crate-doom.png';
+  }
+  let arrowSpaces = document.querySelectorAll('.diretional-arrows')
+  for (let i = 0; i < arrowSpaces.length; i++) {
+    arrowSpaces[i].style.backgroundImage = 'url(images/left-arrow-svgrepo-com.svg), url(images/y7fiwdoy02wl.png)';
+  }
+  let storeSpaces = document.querySelectorAll('.store-space')
+  for (let i = 0; i < storeSpaces.length; i++) {
+    storeSpaces[i].style.backgroundImage = 'url(images/glowing-sigil.png), url(images/y7fiwdoy02wl.png)';
   }
   music.play()
   console.log('map3')
@@ -448,13 +488,22 @@ for (let i = 0; i < arrays.length; i++) {
 
 
   pos.appendChild(gamePiece);
-
-
-  if (cardDraws === 0){
-    getNextPlayerColor()
-    cardDraws = 1;
+  if (newPosition === 0 || newPosition === 6 || newPosition === 11 || newPosition === 17 || newPosition === 22 || newPosition === 28 || newPosition === 33 || newPosition === 39){
+    eventspacepopup()
+  } else if(newPosition === 1 || newPosition === 2 || newPosition === 3 || newPosition === 12 || newPosition === 13 || newPosition === 14 || newPosition === 23 || newPosition === 24 || newPosition === 25 || newPosition === 34 || newPosition === 35 || newPosition === 36) {
+    store()
+  } else{
+    if (cardDraws === 0){
+      getNextPlayerColor()
+      cardDraws = 1;
+    }
+    playerMove = 0;
   }
-  playerMove = 0;
+  // if (cardDraws === 0){
+  //   getNextPlayerColor()
+  //   cardDraws = 1;
+  // }
+  // playerMove = 0;
 }
 
 
@@ -462,7 +511,7 @@ function checkForHome(oldPosition, newPosition){
   let homePosition;
 
   let placeToMoveTo;
-
+  console.log('the new position is : ', newPosition)
   if(currentColorTurn === 'green' && ((oldPosition>=35 && oldPosition<=43) || oldPosition<4) && newPosition >=4){
     homePosition = newPosition-3
   } else if(currentColorTurn === 'blue' && (oldPosition>=25 && oldPosition<37) && newPosition >=37){
@@ -474,7 +523,17 @@ function checkForHome(oldPosition, newPosition){
   } 
   if(homePosition > 0 && homePosition < 4){
     placeToMoveTo = String(currentColorTurn)+'HomeWalk'+String(homePosition)
-    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    if (currentColorTurn==='green'){
+      greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    } else if(currentColorTurn ==='blue'){
+      bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    } else if(currentColorTurn ==='red'){
+      redPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    } else if(currentColorTurn ==='yellow'){
+      yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    }
+    console.log(placeToMoveTo)
+    // greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
     var gamePiece = document.createElement('div'); 
     gamePiece.classList.add(String(currentColorTurn)+'-pawn');
     gamePiece.classList.add('pawn');
@@ -486,6 +545,8 @@ function checkForHome(oldPosition, newPosition){
     gamePiece.style.border= '2px solid black';
   
     let x = document.getElementById(placeToMoveTo)
+    console.log(gamePiece)
+    console.log(x)
     x.appendChild(gamePiece)
   } else if(homePosition > 3){
     console.log(homePosition)
@@ -611,90 +672,74 @@ function confirmPawnToMove(){
         oldPos = yellowPieces[pawnMoved];
       }
       console.log('s')
+      console.log(oldPos)
+      console.log(playerMove)
+      if(isNaN(oldPos)){
+        if (oldPos === 'home'){
+          textBox.innerHTML='You cannot move a pawn from inside your home!'
+        }
+        let homeValue = playerMove + Number(oldPos.match(/\d+/)[0])
+        var gamePiece = document.createElement('div'); 
+          gamePiece.classList.add(String(currentColorTurn)+'-pawn');
+          gamePiece.classList.add('pawn');
+          gamePiece.setAttribute('id', pawnNum.id);
+          gamePiece.style.backgroundColor = String(currentColorTurn);
+          gamePiece.style.height = "80%";
+          gamePiece.style.width = "80%";
+          gamePiece.style.borderRadius= '25px';
+          gamePiece.style.border= '2px solid black';
+        if(homeValue <= 3 && homeValue > 0){
+          let placeToMoveTo = String(currentColorTurn)+'HomeWalk'+String(homeValue)
+          console.log(placeToMoveTo)
+          if (currentColorTurn==='green'){
+            greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          } else if(currentColorTurn ==='blue'){
+            bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          } else if(currentColorTurn ==='red'){
+            redPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          } else if(currentColorTurn ==='yellow'){
+            yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          }
+          let oldPosDiv = document.getElementById(String(oldPos))
+          if(oldPosDiv.hasChildNodes()===true){
+            for (let i = oldPosDiv.children.length - 1; i >= 0; i--) {
+              oldPosDiv.children[i].remove();
+            }
+          }
+          let x = document.getElementById(placeToMoveTo)
+          x.appendChild(gamePiece)
+        } else if(homeValue>3){
+          let placeToMoveTo = String(currentColorTurn)+'Home'+String(Number(pawnNum.id.match(/\d+/)[0]))
+          if (currentColorTurn==='green'){
+            greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          } else if(currentColorTurn ==='blue'){
+            bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          } else if(currentColorTurn ==='red'){
+            redPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          } else if(currentColorTurn ==='yellow'){
+            yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          }
+          let oldPosDiv = document.getElementById(String(oldPos))
+          if(oldPosDiv.hasChildNodes()===true){
+            for (let i = oldPosDiv.children.length - 1; i >= 0; i--) {
+              oldPosDiv.children[i].remove();
+            }
+          }
+          let x = document.getElementById(placeToMoveTo)
+          x.appendChild(gamePiece)
+        }
+        console.log('The current Pawns position is not a set number so it must be in the home walkway; ending turn')
+        return
+        getNextPlayerColor()
+        return
+      }
+
       let newPosition = oldPos + playerMove;
         if (newPosition<0){
           newPosition +=44;
         } else if (newPosition>43){
           newPosition -=44 ;
         }
-        if (newPosition === 0){
-          eventspacepopup()
-          
-        }
-        if (newPosition === 6){
-          eventspacepopup()
-        }
-        if (newPosition === 11){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 17){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 22){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 28){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 33){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 39){
-          eventspacepopup()
-        }
-        if (newPosition ===  1){
-          eventspacepopup()
-        }
-
-        if(newPosition === 2) {
-          store ()
-        }
-
-        if(newPosition === 3) {
-          store()
-        }
-
-        if(newPosition === 12) {
-          store()
-        }
-
-        if(newPosition === 14) {
-          store()
-        }
-
-        if(newPosition === 23) {
-          store()
-        }
-
-        if(newPosition === 24) {
-          store()
-        }
-
-        if(newPosition === 25) {
-          store()
-        }
-
-        if(newPosition === 34) {
-          store()
-        }
-
-        if(newPosition === 35) {
-          store()
-        }
-
-        if(newPosition === 36) {
-          store()
-        }
-
-        if(newPosition === 1) {
-          store()
-        }
-
         if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
           console.log('HomeWalkway Dectected')
         }
@@ -705,7 +750,7 @@ function confirmPawnToMove(){
         }
         updatePiece(oldPos,newPosition)
         selectPawnToMove()
-        playerMove = 1
+        // playerMove = 1
     } else if(playerMove!=0 && pawnNum === undefined){
       textBox.innerHTML='You need to select a pawn to move!'
     } else if(playerMove===0 && pawnNum != undefined){
@@ -1276,6 +1321,11 @@ function addCoin(player) {
     default:
       break;
   }
+  if (cardDraws === 0){
+    getNextPlayerColor()
+    cardDraws = 1;
+  }
+  playerMove = 0;
 }
 
 addCoin('blue')
@@ -1329,8 +1379,28 @@ item01.addEventListener('click', () =>{
 })
 
 function store() {
-  shop.classList.add('active')
-  overlay()
+  if (currentColorTurn === 'green' && greenCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else if(currentColorTurn === 'blue' && blueCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else if(currentColorTurn === 'red' && redCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else if(currentColorTurn === 'yellow' && yellowCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else {
+    textBox.innerHTML = 'You do not have enough coins to use the shop, '+String(currentColorTurn)+'.'
+    if (cardDraws === 0){
+      getNextPlayerColor()
+      cardDraws = 1;
+    }
+    playerMove = 0;
+  }
+    // shop.classList.add('active')
+    // overlay()
 }
 
 function removeStore() {
@@ -1688,6 +1758,11 @@ function removeCoin(player) {
     default:
       break;
   }
+  if (cardDraws === 0){
+    getNextPlayerColor()
+    cardDraws = 1;
+  }
+  playerMove = 0;
 }
 
 
@@ -1711,6 +1786,7 @@ function black(){
 
 
 function eventspacepopup() {
+  textBox.innerHTML=String(currentColorTurn)+' has triggered an event space!'
   music.src = "audio/cele.mp3";
   music.play();
   black();
@@ -1739,6 +1815,7 @@ function getcoinevent(){
   }else if (currentColorTurn == 'yellow'){
     addCoin('yellow')
   }
+
 }
 
 function removecoinevent(){
@@ -1751,6 +1828,7 @@ function removecoinevent(){
   }else if (currentColorTurn == 'yellow'){
     removeCoin('yellow')
   }
+  playerMove = 0;
 }
 
 
@@ -1822,6 +1900,7 @@ function myLoop() {
   }
 
 }
+  
 }
 
 
