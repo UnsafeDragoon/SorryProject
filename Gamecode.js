@@ -2216,9 +2216,9 @@ function myLoop() {
   let rollSFX = new Audio("audio/jingle.mp3");
   rollSFX.play();
   for (let i = 0; i < 300; i++) {
-    setTimeout(function () {
-
-      let images = [1, 2];
+    setTimeout(function() {
+      
+      let images = [1, 2, 3];
       let randomimage = new Uint32Array(1);
       window.crypto.getRandomValues(randomimage);
       randomimage = randomimage[0] % images.length;
@@ -2231,7 +2231,13 @@ function myLoop() {
       if (randomimage === 0) {
         document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
       }
-      if (i === 299) {
+
+      if (randomimage === 2){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/fish.jpg')"
+      }
+
+
+      if (i === 299){
         rollSFX.pause();
         randomevent();
         setTimeout(function () {
@@ -2240,42 +2246,40 @@ function myLoop() {
       }
     }, i * 10);
 
-    function randomevent() {
-      let events = [1, 2];
+    function randomevent(){
+      let events = [1, 2, 3];
       let randomevent = new Uint32Array(1);
       window.crypto.getRandomValues(randomevent);
       randomevent = randomevent[0] % events.length;
       console.log(randomevent)
-
-      if (randomevent === 0) {
+    
+      if (randomevent === 0){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
         console.log('You lost a coin!')
         document.getElementById('eventspacepopuptext').innerHTML = "You lost a coin"
         removecoinevent()
       }
-
-      if (randomevent === 1) {
+    
+      if (randomevent === 1){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/coin.png')"
         console.log('You got a coin!')
         document.getElementById('eventspacepopuptext').innerHTML = "You got a coin"
         document.getElementById('eventspacepopuptext').style.marginLeft = "50"
         getcoinevent()
       }
+    
+      if (randomevent === 2){
+        document.getElementById('slotmachine').style.backgroundImage = "url('events/fish.jpg')"
 
-      if (randomevent === 0) {
-        document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
-
-        console.log('You lost a coin!')
-        removecoinevent()
-        return randomevent
+        console.log('Fish event')
+        document.getElementById('eventspacepopuptext').innerHTML = "FISH EVENT"
+        document.getElementById('eventspacepopuptext').style.marginLeft = "50"
+        fishevent()
+      
       }
 
-      if (randomevent === 1) {
-        document.getElementById('slotmachine').style.backgroundImage = "url('events/currency-coin-cartoon-png.webp')"
-        console.log('You got a coin!')
-        getcoinevent()
-        return randomevent
-      }
-    }
   }
+
 }
 
 function closeeventpopup() {
@@ -2291,4 +2295,72 @@ function closeeventpopup() {
 
 function testing() {
   document.getElementById('bruh').style.animation = "shake 30s";
+}
+
+function fishevent(){
+  let fishSFX = new Audio('audio/me.mp3') 
+  fishSFX.play()
+}
+
+function michaeljackson(){
+  document.getElementById('discoBall').style.visibility = "visible"
+  document.getElementById('mj').style.visibility = "visible"
+
+}
+
+var t = 1;
+var radius = 50;
+var squareSize = 6.5;
+var prec = 19.55;
+var fuzzy = 0.001;
+var inc = (Math.PI-fuzzy)/prec;
+var discoBall = document.getElementById("discoBall");
+
+for(var t=fuzzy; t<Math.PI; t+=inc) {
+  var z = radius * Math.cos(t);
+  var currentRadius = Math.abs((radius * Math.cos(0) * Math.sin(t)) - (radius * Math.cos(Math.PI) * Math.sin(t))) / 2.5;
+  var circumference = Math.abs(2 * Math.PI * currentRadius);
+  var squaresThatFit = Math.floor(circumference / squareSize);
+  var angleInc = (Math.PI*2-fuzzy) / squaresThatFit;
+  for(var i=angleInc/2+fuzzy; i<(Math.PI*2); i+=angleInc) {
+    var square = document.createElement("div");
+    var squareTile = document.createElement("div");
+    squareTile.style.width = squareSize + "px";
+    squareTile.style.height = squareSize + "px";
+    squareTile.style.transformOrigin = "0 0 0";
+    squareTile.style.webkitTransformOrigin = "0 0 0";
+    squareTile.style.webkitTransform = "rotate(" + i + "rad) rotateY(" + t + "rad)";
+    squareTile.style.transform = "rotate(" + i + "rad) rotateY(" + t + "rad)";
+    if((t>1.3 && t<1.9) || (t<-1.3 && t>-1.9)) {
+      squareTile.style.backgroundColor = randomColor("bright");
+    } else {
+      squareTile.style.backgroundColor = randomColor("any");
+    }
+    square.appendChild(squareTile);
+    square.className = "square";
+    squareTile.style.webkitAnimation = "reflect 2s linear infinite";
+    squareTile.style.webkitAnimationDelay = String(randomNumber(0,20)/10) + "s";
+    squareTile.style.animation = "reflect 2s linear infinite";
+    squareTile.style.animationDelay = String(randomNumber(0,20)/10) + "s";
+    squareTile.style.backfaceVisibility = "hidden";
+    var x = radius * Math.cos(i) * Math.sin(t);
+    var y = radius * Math.sin(i) * Math.sin(t);
+    square.style.webkitTransform = "translateX(" + Math.ceil(x) + "px) translateY(" + y + "px) translateZ(" + z + "px)";
+    square.style.transform = "translateX(" + x + "px) translateY(" + y + "px) translateZ(" + z + "px)";
+    discoBall.appendChild(square);
+  }
+}
+
+function randomColor(type) {
+  var c;
+  if(type == "bright") {
+    c = randomNumber(130, 255);
+  } else {
+    c = randomNumber(110, 190);
+  }
+  return "rgb(" + c + "," + c + "," + c + ")";
+}
+
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
