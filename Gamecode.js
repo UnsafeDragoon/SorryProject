@@ -420,10 +420,55 @@ for (let i = 0; i < arrays.length; i++) {
             if (currentItem === compareItem) {
               console.log(`Found a match between ${arrays[i]} and ${arrays[l]} at index ${j} and ${m}`);
               console.log((arrays[l])[m])
+            
+
+
+
+
+
+
+
+
               // perform action for matched items between different arrays
               if (newPosition === currentItem || newPosition === compareItem){
                           console.log('The same array has been detected')
                           newPosition += 1;
+                          // let replacedPieceArr;
+                          // let replacerPieceArr;
+                          // let x; 
+                          // let y;
+                          // if(arrays[l] === greenPieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 4
+            
+                          // } else if(arrays[l] === bluePieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 37
+                          // } else if(arrays[l] === redPieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 26
+                          // } else if(arrays[l] === yellowPieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 15
+                          // }
+                          // if(arrays[i] === greenPieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 4
+                          // } else if(arrays[i] === bluePieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 37
+                          // } else if(arrays[i] === redPieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 26
+                          // } else if(arrays[i] === yellowPieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 15
+                          // }
+                          // console.log('Replaced array is '+replacedPieceArr)
+                          // console.log('value of x is '+x)
+                          // console.log('Replaced array is '+replacerPieceArr)
+                          // console.log('value of x is '+y)
+            
               }
               if(newPosition === (arrays[i])[j]){
                 console.log((arrays[i]))
@@ -440,6 +485,7 @@ for (let i = 0; i < arrays.length; i++) {
                   console.log('yellowp'+m)
                 }
                 newPosition+=1
+                
               }
             }
           }
