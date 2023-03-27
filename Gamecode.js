@@ -399,34 +399,163 @@ function updatePiece(oldPosition, newPosition) {
                   //   replacedPieceArr = greenPieces
                   //   x = 4
 
-                  // } else if(arrays[l] === bluePieces){
-                  //   replacedPieceArr = greenPieces
-                  //   x = 37
-                  // } else if(arrays[l] === redPieces){
-                  //   replacedPieceArr = greenPieces
-                  //   x = 26
-                  // } else if(arrays[l] === yellowPieces){
-                  //   replacedPieceArr = greenPieces
-                  //   x = 15
-                  // }
-                  // if(arrays[i] === greenPieces){
-                  //   replacerPieceArr = greenPieces
-                  //   y = 4
-                  // } else if(arrays[i] === bluePieces){
-                  //   replacerPieceArr = greenPieces
-                  //   y = 37
-                  // } else if(arrays[i] === redPieces){
-                  //   replacerPieceArr = greenPieces
-                  //   y = 26
-                  // } else if(arrays[i] === yellowPieces){
-                  //   replacerPieceArr = greenPieces
-                  //   y = 15
-                  // }
-                  // console.log('Replaced array is '+replacedPieceArr)
-                  // console.log('value of x is '+x)
-                  // console.log('Replaced array is '+replacerPieceArr)
-                  // console.log('value of x is '+y)
+for (let i = 0; i < arrays.length; i++) {
+  let currentArray = arrays[i];
+  for (let j = 0; j < currentArray.length; j++) {
+    let currentItem = currentArray[j];
+    for (let k = 0; k < currentArray.length; k++) {
+      if (k !== j) {
+        let compareItem = currentArray[k];
+        if (currentItem === compareItem) {
+          console.log(`Found a match within ${arrays[i]} array at index ${j} and ${k}`);
+          if (newPosition === currentItem || newPosition === compareItem){
+            console.log('The same array has been detected')
+            newPosition += 1;
+          }
+          // perform action for matched items within same array
+        }
+        for (let l = i + 1; l < arrays.length; l++) {
+          let compareArray = arrays[l];
+          for (let m = 0; m < compareArray.length; m++) {
+            let compareItem = compareArray[m];
+            
+            if (currentItem === compareItem) {
+              console.log(`Found a match between ${arrays[i]} and ${arrays[l]} at index ${j} and ${m}`);
+              console.log((arrays[l])[m])
+              let replacedPieceArr;
+              let replacerPieceArr;
+              let x; 
+              let y;
+              let pieceNumOne;
+              let replacedColor;
+              let  replacerColor;
+              // let pieceNumTwo;
+              if(arrays[l] === greenPieces){
+                replacedPieceArr = greenPieces
+                x = 4
+                pieceNumOne = m;
+                replacedColor = 'green'
+              } else if(arrays[l] === bluePieces){
+                replacedPieceArr = bluePieces
+                x = 37
+                pieceNumOne = m;
+                replacedColor = 'blue'
 
+              } else if(arrays[l] === redPieces){
+                replacedPieceArr = redPieces
+                x = 26
+                pieceNumOne = m;
+                replacedColor = 'red'
+
+              } else if(arrays[l] === yellowPieces){
+                replacedPieceArr = yellowPieces
+                x = 15
+                pieceNumOne = m;
+                replacedColor = 'yellow'
+
+              }
+              if(arrays[i] === greenPieces){
+                replacerPieceArr = greenPieces
+                y = 4
+                pieceNumOne = j;
+                replacerColor = 'green'
+
+              } else if(arrays[i] === bluePieces){
+                replacerPieceArr = bluePieces
+                y = 37
+                pieceNumOne = j;
+                replacerColor = 'blue'
+
+              } else if(arrays[i] === redPieces){
+                replacerPieceArr = redPieces
+                y = 26
+                pieceNumOne = j;
+                replacerColor = 'red'
+
+              } else if(arrays[i] === yellowPieces){
+                replacerPieceArr = yellowPieces
+                y = 15
+                pieceNumOne = j;
+                replacerColor = 'yellow'
+
+              } if (currentColorTurn === replacedPieceArr){
+                console.log(replacedPieceArr+' is going to replace '+replacerPieceArr+"'s piece!")
+                let replacedPiece = document.getElementById(replacerColor+'p'+String(pieceNumOne))
+                console.log(replacedPiece)
+                replacedPiece.style.backgroundColor = 'black'
+              } else if (currentColorTurn === replacerPieceArr){
+                console.log(replacerPieceArr+' is going to replace '+replacedPieceArr+"'s piece!")
+                let replacedPiece = document.getElementById(replacedColor+'p'+String(pieceNumOne))
+                console.log(replacedPiece)
+                replacedPiece.style.backgroundColor = 'black'
+              }
+              console.log('Replaced array is '+replacedPieceArr)
+              console.log('value of x is '+x)
+              console.log('Replaced array is '+replacerPieceArr)
+              console.log('value of x is '+y)
+            
+
+
+
+
+
+
+
+
+              // perform action for matched items between different arrays
+              // if (newPosition === currentItem || newPosition === compareItem){
+              //             console.log('The same array has been detected')
+              //             newPosition += 1;
+              //             // let replacedPieceArr;
+              //             // let replacerPieceArr;
+              //             // let x; 
+              //             // let y;
+              //             // if(arrays[l] === greenPieces){
+              //             //   replacedPieceArr = greenPieces
+              //             //   x = 4
+            
+              //             // } else if(arrays[l] === bluePieces){
+              //             //   replacedPieceArr = greenPieces
+              //             //   x = 37
+              //             // } else if(arrays[l] === redPieces){
+              //             //   replacedPieceArr = greenPieces
+              //             //   x = 26
+              //             // } else if(arrays[l] === yellowPieces){
+              //             //   replacedPieceArr = greenPieces
+              //             //   x = 15
+              //             // }
+              //             // if(arrays[i] === greenPieces){
+              //             //   replacerPieceArr = greenPieces
+              //             //   y = 4
+              //             // } else if(arrays[i] === bluePieces){
+              //             //   replacerPieceArr = greenPieces
+              //             //   y = 37
+              //             // } else if(arrays[i] === redPieces){
+              //             //   replacerPieceArr = greenPieces
+              //             //   y = 26
+              //             // } else if(arrays[i] === yellowPieces){
+              //             //   replacerPieceArr = greenPieces
+              //             //   y = 15
+              //             // }
+              //             // console.log('Replaced array is '+replacedPieceArr)
+              //             // console.log('value of x is '+x)
+              //             // console.log('Replaced array is '+replacerPieceArr)
+              //             // console.log('value of x is '+y)
+            
+              // }
+              if(newPosition === (arrays[i])[j]){
+                console.log((arrays[i]))
+                console.log(newPosition)
+                // compareArray[m] = 0
+                // currentArray[k] = 600
+                if (currentArray === greenPieces){
+                  console.log('greenp'+m)
+                } else if (currentArray === bluePieces){
+                  console.log('bluep'+m)
+                } else if (currentArray === redPieces){
+                  console.log('redp'+m)
+                } else if (currentArray === yellowPieces){
+                  console.log('yellowp'+m)
                 }
                 if (newPosition === (arrays[i])[j]) {
                   console.log((arrays[i]))
@@ -1626,16 +1755,16 @@ const shopLocation4 = document.getElementById('13');
 const shopPos = [shopLocation1, shopLocation2, shopLocation3, shopLocation4]
 
 function store() {
-  if (currentColorTurn === 'green' && greenCoins.coins > 0) {
+  if (currentColorTurn === 'green' && greenCoins.coins > 0 && greenItem === 'none'){
     shop.classList.add('active')
     overlay()
-  } else if (currentColorTurn === 'blue' && blueCoins.coins > 0) {
+  } else if(currentColorTurn === 'blue' && blueCoins.coins > 0 && blueItem === 'none'){
     shop.classList.add('active')
     overlay()
-  } else if (currentColorTurn === 'red' && redCoins.coins > 0) {
+  } else if(currentColorTurn === 'red' && redCoins.coins > 0 && redItem === 'none'){
     shop.classList.add('active')
     overlay()
-  } else if (currentColorTurn === 'yellow' && yellowCoins.coins > 0) {
+  } else if(currentColorTurn === 'yellow' && yellowCoins.coins > 0 && yellowItem === 'none'){
     shop.classList.add('active')
     overlay()
   } else {
