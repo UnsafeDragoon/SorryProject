@@ -8,6 +8,8 @@
     <title>SORRY</title>
     <link rel="icon" type="image/x-icon" href="images/pawn-icon-10.png">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,400;0,500;0,700;1,100&display=swap" rel="stylesheet">
+
 </head>
 
 <body onload="gameSetUp()" id="bodyone" class="bodyOne">
@@ -20,14 +22,18 @@
 
     <div class = "eventspacepopup" id = "eventspacepopup">
         <div class = "eventspacetext"  id = "eventspacepopuptext"></div>
-        <div class = "slotmachine" id = 'slotmachine'></div>
+        <div class = "slotcarrier" id = "bruh">
+            <div class = "slotmachine" id = 'slotmachine'></div>
+        </div>
+
     </div>
+</span>
 
 
 
 
 
-
+    <div id="victory"><h1>Congrats</h1></div>
 
 
     <div class="greenborderglowtop" id="greenglow1" class="greenglow"> </div>
@@ -51,7 +57,7 @@
     <div class="blueborderglowbottom" id="blueglow4"></div>
 
 
-    <div class='message-box'><h2 id="gameMessages">Hello There</h2></div>
+    <div class='message-box'><h2 class= "gameMessages" id="gameMessages">Hello There</h2></div>
 
 
     <body onload="gameSetUp()" id="bodyone" class="bodyOne">
@@ -59,21 +65,21 @@
 
 
         <div class="card1 cardpopup" id="cardOne" class="cardpopup">
-            <h1 class="card1-choice one" onclick="startAPawn()">Start A Pawn</h1>
+            <h1 class="card1-choice one" onclick="pass()">Pass</h1>
             <img src="/cards/Card1.png" alt="first card">
             <h1 class="card1-choice two" onclick="moveForwardOne()">Move Forward One</h1>
         </div>
 
         <div class="card2 cardpopup" id="cardTwo" class="cardpopup">
-            <h1 class="card2-choice one" onclick="startAPawn()">Start A Pawn</h1>
+            <h1 class="card2-choice one" onclick="pass()">Pass</h1>
             <img src="/cards/Card2.png" alt="second card card">
             <h1 class="card2-choice two" onclick="moveForwardTwo()">Move Forward Two</h1>
         </div>
 
         <div class="card3 cardpopup" id="cardThree" class="cardpopup">
-            <h1 class="card3-choice one" onclick="moveForwardThree()">Move Forward Three</h1>
+            <h1 class="card3-choice one" onclick="pass()">Pass</h1>
             <img src="cards/Card3.png" second card card>
-            <h1 class="card3-choice two" onclick="pass()"> Pass</h1>
+            <h1 class="card3-choice two" onclick="moveForwardThree()"> Move Foward Three</h1>
         </div>
 
 
@@ -90,13 +96,13 @@
         <div class="card7 cardpopup" id="cardSeven" class="cardpopup">
             <h1 class="card7-choice one" onclick="moveForwardSeven()">Move Forward Seven Spaces</h1>
             <img src="cards/Card7.png" alt="second card card">
-            <h1 class="card7-choice two" onclick="splitSeven()"> Split Between Seven Spaces</h1>
+            <h1 class="card7-choice two" onclick="splitSeven()"> Split Between Two Pawns</h1>
         </div>
 
         <div class="card8 cardpopup" id="cardEight" class="cardpopup">
-            <h1 class="card8-choice one" onclick="moveForwardEight()">Move Forward Eight</h1>
+            <h1 class="card8-choice one" onclick="pass()">Pass</h1>
             <img src="cards/Card8.png" alt="second card card">
-            <h1 class="card8-choice one" onclick="moveForwardTen()">Move Forward Ten</h1>
+            <h1 class="card8-choice one" onclick="moveForwardEight()">Move Forward Eight</h1>
 
         </div>
 
@@ -107,21 +113,22 @@
         </div>
 
         <div class="card11 cardpopup" id="cardEleven" class="cardpopup">
-            <h1 class="card11-choice one" onclick="moveForwardOne()">Move Forward One</h1>
+            <h1 class="card11-choice one" onclick="moveForwardEleven()">Move Forward Eleven</h1>
             <img src="cards/Card11.png" alt="second card card">
-            <h1 class="card11-choice two" onclick="moveForwardTen()">Move Forward Ten</h1>
+            <h1 class="card11-choice two" onclick="swapPawn()">Swap a pawn</h1>
         </div>
 
         <div class="card12 cardpopup" id="cardTwelve" class="cardpopup">
-            <h1 class="card5-choice one" onclick="pawnswap()">Swap Pawn</h1>
+            <h1 class="card5-choice one" onclick="pass()">Pass</h1>
             <img src="cards/Card12.png" alt="second card card">
-            <h1 class="card5-choice one" onclick="moveForwardTwelve()">Move forward twelve</h1>
+            <h1 class="card5-choice one" onclick="moveForwardTwelve()">Move Forward Twelve</h1>
         </div>
 
 
         <div class="card13 cardpopup" id="sorryCard" class="cardpopup">
-            <h1 class="cards/SorryCard.png" onclick="moveForwardTwelve()">Move Forward Twelve</h1>
+            <h1 class="cards/SorryCard.png" onclick="moveForwardFour()">Move Foward Four</h1>
             <img src="cards/SorryCard.png" alt="second card card">
+            <h1 class="cards/SorryCard.png" onclick="sorry()">Knock A Pawn</h1>
         </div>
 
 
@@ -182,7 +189,7 @@
         <button onclick='useItemColorCheck()' id=itemButton class="use-Item">Use Item</button>
         <button onclick='confirmPawnToMove()' id='pawnButton' class="confirm-pawn">Confirm Pawn To Move</button>
 
-        <div class="yellowCard playerBannerGlow">
+        <div class="yellowCard ">
             <div class="yellowPawn">
                 <img src="images/yellowpawn.svg" alt="yellowpawn">
             </div>
@@ -210,21 +217,21 @@
                 <div id='1' class="space-column store-space"></div>
                 <div id='2' class="space-column store-space"></div>
                 <div id='3' class="space-column store-space"></div>
-                <div id='4' class="space-column"></div>
+                <div id='4' class="space-column normal"></div>
                 <div id='5' class="space-column diretional-arrows" style="transform: rotate(270deg);"></div>
                 <div id='6' class="space-column event">
        
                 </div>
-                <div id='7' class="space-column"></div>
-                <div id='8' class="space-column"></div>
-                <div id='9' class="space-column"></div>
-                <div id='10' class="space-column"></div>
+                <div id='7' class="space-column normal"></div>
+                <div id='8' class="space-column normal"></div>
+                <div id='9' class="space-column normal"></div>
+                <div id='10' class="space-column normal"></div>
                 <div id='11' class="space-column event">
                    
                 </div>
             </div>
             <div class="spaces-column">
-                <div id='43' class="space-column"></div>
+                <div id='43' class="space-column normal"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column shop-space"><img style="transform: rotate(90deg); " src="images/shop.png">
                 </div>
@@ -241,7 +248,7 @@
                 <div id='12' class="space-column store-space"></div>
             </div>
             <div class="spaces-column">
-                <div id='42' class="space-column"></div>
+                <div id='42' class="space-column normal"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column green-walkway" id="greenHomeWalk2"></div>
@@ -259,7 +266,7 @@
                 <div id='13' class="space-column store-space"></div>
             </div>
             <div class="spaces-column">
-                <div id='41' class="space-column"></div>
+                <div id='41' class="space-column normal"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column green-walkway" id="greenHomeWalk3"></div>
@@ -267,13 +274,13 @@
                 <div class="space-column empty"></div>
                 <div class="space-column empty "></div>
                 <div id='redHome0' class="space-column circle-top-left red"></div>
-                <div class="space-column  red-walkway"></div>
-                <div class="space-column red-walkway"></div>
-                <div class="space-column red-walkway"></div>
+                <div id='redHomeWalk3'  class="space-column  red-walkway"></div>
+                <div id='redHomeWalk2' class="space-column red-walkway"></div>
+                <div id='redHomeWalk1' class="space-column red-walkway"></div>
                 <div id='14' class="space-column store-space "></div>
             </div>
             <div class="spaces-column">
-                <div id='40' class="space-column"></div>
+                <div id='40' class="space-column normal"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div id='greenHome2' class="space-column circle-top-right green"></div>
@@ -284,7 +291,7 @@
                 <div id='redHome2' class="space-column circle-bottom-right red"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='15' class="space-column"></div>
+                <div id='15' class="space-column normal"></div>
             </div>
             <div class="spaces-column">
                 <div id='39' class="space-column event">
@@ -331,8 +338,8 @@
                 </div>
             </div>
             </div>
-            <div class="spaces-column">
-                <div id='37' class="space-column"></div>
+            <div class="spaces-column ">
+                <div id='37' class="space-column normal"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div id='blueHome1' class="space-column circle-top-left blue"></div>
@@ -343,21 +350,21 @@
                 <div id='yellowHome0' class="space-column circle-bottom-left yellow"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='18' class="space-column"></div>
+                <div id='18' class="space-column normal"></div>
             </div>
             <div class="spaces-column">
                 <div id='36' class="space-column store-space"></div>
-                <div class="space-column blue-walkway"></div>
-                <div class="space-column blue-walkway"></div>
-                <div class="space-column blue-walkway"></div>
+                <div id='blueHomeWalk1' class="space-column blue-walkway"></div>
+                <div id='blueHomeWalk2' class="space-column blue-walkway"></div>
+                <div id='blueHomeWalk3' class="space-column blue-walkway"></div>
                 <div id='blueHome0' class="space-column circle-bottom-right blue"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
                 <div id='yellowHome1' class="space-column circle-top-right yellow"></div>
-                <div class="space-column yellow-walkway"></div>
+                <div id='yellowHomeWalk3'class="space-column yellow-walkway"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='19' class="space-column"></div>
+                <div id='19' class="space-column normal"></div>
             </div>
             <div class="spaces-column">
                 <div id='35' class="space-column store-space"></div>
@@ -373,10 +380,10 @@
                     <div class='yellow-pawn pawn' id="yellowp1" style="background-color: yellow; height: 80%; width: 80%; border: black 2px solid; border-radius: 25px;"></div>
                 </div>
                 <div class="space-column empty"></div>
-                <div class="space-column yellow-walkway"></div>
+                <div id='yellowHomeWalk2' class="space-column yellow-walkway"></div>
                 <div class="space-column empty"></div>
                 <div class="space-column empty"></div>
-                <div id='20' class="space-column"></div>
+                <div id='20' class="space-column normal"></div>
             </div>
             <div class="spaces-column">
                 <div id='34' class="space-column store-space"></div>
@@ -389,23 +396,23 @@
                 </div>
                 <div class="space-column yellow-walkway"><img src='images/home-icon.svg'></div>
                 <div class="space-column empty"></div>
-                <div class="space-column yellow-walkway"></div>
+                <div id='yellowHomeWalk1' class="space-column yellow-walkway"></div>
                 <div class="space-column shop-space"><img style="    transform: rotate(270deg); " src="images/shop.png">
                 </div>
                 <div class="space-column empty"></div>
-                <div id='21' class="space-column"></div>
+                <div id='21' class="space-column normal"></div>
             </div>
             <div class="spaces-column grid-right">
                 <div id='33' class="space-column event">
                 </div>
-                <div id='32' class="space-column"></div>
-                <div id='31' class="space-column"></div>
-                <div id='30' class="space-column"></div>
-                <div id='29' class="space-column"></div>
+                <div id='32' class="space-column normal"></div>
+                <div id='31' class="space-column normal"></div>
+                <div id='30' class="space-column normal"></div>
+                <div id='29' class="space-column normal"></div>
                 <div id='28' class="space-column event">
                 </div>
                 <div id='27' class="space-column diretional-arrows" style="transform: rotate(90deg);"></div>
-                <div id='26' class="space-column"></div>
+                <div id='26' class="space-column normal"></div>
                 <div id='25' class="space-column store-space"></div>
                 <div id='24' class="space-column store-space"></div>
                 <div id='23' class="space-column store-space"></div>
@@ -419,7 +426,7 @@
                 <div class="itemslot4" id="#4"><img src="images/item4.png" alt="Maxwell"></div>
                 <div class="itemslot5" id="#5"><img src="images/item5.png" alt="Steeve"></div>
                 <div class="itemslot6" id="#6"><img src="images/item6.png" alt="DodgeBall"></div>
-                <button class="btn">Close Shop</button>
+                <button onclick='removeStore(); removeOverlay()' class="btn">Close Shop</button>
             </div>
         </main> 
         <script src="Gamecode.js"></script>

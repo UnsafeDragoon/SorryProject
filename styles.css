@@ -20,6 +20,7 @@
 
 
 * {
+    font-family: 'Libre Franklin';
     font-size: .85vw;
 }
 
@@ -120,7 +121,8 @@
     margin-top: auto;
     padding: 0px;
     border: 0px;
-    /* background-image: url(images/awefa.png) */
+    /* background-Image :url(images/doom-pit.jpg); */
+
     background-color: black;
 }
 
@@ -400,8 +402,8 @@
 .event {
     background-image: url(images/event-space.png);
     background-position: center;
-    background-size: 60%;
-    background-repeat: no-repeat;
+    background-size: 60%,100%;
+    background-repeat: no-repeat,repeat;
     background-color: gold;
     display: flex;
     justify-content: center;
@@ -505,8 +507,8 @@
 }
 
 .shop-space {
-    background-color: #37303d;
-    border-color: #37303d;
+    background-color: black;
+    /* border-color: #37303d; */
 }
 
 .shop-space img {
@@ -713,6 +715,12 @@
     margin-top: 2em;
     font-family: 'Source Code Pro', monospace;
     font-size: 1.4em;
+}
+#player-container:hover{
+    
+    border-color:  #9ecaed;
+    box-shadow: 0 0 15px #ffffff;
+    transition: 190ms ease;
 }
 
 .btn-cont {
@@ -1604,6 +1612,8 @@
 }
 
 .use-Item {
+    font-family: 'Libre Franklin';
+    font-weight: 800;
     border-radius: 25rem;
     background-color: green;
     position: absolute;
@@ -1613,12 +1623,13 @@
     width: 8em;
     height: 4em;
     color: white;
-    font-family: sans-serif;
-    font-weight: 800;
+    text-shadow: 0px 1px 4px black;
 }
 
 
 .confirm-pawn{
+    font-family: 'Libre Franklin';
+    font-weight: 800;
     border-radius: 25rem;
 
     background-color: green;
@@ -1629,8 +1640,8 @@
     font-size: .8em;
     height: 4em;
      color: white;
-    font-family: sans-serif;
-    font-weight: 600;
+     text-shadow: 0px 1px 4px black;
+
 }
 .message-box{
     position: absolute;
@@ -1640,17 +1651,39 @@
     top:30%;
     width: 20em;
     height: 5em;
+    animation-name: floating;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    margin-left: 30px;
+    margin-top: 5px;
+    margin-right: 1.5%;
 }
+
+.gameMessages{
+    font-size: 1.25rem;
+    font-family: 'Libre Franklin';
+}
+
+@keyframes floating {
+    0% { transform: translate(0,  0px); }
+    50%  { transform: translate(0, 15px); }
+    100%   { transform: translate(0, -0px); }   
+}
+
 .message-box h2{
     text-align: center;
     color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .diretional-arrows{
+    /* background-image: url(images/left-arrow-svgrepo-com.svg); */
     background-image: url(images/left-arrow-svgrepo-com.svg);
-    background-repeat: no-repeat;
-    background-size: 50%;
-    background-position: 0%;
+    background-repeat: no-repeat,repeat;
+    background-size: 50%,100%;
+    background-position: 0%,center;
     
 }
 
@@ -1688,6 +1721,29 @@
 }
 
 
+.slotcarrier {
+    visibility: visible;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    top: 50%;
+    left: 30vw;
+    margin-left: 10%;
+    width: 20em;
+    height: 20em;
+    z-index: 9999999999999999999999999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background: gray;
+    visibility: hidden;
+    
+}
+
+
 
 .slotmachine{
     background-size: cover;
@@ -1704,12 +1760,48 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    opacity: 100%;
+}
 
+.slotmachine img{
+    opacity: 100%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
 }
 
 .store-space{
     background-image: url(images/money.png);
-    background-size: 20%;
-    background-repeat: no-repeat;
+    background-size: 40%,100%;
+    background-repeat: no-repeat,repeat;
     background-position: center;
+    background-color: white;;
+}
+.normal{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#victory{
+    background-color: black;
+    border:solid 2px green;
+    position: absolute;
+    z-index: 10;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    height: 20em;
+    border-radius: 2em;
+    visibility: hidden;
+}
+#victory h1{
+    width: 100%;
+    color: white;
+    font-size: 4em;
+    text-align: center;
 }

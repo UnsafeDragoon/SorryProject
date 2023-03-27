@@ -28,6 +28,7 @@ function openFullscreen() {
 
 // Player-Highlight
 
+
 let previousSelectedOption = 0;
 function getPlayerCount() {
   let selectedOption = parseInt(document.getElementById("player-container").value);
@@ -152,8 +153,6 @@ function confirmMatch(){
 function gameSetUp(){
   let players = window.localStorage.getItem('playerCount')
   let map = window.localStorage.getItem('mapType')
-
-
   console.log(players)
   console.log(map)
 
@@ -161,12 +160,16 @@ function gameSetUp(){
   getNextPlayerColor()
   
 }
-
+music.volume = '.5'
 
 function setUpMapOne(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
   let music =document.getElementById('music')
   music.src="audio/Smoove Groove.mp3"
+  const elements = document.querySelectorAll('.normal');
+  // for (let i = 0; i < elements.length; i++) {
+  //   elements[i].style.backgroundImage = 'url(images/red-blood-cell-count.jpg';
+  // }
   music.play()
   console.log('map1')
 }
@@ -175,6 +178,34 @@ function setUpMapTwo(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/mc.png);';
   let music =document.getElementById('music')
   music.src="audio/Mice_On_Venus.mp3"
+  const elements = document.querySelectorAll('.normal');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundImage = 'url(images/iron-block.png';
+  }
+  let eventElements = document.querySelectorAll('.event')
+  for (let i = 0; i < eventElements.length; i++) {
+    eventElements[i].style.backgroundImage = 'url(images/event-space.png),url(images/gold-block.png)';
+  }
+  let shopIcons = document.querySelectorAll('.shop-space img')
+  for (let i = 0; i < shopIcons.length; i++) {
+    shopIcons[i].src = 'images/villager.png';
+    shopIcons[i].style.width = '80%';
+
+  }
+  let arrowSpaces = document.querySelectorAll('.diretional-arrows')
+  for (let i = 0; i < arrowSpaces.length; i++) {
+    arrowSpaces[i].style.backgroundImage = 'url(images/left-arrow-svgrepo-com.svg), url(images/iron-block.png)';
+  }
+  let storeSpaces = document.querySelectorAll('.store-space')
+  for (let i = 0; i < storeSpaces.length; i++) {
+    storeSpaces[i].style.backgroundImage = 'url(images/emerald.png), url(images/iron-block.png)';
+  }
+
+  // document.getElementById('gameBoard').style.backgroundImage = 'url('images/doom-pit.jpg')'
+
+
+
+
   music.play()
   console.log('map2')
 }
@@ -183,6 +214,26 @@ function setUpMapThree(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/doom.jpg);';
   let music =document.getElementById('music')
   music.src="audio/watermarked_Bobo_Renthlei_Follow_My_Heart_instrumental_2_26.mp3"
+  const elements = document.querySelectorAll('.normal');
+  for (let i = 0; i < elements.length; i++) {
+    elements[i].style.backgroundImage = 'url(images/y7fiwdoy02wl.png';
+  }
+  let eventElements = document.querySelectorAll('.event')
+  for (let i = 0; i < eventElements.length; i++) {
+    eventElements[i].style.backgroundColor = 'maroon';
+  }
+  let shopIcons = document.querySelectorAll('.shop-space img')
+  for (let i = 0; i < shopIcons.length; i++) {
+    shopIcons[i].src = 'images/crate-doom.png';
+  }
+  let arrowSpaces = document.querySelectorAll('.diretional-arrows')
+  for (let i = 0; i < arrowSpaces.length; i++) {
+    arrowSpaces[i].style.backgroundImage = 'url(images/left-arrow-svgrepo-com.svg), url(images/y7fiwdoy02wl.png)';
+  }
+  let storeSpaces = document.querySelectorAll('.store-space')
+  for (let i = 0; i < storeSpaces.length; i++) {
+    storeSpaces[i].style.backgroundImage = 'url(images/glowing-sigil.png), url(images/y7fiwdoy02wl.png)';
+  }
   music.play()
   console.log('map3')
 }
@@ -206,6 +257,10 @@ function setMatchMap(mapTypeFinal){
 
 
  //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
+
+
+
+
 
 let board = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43']
 
@@ -235,7 +290,7 @@ const home = {
   greenHome: 0
 };
 
-
+let messageSFX = new Audio('audio/button-124476.mp3')
 let textBox = document.getElementById('gameMessages')
 
 
@@ -243,23 +298,23 @@ let textBox = document.getElementById('gameMessages')
 // const space = document.getElementById(playerPosition.toString());
 
 
-const handler = {
-  set(target, property, value) {
-    const oldValue = target[property];
-    target[property] = value;
-    if (value === 3) {
-      console.log(`${property} has a value of 3`);
-      playerWin(property, value);
-    }
-    return true;
-  }
-};
+// const handler = {
+//   set(target, property, value) {
+//     const oldValue = target[property];
+//     target[property] = value;
+//     if (value === 3) {
+//       console.log(`${property} has a value of 3`);
+//       playerWin(property, value);
+//     }
+//     return true;
+//   }
+// };
 
-const proxy = new Proxy(home, handler);
+// const proxy = new Proxy(home, handler);
 
-function playerWin(property, value) {
-  console.log(`${property} has won because they reached ${value} pawns first! End Game`);
-}
+// function playerWin(property, value) {
+//   console.log(`${property} has won because they reached ${value} pawns first! End Game`);
+// }
 
 
 
@@ -365,10 +420,55 @@ for (let i = 0; i < arrays.length; i++) {
             if (currentItem === compareItem) {
               console.log(`Found a match between ${arrays[i]} and ${arrays[l]} at index ${j} and ${m}`);
               console.log((arrays[l])[m])
+            
+
+
+
+
+
+
+
+
               // perform action for matched items between different arrays
               if (newPosition === currentItem || newPosition === compareItem){
                           console.log('The same array has been detected')
                           newPosition += 1;
+                          // let replacedPieceArr;
+                          // let replacerPieceArr;
+                          // let x; 
+                          // let y;
+                          // if(arrays[l] === greenPieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 4
+            
+                          // } else if(arrays[l] === bluePieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 37
+                          // } else if(arrays[l] === redPieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 26
+                          // } else if(arrays[l] === yellowPieces){
+                          //   replacedPieceArr = greenPieces
+                          //   x = 15
+                          // }
+                          // if(arrays[i] === greenPieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 4
+                          // } else if(arrays[i] === bluePieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 37
+                          // } else if(arrays[i] === redPieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 26
+                          // } else if(arrays[i] === yellowPieces){
+                          //   replacerPieceArr = greenPieces
+                          //   y = 15
+                          // }
+                          // console.log('Replaced array is '+replacedPieceArr)
+                          // console.log('value of x is '+x)
+                          // console.log('Replaced array is '+replacerPieceArr)
+                          // console.log('value of x is '+y)
+            
               }
               if(newPosition === (arrays[i])[j]){
                 console.log((arrays[i]))
@@ -385,6 +485,7 @@ for (let i = 0; i < arrays.length; i++) {
                   console.log('yellowp'+m)
                 }
                 newPosition+=1
+                
               }
             }
           }
@@ -436,13 +537,22 @@ for (let i = 0; i < arrays.length; i++) {
 
 
   pos.appendChild(gamePiece);
-
-
-  if (cardDraws === 0){
-    getNextPlayerColor()
-    cardDraws = 1;
+  if (newPosition === 0 || newPosition === 6 || newPosition === 11 || newPosition === 17 || newPosition === 22 || newPosition === 28 || newPosition === 33 || newPosition === 39){
+    eventspacepopup()
+  } else if(newPosition === 1 || newPosition === 2 || newPosition === 3 || newPosition === 12 || newPosition === 13 || newPosition === 14 || newPosition === 23 || newPosition === 24 || newPosition === 25 || newPosition === 34 || newPosition === 35 || newPosition === 36) {
+    store()
+  } else{
+    if (cardDraws === 0){
+      getNextPlayerColor()
+      cardDraws = 1;
+    }
+    playerMove = 0;
   }
-  playerMove = 0;
+  // if (cardDraws === 0){
+  //   getNextPlayerColor()
+  //   cardDraws = 1;
+  // }
+  // playerMove = 0;
 }
 
 
@@ -450,7 +560,8 @@ function checkForHome(oldPosition, newPosition){
   let homePosition;
 
   let placeToMoveTo;
-
+  console.log('the new position is : ', newPosition) 
+  console.log(oldPosition)
   if(currentColorTurn === 'green' && ((oldPosition>=35 && oldPosition<=43) || oldPosition<4) && newPosition >=4){
     homePosition = newPosition-3
   } else if(currentColorTurn === 'blue' && (oldPosition>=25 && oldPosition<37) && newPosition >=37){
@@ -462,7 +573,17 @@ function checkForHome(oldPosition, newPosition){
   } 
   if(homePosition > 0 && homePosition < 4){
     placeToMoveTo = String(currentColorTurn)+'HomeWalk'+String(homePosition)
-    greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    if (currentColorTurn==='green'){
+      greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    } else if(currentColorTurn ==='blue'){
+      bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    } else if(currentColorTurn ==='red'){
+      redPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    } else if(currentColorTurn ==='yellow'){
+      yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+    }
+    console.log(placeToMoveTo)
+    // greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
     var gamePiece = document.createElement('div'); 
     gamePiece.classList.add(String(currentColorTurn)+'-pawn');
     gamePiece.classList.add('pawn');
@@ -474,6 +595,8 @@ function checkForHome(oldPosition, newPosition){
     gamePiece.style.border= '2px solid black';
   
     let x = document.getElementById(placeToMoveTo)
+    console.log(gamePiece)
+    console.log(x)
     x.appendChild(gamePiece)
   } else if(homePosition > 3){
     console.log(homePosition)
@@ -487,11 +610,71 @@ function checkForHome(oldPosition, newPosition){
   gamePiece.style.width = "80%";
   gamePiece.style.borderRadius= '25px';
   gamePiece.style.border= '2px solid black';
-
   let x = document.getElementById(placeToMoveTo)
   x.appendChild(gamePiece)
+  if (currentColorTurn==='green'){
+    home.greenHome +=1
+  } else if(currentColorTurn ==='blue'){
+    home.blueHome +=1 
+  } else if(currentColorTurn ==='red'){
+   home.redHome +=1
+  } else if(currentColorTurn ==='yellow'){
+   home.yellowHome +=1
+  }
+  textBox.innerHTML = String(currentColorTurn)+' has gotten a pawn to their home!'
   } else{
     console.log('no home detected')
+  }
+  if (home.greenHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Green Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'green'
+    document.getElementById('victory').style.borderColor = 'green'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else if (home.blueHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Blue Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'blue'
+    document.getElementById('victory').style.borderColor = 'blue'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else if (home.redHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Red Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'red'
+    document.getElementById('victory').style.borderColor = 'red'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else if (home.yellowHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Yellow Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'yellow'
+    document.getElementById('victory').style.borderColor = 'yellow'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else {
+    console.log('No player has Won Yet')
   }
   console.log(placeToMoveTo)
   
@@ -513,7 +696,7 @@ function getNextPlayerColor() {
   if (currentTurn >= turnOrder.length) {
     currentTurn = 0;
   }
-
+  textBox.style.color = String(currentPlayerColor)
   textBox.innerHTML="It is "+String(currentPlayerColor)+"'s turn."
 
   
@@ -599,90 +782,157 @@ function confirmPawnToMove(){
         oldPos = yellowPieces[pawnMoved];
       }
       console.log('s')
+      console.log(oldPos)
+      console.log(playerMove)
+      if(isNaN(oldPos)){
+        if (oldPos === 'home'){
+          messageSFX.play()
+          textBox.innerHTML='You cannot move a pawn from inside your home!'
+        }
+        let homeValue = playerMove + Number(oldPos.match(/\d+/)[0])
+        var gamePiece = document.createElement('div'); 
+          gamePiece.classList.add(String(currentColorTurn)+'-pawn');
+          gamePiece.classList.add('pawn');
+          gamePiece.setAttribute('id', pawnNum.id);
+          gamePiece.style.backgroundColor = String(currentColorTurn);
+          gamePiece.style.height = "80%";
+          gamePiece.style.width = "80%";
+          gamePiece.style.borderRadius= '25px';
+          gamePiece.style.border= '2px solid black';
+        if(homeValue <= 3 && homeValue > 0){
+          let placeToMoveTo = String(currentColorTurn)+'HomeWalk'+String(homeValue)
+          console.log(placeToMoveTo)
+          if (currentColorTurn==='green'){
+            greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          } else if(currentColorTurn ==='blue'){
+            bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          } else if(currentColorTurn ==='red'){
+            redPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          } else if(currentColorTurn ==='yellow'){
+            yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = placeToMoveTo
+          }
+          let oldPosDiv = document.getElementById(String(oldPos))
+          if(oldPosDiv.hasChildNodes()===true){
+            for (let i = oldPosDiv.children.length - 1; i >= 0; i--) {
+              oldPosDiv.children[i].remove();
+            }
+          }
+          let x = document.getElementById(placeToMoveTo)
+          x.appendChild(gamePiece)
+        } else if(homeValue>3){
+          let placeToMoveTo = String(currentColorTurn)+'Home'+String(Number(pawnNum.id.match(/\d+/)[0]))
+          if (currentColorTurn==='green'){
+            greenPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          } else if(currentColorTurn ==='blue'){
+            bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          } else if(currentColorTurn ==='red'){
+            redPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          } else if(currentColorTurn ==='yellow'){
+            yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+          }
+          let oldPosDiv = document.getElementById(String(oldPos))
+          if(oldPosDiv.hasChildNodes()===true){
+            for (let i = oldPosDiv.children.length - 1; i >= 0; i--) {
+              oldPosDiv.children[i].remove();
+            }
+          }
+          
+          let x = document.getElementById(placeToMoveTo)
+          x.appendChild(gamePiece)
+
+          if (currentColorTurn==='green'){
+            home.greenHome +=1
+          } else if(currentColorTurn ==='blue'){
+            home.blueHome +=1 
+          } else if(currentColorTurn ==='red'){
+           home.redHome +=1
+          } else if(currentColorTurn ==='yellow'){
+           home.yellowHome +=1
+          }
+          if (home.greenHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Green Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'green'
+            document.getElementById('victory').style.borderColor = 'green'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else if (home.blueHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Blue Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'blue'
+            document.getElementById('victory').style.borderColor = 'blue'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else if (home.redHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Red Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'red'
+            document.getElementById('victory').style.borderColor = 'red'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else if (home.yellowHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Yellow Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'yellow'
+            document.getElementById('victory').style.borderColor = 'yellow'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else {
+            console.log('No player has Won Yet')
+          }
+          textBox.innerHTML = String(currentColorTurn)+' has gotten a pawn to their home!'
+        
+          if (cardDraws === 0){
+            getNextPlayerColor()
+            cardDraws = 1;
+          }
+          playerMove = 0;
+        } else if (homeValue<0){
+            if (currentColorTurn==='green'){
+              greenHome 
+            } else if(currentColorTurn ==='blue'){
+              bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+            } else if(currentColorTurn ==='red'){
+              redPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+            } else if(currentColorTurn ==='yellow'){
+              yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+            }
+        }
+
+
+        
+        console.log('The current Pawns position is not a set number so it must be in the home walkway; ending turn')
+        return
+        getNextPlayerColor()
+        return
+      }
+
       let newPosition = oldPos + playerMove;
         if (newPosition<0){
           newPosition +=44;
         } else if (newPosition>43){
           newPosition -=44 ;
         }
-        if (newPosition === 0){
-          eventspacepopup()
-          
-        }
-        if (newPosition === 6){
-          eventspacepopup()
-        }
-        if (newPosition === 11){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 17){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 22){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 28){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 33){
-          eventspacepopup()
-        
-        }
-        if (newPosition === 39){
-          eventspacepopup()
-        }
-        if (newPosition ===  1){
-          eventspacepopup()
-        }
-
-        if(newPosition === 2) {
-          store ()
-        }
-
-        if(newPosition === 3) {
-          store()
-        }
-
-        if(newPosition === 12) {
-          store()
-        }
-
-        if(newPosition === 14) {
-          store()
-        }
-
-        if(newPosition === 23) {
-          store()
-        }
-
-        if(newPosition === 24) {
-          store()
-        }
-
-        if(newPosition === 25) {
-          store()
-        }
-
-        if(newPosition === 34) {
-          store()
-        }
-
-        if(newPosition === 35) {
-          store()
-        }
-
-        if(newPosition === 36) {
-          store()
-        }
-
-        if(newPosition === 1) {
-          store()
-        }
-
         if(isNaN(greenPieces[Number(pawnNum.id.match(/\d+/)[0])])){
           console.log('HomeWalkway Dectected')
         }
@@ -693,12 +943,107 @@ function confirmPawnToMove(){
         }
         updatePiece(oldPos,newPosition)
         selectPawnToMove()
-        playerMove = 1
+        // playerMove = 1
     } else if(playerMove!=0 && pawnNum === undefined){
+      messageSFX.play()
       textBox.innerHTML='You need to select a pawn to move!'
-    } else if(playerMove===0 && pawnNum != undefined){
+    } else if(playerMove===0 && pawnNum != undefined && swapPawnTwo === undefined){
       textBox.innerHTML='You need to draw a card to move!'
+      messageSFX.play()
+    } else if(swapPawnTwo != undefined && pawnNum != undefined && swapColor != undefined){
+      console.log('running swap places')
+      if (!isNaN(pawnNum.parentElement.id)){
+        let x;
+        let y;
+        let swapColorArr;
+        let currColorArr;
+        var gamePieceOne = document.createElement('div'); 
+          gamePieceOne.style.backgroundColor = String(currentColorTurn);
+          gamePieceOne.classList.add(String(currentColorTurn)+'-pawn');
+          gamePieceOne.classList.add('pawn');
+          gamePieceOne.setAttribute('id', pawnNum.id);
+          gamePieceOne.style.height = "80%";
+          gamePieceOne.style.width = "80%";
+          gamePieceOne.style.borderRadius= '25px';
+          gamePieceOne.style.border= '2px solid black';
+        var gamePieceTwo = document.createElement('div'); 
+          gamePieceTwo.classList.add('pawn');
+          gamePieceTwo.style.height = "80%";
+          gamePieceTwo.style.width = "80%";
+          gamePieceTwo.style.borderRadius= '25px';
+          gamePieceTwo.style.border= '2px solid black';
+        if(swapColor === 'green'){
+          x = greenPieces[swapPawnTwo]
+          swapColorArr = greenPieces
+          gamePieceTwo.classList.add('green-pawn');
+          gamePieceTwo.setAttribute('id', 'greenp'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'green';
+        } else if(swapColor === 'blue'){
+          x = bluePieces[swapPawnTwo]
+          swapColorArr = bluePieces
+          gamePieceTwo.classList.add('blue-pawn');
+          gamePieceTwo.setAttribute('id', 'bluep'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'blue';
+        } else if(swapColor === 'red'){
+          x = redPieces[swapPawnTwo]
+          swapColorArr = redPieces
+          gamePieceTwo.classList.add('red-pawn');
+          gamePieceTwo.setAttribute('id', 'redp'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'red';
+        } else if(swapColor === 'yellow'){
+          x = yellowPieces[swapPawnTwo]
+          swapColorArr = yellowPieces
+          gamePieceTwo.classList.add('yellow-pawn');
+          gamePieceTwo.setAttribute('id', 'yellowp'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'yellow';
+        }
+        if (currentColorTurn==='green'){
+          y = greenPieces[Number(pawnNum.id.match(/\d+/)[0])] 
+          currColorArr = greenPieces
+        } else if(currentColorTurn ==='blue'){
+          y = bluePieces[Number(pawnNum.id.match(/\d+/)[0])] 
+          currColorArr = bluePieces
+        } else if(currentColorTurn ==='red'){
+          y = redPieces[Number(pawnNum.id.match(/\d+/)[0])] 
+          currColorArr = redPieces
+        } else if(currentColorTurn ==='yellow'){
+          y = yellowPieces[Number(pawnNum.id.match(/\d+/)[0])]
+          currColorArr = yellowPieces
+        }
+        let oppSpace = document.getElementById(String(x))
+        let ownSpace = document.getElementById(String(y))
+        if(ownSpace.hasChildNodes()===true){
+          for (let i = ownSpace.children.length - 1; i >= 0; i--) {
+            ownSpace.children[i].remove();
+          }
+        }
+        if(oppSpace.hasChildNodes()===true){
+          for (let i = oppSpace.children.length - 1; i >= 0; i--) {
+            oppSpace.children[i].remove();
+          }
+        }
+        currColorArr[Number(pawnNum.id.match(/\d+/)[0])] = x
+        swapColorArr[swapPawnTwo] = y
+        console.log('value of opp pawn '+x)
+        console.log('value of curr pawn '+y)
+        document.getElementById(String(currColorArr[Number(pawnNum.id.match(/\d+/)[0])])).appendChild(gamePieceOne)
+        document.getElementById(String(swapColorArr[swapPawnTwo])).appendChild(gamePieceTwo)
+        if (cardDraws === 0){
+          getNextPlayerColor()
+          cardDraws = 1;
+        }
+        playerMove = 0;
+        return
+
+
+
+
+      } else{
+        messageSFX.play()
+        textBox.innerHTML= 'Wrong pawn selected. Please select a pawn currently in play.'
+      }
     } else {
+      messageSFX.play()
       textBox.innerHTML='You need to select a pawn and draw a card to move!'
     }
 
@@ -739,6 +1084,7 @@ function useItemColorCheck(){
     itemTypeCheck('yellow')
 
   } else{
+    messageSFX.play()
     textBox.innerHTML='You do not have any items to use'
   }
 }
@@ -963,14 +1309,6 @@ function moveForwardOne (){
   closePopup()
   return playerMove = 1;
   }
-
-function startAPawn(){
-  console.log('Start A pawn')
-  closePopup()
-  
-}
-
-
 function moveForwardTwo (){
   console.log('Move forward two')
   closePopup()
@@ -1038,10 +1376,117 @@ function moveForwardFour (){
   return playerMove = 4;
 }
 
-
-function pawns(){
-  console.log('Move forward three')
+function moveForwardEleven(){
   closePopup()
+  return playerMove = 11
+}
+
+
+let swapPawnOne;
+let swapPawnTwo;
+let swapColor;
+function swapPawn(){
+  closePopup()
+  let piece = currentColorTurn +'p'
+  if (isNaN(document.getElementById(piece+'0').parentElement.id) && isNaN(document.getElementById(piece+'1').parentElement.id) && isNaN(document.getElementById(piece+'2').parentElement.id)){
+    messageSFX.play()
+    textBox.innerHTML = 'You do not have any pawns in play, so you move 11 instead.'
+    playerMove = 11;
+    return
+  }
+  let arrays = [greenPieces, bluePieces, redPieces,yellowPieces];
+  let randomOne;
+  let randomTwo;
+  function drawPlayer(){
+    randomOne = new Uint32Array(1);
+    randomTwo = new Uint32Array(1);
+
+    let playerColors = [1, 2, 3,4];
+    
+    window.crypto.getRandomValues(randomOne);
+    randomOne = randomOne[0] % playerColors.length;
+
+    let playerPieces = [1, 2, 3];
+    window.crypto.getRandomValues(randomTwo);
+    randomTwo = randomTwo[0] % playerPieces.length;
+
+    console.log(arrays[randomOne])
+    console.log(arrays[randomOne][randomTwo])
+  }
+let timeOut = 0;
+const maxTimeOut = 50;
+const intervalTime = 100;
+
+const timer = setInterval(() => {
+  timeOut++;
+  if (timeOut >= maxTimeOut) {
+    clearInterval(timer);
+    console.log('Timeout reached');
+    messageSFX.play()
+    textBox.innerHTML = 'Too bad. No available pawns to move, so you move 11'
+    playerMove = 11;
+    return;
+  }
+  textBox.innerHTML = 'Searching For a pawn to swap with. Attempt ['+String(timeOut)+' of 50]'
+  drawPlayer();
+  if ((arrays[randomOne] === greenPieces) && currentColorTurn === 'green') {
+    console.log('Green go away');
+  } else if ((arrays[randomOne] === bluePieces) && currentColorTurn === 'blue') {
+    console.log('Blue go away');
+  } else if ((arrays[randomOne] === redPieces) && currentColorTurn === 'red') {
+    console.log('Red go away');
+  } else if ((arrays[randomOne] === yellowPieces) && currentColorTurn === 'yellow') {
+    console.log('Yellow go away');
+  } else {
+    if (arrays[randomOne] === greenPieces) {
+      if (!isNaN(document.getElementById('greenp'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with green at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'green'
+        clearInterval(timer);
+      }
+    } else if (arrays[randomOne] === bluePieces) {
+      if (!isNaN(document.getElementById('bluep'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with blue at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'blue'
+        clearInterval(timer);
+      }
+    } else if (arrays[randomOne] === redPieces) {
+      if (!isNaN(document.getElementById('redp'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with red at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'red'
+        clearInterval(timer);
+      }
+    } else if (arrays[randomOne] === yellowPieces) {
+      if (!isNaN(document.getElementById('yellowp'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with yellow at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'yellow'
+        clearInterval(timer);
+
+      }
+    }
+
+
+  }
+}, intervalTime);
+}
+
+
+
+function sorry(){
+  closePopup()
+
 }
 
 function pass(){
@@ -1050,6 +1495,12 @@ function pass(){
   getNextPlayerColor()
   cardDraws = 1;
 }
+
+
+
+
+
+
 
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
@@ -1264,6 +1715,7 @@ function addCoin(player) {
     default:
       break;
   }
+  
 }
 
 addCoin('blue')
@@ -1320,12 +1772,38 @@ item01.addEventListener('click', () =>{
 })
 
 function store() {
-  shop.classList.add('active')
-  overlay()
+  if (currentColorTurn === 'green' && greenCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else if(currentColorTurn === 'blue' && blueCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else if(currentColorTurn === 'red' && redCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else if(currentColorTurn === 'yellow' && yellowCoins.coins > 0){
+    shop.classList.add('active')
+    overlay()
+  } else {
+    messageSFX.play()
+    textBox.innerHTML = 'You do not have enough coins to use the shop, '+String(currentColorTurn)+'.'
+    if (cardDraws === 0){
+      getNextPlayerColor()
+      cardDraws = 1;
+    }
+    playerMove = 0;
+  }
+    // shop.classList.add('active')
+    // overlay()
 }
 
 function removeStore() {
   shop.classList.remove('active')
+  if (cardDraws === 0){
+    getNextPlayerColor()
+    cardDraws = 1;
+  }
+  playerMove = 0;
 }
  let money = 0; 
 // function addItem () {
@@ -1400,9 +1878,12 @@ item6.addEventListener('click', () => {
 function removeCoin(player) {
   switch (player) {
     case 'blue':
-      if (blueCoins.coins <= 4) {
+      if (blueCoins.coins <= 4 && blueCoins.coins > 0) {
         blueCoins.coins--;
         console.log(`Blue player has ${blueCoins.coins} coins.`);
+      } else if (blueCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Blue cannot lose anymore coins'
       }
       if (blueCoins.coins === 0){
         document.getElementById("cs1").style = "default"
@@ -1470,9 +1951,12 @@ function removeCoin(player) {
 
       break;
     case 'green':
-      if (greenCoins.coins <= 4) {
+      if (greenCoins.coins <= 4 && greenCoins.coins > 0) {
         greenCoins.coins--;
         console.log(`Green player has ${greenCoins.coins} coins.`);
+      } else if (greenCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Green cannot lose anymore coins'
       }
 
       if (greenCoins.coins === 0){
@@ -1539,9 +2023,12 @@ function removeCoin(player) {
       }
       break;
     case 'red':
-      if (redCoins.coins <= 4) {
+      if (redCoins.coins <= 4 && redCoins.coins > 0) {
         redCoins.coins--;
         console.log(`Red player has ${redCoins.coins} coins.`);
+      } else if (redCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Red cannot lose anymore coins'
       }
 
       
@@ -1613,9 +2100,12 @@ function removeCoin(player) {
 
       break;
     case 'yellow':
-      if (yellowCoins.coins <= 4) {
+      if (yellowCoins.coins <= 4 && yellowCoins.coins > 0) {
         yellowCoins.coins--;
         console.log(`Yellow player has ${yellowCoins.coins} coins.`);
+      } else if (yellowCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Yellow cannot lose anymore coins'
       }
 
       if (yellowCoins.coins === 0){
@@ -1680,6 +2170,7 @@ function removeCoin(player) {
     default:
       break;
   }
+
 }
 
 
@@ -1702,16 +2193,19 @@ function black(){
 
 
 
-
 function eventspacepopup() {
-  music.src = "audio/cele.mp3";
-  music.play();
+  textBox.innerHTML=String(currentColorTurn)+' has triggered an event space!'
+  let yaySFX = new Audio('audio/cele.mp3')
+  yaySFX.play()
   black();
+  document.getElementById('bruh').style.boxShadow = '0 0 60px ' +String(currentColorTurn)
   let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
   let eventtext = document.getElementById('eventspacepopuptext').innerHTML = String(capsystem) + " has landed on an eventspace!";
   document.getElementById('eventspacepopuptext').style.color = String(currentColorTurn);
   document.getElementById('eventspacepopup').style.visibility = 'visible';
   document.getElementById('slotmachine').style.visibility = 'visible';
+  document.getElementById('bruh').style.visibility = 'visible';
+
   startConfetti();
   myLoop()
 
@@ -1729,6 +2223,18 @@ function getcoinevent(){
   }else if (currentColorTurn == 'yellow'){
     addCoin('yellow')
   }
+  delayFunction()
+  
+}
+
+function delayFunction() {
+  setTimeout(function() {
+    if (cardDraws === 0){
+      getNextPlayerColor()
+      cardDraws = 1;
+    }
+    playerMove = 0;
+  }, 1000);
 }
 
 function removecoinevent(){
@@ -1741,14 +2247,15 @@ function removecoinevent(){
   }else if (currentColorTurn == 'yellow'){
     removeCoin('yellow')
   }
+  delayFunction();
 }
 
 
 
 
 function myLoop() {
-  music.src = "audio/jingle.mp3";
-  music.play();
+  let rollSFX = new Audio("audio/jingle.mp3");
+  rollSFX.play();
   for (let i = 0; i < 300; i++) {
     setTimeout(function() {
       
@@ -1766,7 +2273,7 @@ function myLoop() {
         document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
       }
       if (i === 299){
-        music.pause();
+        rollSFX.pause();
         randomevent();
         setTimeout(function() {
           closeeventpopup();
@@ -1790,33 +2297,44 @@ function myLoop() {
       if (randomevent === 1){
         console.log('You got a coin!')
         document.getElementById('eventspacepopuptext').innerHTML = "You got a coin"
+        document.getElementById('eventspacepopuptext').style.marginLeft = "50"
         getcoinevent()
       }
     
-  if (randomevent === 0){
-    console.log('You lost a coin!')
+    if (randomevent === 0){
+      document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
+
+      console.log('You lost a coin!')
     removecoinevent()
     return randomevent
   }
 
   if (randomevent === 1){
+    document.getElementById('slotmachine').style.backgroundImage = "url('events/currency-coin-cartoon-png.webp')"
     console.log('You got a coin!')
     getcoinevent()
    return randomevent
+
   }
   }
 
 }
+  
 }
 
 
 
 function closeeventpopup() {
   stopConfetti(); 
+  document.getElementById('bruh').style.visibility = 'hidden';
   document.getElementById('eventspacepopup').style.visibility = 'hidden';
   document.getElementById('slotmachine').style.visibility = 'hidden';
   const overlay2 = document.querySelector(".overlay2");
   if (overlay2) {
     overlay2.parentNode.removeChild(overlay2);
   }
+}
+
+function testing(){
+  document.getElementById('bruh').style.animation = "shake 30s";
 }
