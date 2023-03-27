@@ -1674,6 +1674,8 @@
 .message-box h2{
     text-align: center;
     color: red;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
 }
 
 .diretional-arrows{
