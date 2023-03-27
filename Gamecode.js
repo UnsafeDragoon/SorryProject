@@ -28,6 +28,7 @@ function openFullscreen() {
 
 // Player-Highlight
 
+
 let previousSelectedOption = 0;
 function getPlayerCount() {
   let selectedOption = parseInt(document.getElementById("player-container").value);
@@ -152,8 +153,6 @@ function confirmMatch(){
 function gameSetUp(){
   let players = window.localStorage.getItem('playerCount')
   let map = window.localStorage.getItem('mapType')
-
-
   console.log(players)
   console.log(map)
 
@@ -161,7 +160,7 @@ function gameSetUp(){
   getNextPlayerColor()
   
 }
-
+music.volume = '.5'
 
 function setUpMapOne(){
   document.getElementById("bodyone").style.cssText='background-image: url(images/backgroundBoardOne.png);';
@@ -259,6 +258,10 @@ function setMatchMap(mapTypeFinal){
 
  //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
+
+
+
+
 let board = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30', '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43']
 
 let redPieces = [15,15,15];
@@ -287,7 +290,7 @@ const home = {
   greenHome: 0
 };
 
-
+let messageSFX = new Audio('audio/button-124476.mp3')
 let textBox = document.getElementById('gameMessages')
 
 
@@ -295,23 +298,23 @@ let textBox = document.getElementById('gameMessages')
 // const space = document.getElementById(playerPosition.toString());
 
 
-const handler = {
-  set(target, property, value) {
-    const oldValue = target[property];
-    target[property] = value;
-    if (value === 3) {
-      console.log(`${property} has a value of 3`);
-      playerWin(property, value);
-    }
-    return true;
-  }
-};
+// const handler = {
+//   set(target, property, value) {
+//     const oldValue = target[property];
+//     target[property] = value;
+//     if (value === 3) {
+//       console.log(`${property} has a value of 3`);
+//       playerWin(property, value);
+//     }
+//     return true;
+//   }
+// };
 
-const proxy = new Proxy(home, handler);
+// const proxy = new Proxy(home, handler);
 
-function playerWin(property, value) {
-  console.log(`${property} has won because they reached ${value} pawns first! End Game`);
-}
+// function playerWin(property, value) {
+//   console.log(`${property} has won because they reached ${value} pawns first! End Game`);
+// }
 
 
 
@@ -511,7 +514,8 @@ function checkForHome(oldPosition, newPosition){
   let homePosition;
 
   let placeToMoveTo;
-  console.log('the new position is : ', newPosition)
+  console.log('the new position is : ', newPosition) 
+  console.log(oldPosition)
   if(currentColorTurn === 'green' && ((oldPosition>=35 && oldPosition<=43) || oldPosition<4) && newPosition >=4){
     homePosition = newPosition-3
   } else if(currentColorTurn === 'blue' && (oldPosition>=25 && oldPosition<37) && newPosition >=37){
@@ -560,11 +564,71 @@ function checkForHome(oldPosition, newPosition){
   gamePiece.style.width = "80%";
   gamePiece.style.borderRadius= '25px';
   gamePiece.style.border= '2px solid black';
-
   let x = document.getElementById(placeToMoveTo)
   x.appendChild(gamePiece)
+  if (currentColorTurn==='green'){
+    home.greenHome +=1
+  } else if(currentColorTurn ==='blue'){
+    home.blueHome +=1 
+  } else if(currentColorTurn ==='red'){
+   home.redHome +=1
+  } else if(currentColorTurn ==='yellow'){
+   home.yellowHome +=1
+  }
+  textBox.innerHTML = String(currentColorTurn)+' has gotten a pawn to their home!'
   } else{
     console.log('no home detected')
+  }
+  if (home.greenHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Green Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'green'
+    document.getElementById('victory').style.borderColor = 'green'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else if (home.blueHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Blue Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'blue'
+    document.getElementById('victory').style.borderColor = 'blue'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else if (home.redHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Red Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'red'
+    document.getElementById('victory').style.borderColor = 'red'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else if (home.yellowHome === 3){
+    startConfetti()
+    console.log('Winner!!!!!!!!!')
+    document.getElementById('victory').style.visibility = 'visible'
+    document.getElementById('victory').querySelector('h1').innerHTML = 'Yellow Is The Final Winner!'
+    document.getElementById('victory').querySelector('h1').style.color = 'yellow'
+    document.getElementById('victory').style.borderColor = 'yellow'
+    let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+    winSFX.play()
+    let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+    cheerSFX.play()
+    return
+  } else {
+    console.log('No player has Won Yet')
   }
   console.log(placeToMoveTo)
   
@@ -586,7 +650,7 @@ function getNextPlayerColor() {
   if (currentTurn >= turnOrder.length) {
     currentTurn = 0;
   }
-
+  textBox.style.color = String(currentPlayerColor)
   textBox.innerHTML="It is "+String(currentPlayerColor)+"'s turn."
 
   
@@ -676,6 +740,7 @@ function confirmPawnToMove(){
       console.log(playerMove)
       if(isNaN(oldPos)){
         if (oldPos === 'home'){
+          messageSFX.play()
           textBox.innerHTML='You cannot move a pawn from inside your home!'
         }
         let homeValue = playerMove + Number(oldPos.match(/\d+/)[0])
@@ -725,9 +790,91 @@ function confirmPawnToMove(){
               oldPosDiv.children[i].remove();
             }
           }
+          
           let x = document.getElementById(placeToMoveTo)
           x.appendChild(gamePiece)
+
+          if (currentColorTurn==='green'){
+            home.greenHome +=1
+          } else if(currentColorTurn ==='blue'){
+            home.blueHome +=1 
+          } else if(currentColorTurn ==='red'){
+           home.redHome +=1
+          } else if(currentColorTurn ==='yellow'){
+           home.yellowHome +=1
+          }
+          if (home.greenHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Green Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'green'
+            document.getElementById('victory').style.borderColor = 'green'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else if (home.blueHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Blue Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'blue'
+            document.getElementById('victory').style.borderColor = 'blue'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else if (home.redHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Red Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'red'
+            document.getElementById('victory').style.borderColor = 'red'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else if (home.yellowHome === 3){
+            startConfetti()
+            console.log('Winner!!!!!!!!!')
+            document.getElementById('victory').style.visibility = 'visible'
+            document.getElementById('victory').querySelector('h1').innerHTML = 'Yellow Is The Final Winner!'
+            document.getElementById('victory').querySelector('h1').style.color = 'yellow'
+            document.getElementById('victory').style.borderColor = 'yellow'
+            let winSFX = new Audio('audio/piglevelwin2mp3-14800.mp3')
+            winSFX.play()
+            let cheerSFX = new Audio('audio/crowd-cheer-ii-6263.mp3')
+            cheerSFX.play()
+            return
+          } else {
+            console.log('No player has Won Yet')
+          }
+          textBox.innerHTML = String(currentColorTurn)+' has gotten a pawn to their home!'
+        
+          if (cardDraws === 0){
+            getNextPlayerColor()
+            cardDraws = 1;
+          }
+          playerMove = 0;
+        } else if (homeValue<0){
+            if (currentColorTurn==='green'){
+              greenHome 
+            } else if(currentColorTurn ==='blue'){
+              bluePieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+            } else if(currentColorTurn ==='red'){
+              redPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+            } else if(currentColorTurn ==='yellow'){
+              yellowPieces[Number(pawnNum.id.match(/\d+/)[0])] = 'home'
+            }
         }
+
+
+        
         console.log('The current Pawns position is not a set number so it must be in the home walkway; ending turn')
         return
         getNextPlayerColor()
@@ -752,10 +899,105 @@ function confirmPawnToMove(){
         selectPawnToMove()
         // playerMove = 1
     } else if(playerMove!=0 && pawnNum === undefined){
+      messageSFX.play()
       textBox.innerHTML='You need to select a pawn to move!'
-    } else if(playerMove===0 && pawnNum != undefined){
+    } else if(playerMove===0 && pawnNum != undefined && swapPawnTwo === undefined){
       textBox.innerHTML='You need to draw a card to move!'
+      messageSFX.play()
+    } else if(swapPawnTwo != undefined && pawnNum != undefined && swapColor != undefined){
+      console.log('running swap places')
+      if (!isNaN(pawnNum.parentElement.id)){
+        let x;
+        let y;
+        let swapColorArr;
+        let currColorArr;
+        var gamePieceOne = document.createElement('div'); 
+          gamePieceOne.style.backgroundColor = String(currentColorTurn);
+          gamePieceOne.classList.add(String(currentColorTurn)+'-pawn');
+          gamePieceOne.classList.add('pawn');
+          gamePieceOne.setAttribute('id', pawnNum.id);
+          gamePieceOne.style.height = "80%";
+          gamePieceOne.style.width = "80%";
+          gamePieceOne.style.borderRadius= '25px';
+          gamePieceOne.style.border= '2px solid black';
+        var gamePieceTwo = document.createElement('div'); 
+          gamePieceTwo.classList.add('pawn');
+          gamePieceTwo.style.height = "80%";
+          gamePieceTwo.style.width = "80%";
+          gamePieceTwo.style.borderRadius= '25px';
+          gamePieceTwo.style.border= '2px solid black';
+        if(swapColor === 'green'){
+          x = greenPieces[swapPawnTwo]
+          swapColorArr = greenPieces
+          gamePieceTwo.classList.add('green-pawn');
+          gamePieceTwo.setAttribute('id', 'greenp'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'green';
+        } else if(swapColor === 'blue'){
+          x = bluePieces[swapPawnTwo]
+          swapColorArr = bluePieces
+          gamePieceTwo.classList.add('blue-pawn');
+          gamePieceTwo.setAttribute('id', 'bluep'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'blue';
+        } else if(swapColor === 'red'){
+          x = redPieces[swapPawnTwo]
+          swapColorArr = redPieces
+          gamePieceTwo.classList.add('red-pawn');
+          gamePieceTwo.setAttribute('id', 'redp'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'red';
+        } else if(swapColor === 'yellow'){
+          x = yellowPieces[swapPawnTwo]
+          swapColorArr = yellowPieces
+          gamePieceTwo.classList.add('yellow-pawn');
+          gamePieceTwo.setAttribute('id', 'yellowp'+String(swapPawnTwo));
+          gamePieceTwo.style.backgroundColor = 'yellow';
+        }
+        if (currentColorTurn==='green'){
+          y = greenPieces[Number(pawnNum.id.match(/\d+/)[0])] 
+          currColorArr = greenPieces
+        } else if(currentColorTurn ==='blue'){
+          y = bluePieces[Number(pawnNum.id.match(/\d+/)[0])] 
+          currColorArr = bluePieces
+        } else if(currentColorTurn ==='red'){
+          y = redPieces[Number(pawnNum.id.match(/\d+/)[0])] 
+          currColorArr = redPieces
+        } else if(currentColorTurn ==='yellow'){
+          y = yellowPieces[Number(pawnNum.id.match(/\d+/)[0])]
+          currColorArr = yellowPieces
+        }
+        let oppSpace = document.getElementById(String(x))
+        let ownSpace = document.getElementById(String(y))
+        if(ownSpace.hasChildNodes()===true){
+          for (let i = ownSpace.children.length - 1; i >= 0; i--) {
+            ownSpace.children[i].remove();
+          }
+        }
+        if(oppSpace.hasChildNodes()===true){
+          for (let i = oppSpace.children.length - 1; i >= 0; i--) {
+            oppSpace.children[i].remove();
+          }
+        }
+        currColorArr[Number(pawnNum.id.match(/\d+/)[0])] = x
+        swapColorArr[swapPawnTwo] = y
+        console.log('value of opp pawn '+x)
+        console.log('value of curr pawn '+y)
+        document.getElementById(String(currColorArr[Number(pawnNum.id.match(/\d+/)[0])])).appendChild(gamePieceOne)
+        document.getElementById(String(swapColorArr[swapPawnTwo])).appendChild(gamePieceTwo)
+        if (cardDraws === 0){
+          getNextPlayerColor()
+          cardDraws = 1;
+        }
+        playerMove = 0;
+        return
+
+
+
+
+      } else{
+        messageSFX.play()
+        textBox.innerHTML= 'Wrong pawn selected. Please select a pawn currently in play.'
+      }
     } else {
+      messageSFX.play()
       textBox.innerHTML='You need to select a pawn and draw a card to move!'
     }
 
@@ -796,6 +1038,7 @@ function useItemColorCheck(){
     itemTypeCheck('yellow')
 
   } else{
+    messageSFX.play()
     textBox.innerHTML='You do not have any items to use'
   }
 }
@@ -1020,14 +1263,6 @@ function moveForwardOne (){
   closePopup()
   return playerMove = 1;
   }
-
-function startAPawn(){
-  console.log('Start A pawn')
-  closePopup()
-  
-}
-
-
 function moveForwardTwo (){
   console.log('Move forward two')
   closePopup()
@@ -1095,10 +1330,117 @@ function moveForwardFour (){
   return playerMove = 4;
 }
 
-
-function pawns(){
-  console.log('Move forward three')
+function moveForwardEleven(){
   closePopup()
+  return playerMove = 11
+}
+
+
+let swapPawnOne;
+let swapPawnTwo;
+let swapColor;
+function swapPawn(){
+  closePopup()
+  let piece = currentColorTurn +'p'
+  if (isNaN(document.getElementById(piece+'0').parentElement.id) && isNaN(document.getElementById(piece+'1').parentElement.id) && isNaN(document.getElementById(piece+'2').parentElement.id)){
+    messageSFX.play()
+    textBox.innerHTML = 'You do not have any pawns in play, so you move 11 instead.'
+    playerMove = 11;
+    return
+  }
+  let arrays = [greenPieces, bluePieces, redPieces,yellowPieces];
+  let randomOne;
+  let randomTwo;
+  function drawPlayer(){
+    randomOne = new Uint32Array(1);
+    randomTwo = new Uint32Array(1);
+
+    let playerColors = [1, 2, 3,4];
+    
+    window.crypto.getRandomValues(randomOne);
+    randomOne = randomOne[0] % playerColors.length;
+
+    let playerPieces = [1, 2, 3];
+    window.crypto.getRandomValues(randomTwo);
+    randomTwo = randomTwo[0] % playerPieces.length;
+
+    console.log(arrays[randomOne])
+    console.log(arrays[randomOne][randomTwo])
+  }
+let timeOut = 0;
+const maxTimeOut = 50;
+const intervalTime = 100;
+
+const timer = setInterval(() => {
+  timeOut++;
+  if (timeOut >= maxTimeOut) {
+    clearInterval(timer);
+    console.log('Timeout reached');
+    messageSFX.play()
+    textBox.innerHTML = 'Too bad. No available pawns to move, so you move 11'
+    playerMove = 11;
+    return;
+  }
+  textBox.innerHTML = 'Searching For a pawn to swap with. Attempt ['+String(timeOut)+' of 50]'
+  drawPlayer();
+  if ((arrays[randomOne] === greenPieces) && currentColorTurn === 'green') {
+    console.log('Green go away');
+  } else if ((arrays[randomOne] === bluePieces) && currentColorTurn === 'blue') {
+    console.log('Blue go away');
+  } else if ((arrays[randomOne] === redPieces) && currentColorTurn === 'red') {
+    console.log('Red go away');
+  } else if ((arrays[randomOne] === yellowPieces) && currentColorTurn === 'yellow') {
+    console.log('Yellow go away');
+  } else {
+    if (arrays[randomOne] === greenPieces) {
+      if (!isNaN(document.getElementById('greenp'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with green at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'green'
+        clearInterval(timer);
+      }
+    } else if (arrays[randomOne] === bluePieces) {
+      if (!isNaN(document.getElementById('bluep'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with blue at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'blue'
+        clearInterval(timer);
+      }
+    } else if (arrays[randomOne] === redPieces) {
+      if (!isNaN(document.getElementById('redp'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with red at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'red'
+        clearInterval(timer);
+      }
+    } else if (arrays[randomOne] === yellowPieces) {
+      if (!isNaN(document.getElementById('yellowp'+String(randomTwo)).parentElement.id)){
+        console.log('Match Found')
+        messageSFX.play()
+        textBox.innerHTML = 'Pawn target found. Select pawn to swap with yellow at space '+arrays[randomOne][randomTwo]
+        swapPawnTwo = [randomTwo]
+        swapColor = 'yellow'
+        clearInterval(timer);
+
+      }
+    }
+
+
+  }
+}, intervalTime);
+}
+
+
+
+function sorry(){
+  closePopup()
+
 }
 
 function pass(){
@@ -1107,6 +1449,12 @@ function pass(){
   getNextPlayerColor()
   cardDraws = 1;
 }
+
+
+
+
+
+
 
 
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
@@ -1321,11 +1669,7 @@ function addCoin(player) {
     default:
       break;
   }
-  if (cardDraws === 0){
-    getNextPlayerColor()
-    cardDraws = 1;
-  }
-  playerMove = 0;
+  
 }
 
 addCoin('blue')
@@ -1392,6 +1736,7 @@ function store() {
     shop.classList.add('active')
     overlay()
   } else {
+    messageSFX.play()
     textBox.innerHTML = 'You do not have enough coins to use the shop, '+String(currentColorTurn)+'.'
     if (cardDraws === 0){
       getNextPlayerColor()
@@ -1405,6 +1750,11 @@ function store() {
 
 function removeStore() {
   shop.classList.remove('active')
+  if (cardDraws === 0){
+    getNextPlayerColor()
+    cardDraws = 1;
+  }
+  playerMove = 0;
 }
  let money = 0; 
 // function addItem () {
@@ -1478,9 +1828,12 @@ item6.addEventListener('click', () => {
 function removeCoin(player) {
   switch (player) {
     case 'blue':
-      if (blueCoins.coins <= 4) {
+      if (blueCoins.coins <= 4 && blueCoins.coins > 0) {
         blueCoins.coins--;
         console.log(`Blue player has ${blueCoins.coins} coins.`);
+      } else if (blueCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Blue cannot lose anymore coins'
       }
       if (blueCoins.coins === 0){
         document.getElementById("cs1").style = "default"
@@ -1548,9 +1901,12 @@ function removeCoin(player) {
 
       break;
     case 'green':
-      if (greenCoins.coins <= 4) {
+      if (greenCoins.coins <= 4 && greenCoins.coins > 0) {
         greenCoins.coins--;
         console.log(`Green player has ${greenCoins.coins} coins.`);
+      } else if (greenCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Green cannot lose anymore coins'
       }
 
       if (greenCoins.coins === 0){
@@ -1617,9 +1973,12 @@ function removeCoin(player) {
       }
       break;
     case 'red':
-      if (redCoins.coins <= 4) {
+      if (redCoins.coins <= 4 && redCoins.coins > 0) {
         redCoins.coins--;
         console.log(`Red player has ${redCoins.coins} coins.`);
+      } else if (redCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Red cannot lose anymore coins'
       }
 
       
@@ -1691,9 +2050,12 @@ function removeCoin(player) {
 
       break;
     case 'yellow':
-      if (yellowCoins.coins <= 4) {
+      if (yellowCoins.coins <= 4 && yellowCoins.coins > 0) {
         yellowCoins.coins--;
         console.log(`Yellow player has ${yellowCoins.coins} coins.`);
+      } else if (yellowCoins.coins === 0){
+        messageSFX.play()
+        textBox.innerHTML = 'Yellow cannot lose anymore coins'
       }
 
       if (yellowCoins.coins === 0){
@@ -1758,11 +2120,7 @@ function removeCoin(player) {
     default:
       break;
   }
-  if (cardDraws === 0){
-    getNextPlayerColor()
-    cardDraws = 1;
-  }
-  playerMove = 0;
+
 }
 
 
@@ -1787,8 +2145,8 @@ function black(){
 
 function eventspacepopup() {
   textBox.innerHTML=String(currentColorTurn)+' has triggered an event space!'
-  music.src = "audio/cele.mp3";
-  music.play();
+  let yaySFX = new Audio('audio/cele.mp3')
+  yaySFX.play()
   black();
   document.getElementById('bruh').style.boxShadow = '0 0 60px ' +String(currentColorTurn)
   let capsystem = currentColorTurn.charAt(0).toUpperCase() + currentColorTurn.slice(1);
@@ -1815,7 +2173,18 @@ function getcoinevent(){
   }else if (currentColorTurn == 'yellow'){
     addCoin('yellow')
   }
+  delayFunction()
+  
+}
 
+function delayFunction() {
+  setTimeout(function() {
+    if (cardDraws === 0){
+      getNextPlayerColor()
+      cardDraws = 1;
+    }
+    playerMove = 0;
+  }, 1000);
 }
 
 function removecoinevent(){
@@ -1828,15 +2197,15 @@ function removecoinevent(){
   }else if (currentColorTurn == 'yellow'){
     removeCoin('yellow')
   }
-  playerMove = 0;
+  delayFunction();
 }
 
 
 
 
 function myLoop() {
-  music.src = "audio/jingle.mp3";
-  music.play();
+  let rollSFX = new Audio("audio/jingle.mp3");
+  rollSFX.play();
   for (let i = 0; i < 300; i++) {
     setTimeout(function() {
       
@@ -1854,7 +2223,7 @@ function myLoop() {
         document.getElementById('slotmachine').style.backgroundImage = "url('events/redcoin.webp')"
       }
       if (i === 299){
-        music.pause();
+        rollSFX.pause();
         randomevent();
         setTimeout(function() {
           closeeventpopup();
