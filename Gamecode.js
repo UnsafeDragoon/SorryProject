@@ -365,39 +365,39 @@ function updatePiece(oldPosition, newPosition) {
 
   let arrays = [redPieces, bluePieces, yellowPieces, greenPieces];
 
-  for (let i = 0; i < arrays.length; i++) {
-    let currentArray = arrays[i];
-    for (let j = 0; j < currentArray.length; j++) {
-      let currentItem = currentArray[j];
-      for (let k = 0; k < currentArray.length; k++) {
-        if (k !== j) {
-          let compareItem = currentArray[k];
-          if (currentItem === compareItem) {
-            console.log(`Found a match within ${arrays[i]} array at index ${j} and ${k}`);
-            if (newPosition === currentItem || newPosition === compareItem) {
-              console.log('The same array has been detected')
-              newPosition += 1;
-            }
-            // perform action for matched items within same array
-          }
-          for (let l = i + 1; l < arrays.length; l++) {
-            let compareArray = arrays[l];
-            for (let m = 0; m < compareArray.length; m++) {
-              let compareItem = compareArray[m];
-              if (currentItem === compareItem) {
-                console.log(`Found a match between ${arrays[i]} and ${arrays[l]} at index ${j} and ${m}`);
-                console.log((arrays[l])[m])
-                // perform action for matched items between different arrays
-                if (newPosition === currentItem || newPosition === compareItem) {
-                  console.log('The same array has been detected')
-                  newPosition += 1;
-                  // let replacedPieceArr;
-                  // let replacerPieceArr;
-                  // let x; 
-                  // let y;
-                  // if(arrays[l] === greenPieces){
-                  //   replacedPieceArr = greenPieces
-                  //   x = 4
+  // for (let i = 0; i < arrays.length; i++) {
+  //   let currentArray = arrays[i];
+  //   for (let j = 0; j < currentArray.length; j++) {
+  //     let currentItem = currentArray[j];
+  //     for (let k = 0; k < currentArray.length; k++) {
+  //       if (k !== j) {
+  //         let compareItem = currentArray[k];
+  //         if (currentItem === compareItem) {
+  //           console.log(`Found a match within ${arrays[i]} array at index ${j} and ${k}`);
+  //           if (newPosition === currentItem || newPosition === compareItem) {
+  //             console.log('The same array has been detected')
+  //             newPosition += 1;
+  //           }
+  //           // perform action for matched items within same array
+  //         }
+  //         for (let l = i + 1; l < arrays.length; l++) {
+  //           let compareArray = arrays[l];
+  //           for (let m = 0; m < compareArray.length; m++) {
+  //             let compareItem = compareArray[m];
+  //             if (currentItem === compareItem) {
+  //               console.log(`Found a match between ${arrays[i]} and ${arrays[l]} at index ${j} and ${m}`);
+  //               console.log((arrays[l])[m])
+  //               // perform action for matched items between different arrays
+  //               if (newPosition === currentItem || newPosition === compareItem) {
+  //                 console.log('The same array has been detected')
+  //                 newPosition += 1;
+  //                 // let replacedPieceArr;
+  //                 // let replacerPieceArr;
+  //                 // let x; 
+  //                 // let y;
+  //                 // if(arrays[l] === greenPieces){
+  //                 //   replacedPieceArr = greenPieces
+  //                 //   x = 4
 
 for (let i = 0; i < arrays.length; i++) {
   let currentArray = arrays[i];
@@ -620,6 +620,7 @@ for (let i = 0; i < arrays.length; i++) {
     eventspacepopup()
   } else if (newPosition === 1 || newPosition === 2 || newPosition === 3 || newPosition === 12 || newPosition === 13 || newPosition === 14 || newPosition === 23 || newPosition === 24 || newPosition === 25 || newPosition === 34 || newPosition === 35 || newPosition === 36) {
     store()
+    console.log('numbe')
   } else {
     if (cardDraws === 0) {
       getNextPlayerColor()
@@ -632,6 +633,7 @@ for (let i = 0; i < arrays.length; i++) {
   //   cardDraws = 1;
   // }
   // playerMove = 0;
+}
 }
 
 function checkForHome(oldPosition, newPosition) {
@@ -988,8 +990,6 @@ function confirmPawnToMove() {
 
       console.log('The current Pawns position is not a set number so it must be in the home walkway; ending turn')
       return
-      getNextPlayerColor()
-      return
     }
 
     let newPosition = oldPos + playerMove;
@@ -1103,8 +1103,8 @@ function confirmPawnToMove() {
     } else {
       messageSFX.play()
       textBox.innerHTML = 'Wrong pawn selected. Please select a pawn currently in play.'
-    }
-  } else {
+    }}
+ else {
     messageSFX.play()
     textBox.innerHTML = 'You need to select a pawn and draw a card to move!'
   }
@@ -1782,6 +1782,7 @@ function store() {
 
 function removeStore() {
   shop.classList.remove('active')
+  removeOverlay()
   if (cardDraws === 0) {
     getNextPlayerColor()
     cardDraws = 1;
@@ -2406,9 +2407,8 @@ function myLoop() {
         fishevent()
       
       }
-
+    }
   }
-
 }
 
 function closeeventpopup() {
