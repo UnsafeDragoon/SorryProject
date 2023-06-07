@@ -996,24 +996,36 @@ function yellowTurn() {
 
 function useItemColorCheck() {
   if (currentColorTurn == 'green' && greenItem != 'none') {
-    itemTypeCheck('green')
+    itemTypeCheck(greenItem)
   } else if (currentColorTurn == 'blue' && blueItem != 'none') {
-    itemTypeCheck('blue')
+    itemTypeCheck(blueItem)
   } else if (currentColorTurn == 'red' && redItem != 'none') {
-    itemTypeCheck('red')
+    itemTypeCheck(redItem)
   } else if (currentColorTurn === 'yellow' && yellowItem != 'none') {
-    console.log('neat item')
-
-    itemTypeCheck('yellow')
-
+    itemTypeCheck(yellowItem)
   } else {
     messageSFX.play()
     textBox.innerHTML = 'You do not have any items to use'
   }
 }
 
-function itemTypeCheck() {
+function itemTypeCheck(inventory) {
   // List and check player inventory for type of item and run its function
+  if (inventory === "pearl"){
+    console.log('running pearl')
+  } else if (inventory === "Steve"){
+    console.log('running steve')
+
+  } else if (inventory === "Cat"){
+    console.log('running cat ')
+
+  } else if (inventory === "ball"){
+    console.log('running ball')
+
+  } else if (inventory === "NUT"){
+    console.log('running NUT ')
+
+  }
 }
 //▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰▰
 
@@ -1599,17 +1611,17 @@ addCoin('yellow')
 addCoin('green')
 
 // store system
-const item1 = document.getElementById('#1')
+const item1 = document.getElementById('item1')
 const item01 = document.querySelector('.itemslot1')
-const item2 = document.getElementById('#2');
+const item2 = document.getElementById('item2');
 const item02 = document.querySelector('.itemslot2')
-const item3 = document.getElementById('#3');
+const item3 = document.getElementById('item3');
 const item03 = document.querySelector('.itemslot3')
-const item4 = document.getElementById('#4');
+const item4 = document.getElementById('item4');
 const item04 = document.querySelector('.itemslot4')
-const item5 = document.getElementById('#5');
+const item5 = document.getElementById('item5');
 const item05 = document.querySelector('.itemslot5')
-const item6 = document.getElementById('#6');
+const item6 = document.getElementById('item6');
 const item06 = document.querySelector('.itemslot6')
 const holderGreen = document.getElementById('test1')
 const holderBlue = document.getElementById('holder2')
